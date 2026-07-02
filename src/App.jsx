@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Analytics } from '@vercel/analytics/react'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
 import Services from './components/Services'
@@ -31,6 +32,7 @@ export default function App() {
 
   return (
     <div className="app">
+      <Analytics />
       <div className="noise" />
       <Nav scrolled={scrolled} activeSection={activeSection} onNav={scrollToSection} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       <main>
