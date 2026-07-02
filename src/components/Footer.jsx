@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './Footer.css'
 
 export default function Footer() {
@@ -20,13 +21,13 @@ export default function Footer() {
               <h4 className="footer-section-title">Navigate</h4>
               <ul>
                 <li>
-                  <a href="#services">Services</a>
+                  <a href="/#services">Services</a>
                 </li>
                 <li>
-                  <a href="#process">Process</a>
+                  <a href="/#process">Process</a>
                 </li>
                 <li>
-                  <a href="#contact">Contact</a>
+                  <a href="/#contact">Contact</a>
                 </li>
               </ul>
             </nav>
@@ -41,7 +42,7 @@ export default function Footer() {
                   <a href="https://www.linkedin.com/company/thirst-trap-studios/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                 </li>
                 <li>
-                  <a href="/careers">Careers</a>
+                  <Link to="/careers">Careers</Link>
                 </li>
               </ul>
             </nav>
@@ -50,10 +51,10 @@ export default function Footer() {
               <h4 className="footer-section-title">Legal</h4>
               <ul>
                 <li>
-                  <a href="/privacy">Privacy</a>
+                  <Link to="/privacy">Privacy</Link>
                 </li>
                 <li>
-                  <a href="/terms">Terms</a>
+                  <Link to="/terms">Terms</Link>
                 </li>
               </ul>
             </nav>

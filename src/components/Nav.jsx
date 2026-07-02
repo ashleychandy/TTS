@@ -1,26 +1,46 @@
-import { useState } from 'react'
+import { useLocation, Link } from 'react-router-dom'
 import './Nav.css'
 
 export default function Nav({ scrolled, activeSection, onNav, menuOpen, setMenuOpen }) {
+  const location = useLocation()
+  const isHome = location.pathname === '/'
   const sections = ['hero', 'services', 'process', 'contact']
+
+  const handleNavClick = (id) => {
+    if (isHome) {
+      onNav(id)
+      setMenuOpen(false)
+    }
+  }
 
   return (
     <>
       <nav className={`nav ${scrolled ? 'nav--scrolled' : ''}`}>
-        <button className="nav-logo" onClick={() => onNav('hero')}>
+        <Link to="/" className="nav-logo">
           THIRST TRAP STUDIOS
-        </button>
+        </Link>
 
         <div className="nav-desktop">
-          {sections.map((section) => (
-            <button
-              key={section}
-              className={`nav-link ${activeSection === section ? 'nav-link--active' : ''}`}
-              onClick={() => onNav(section)}
-            >
-              {section.toUpperCase()}
-            </button>
-          ))}
+          {isHome ? (
+            sections.map((section) => (
+              <button
+                key={section}
+                className={`nav-link ${activeSection === section ? 'nav-link--active' : ''}`}
+                onClick={() => handleNavClick(section)}
+              >
+                {section.toUpperCase()}
+              </button>
+            ))
+          ) : (
+            <>
+              <Link to="/" className="nav-link">
+                HOME
+              </Link>
+              <Link to="/careers" className={`nav-link ${location.pathname === '/careers' ? 'nav-link--active' : ''}`}>
+                CAREERS
+              </Link>
+            </>
+          )}
         </div>
 
         <button className="nav-hamburger" onClick={() => setMenuOpen(!menuOpen)}>
@@ -34,15 +54,26 @@ export default function Nav({ scrolled, activeSection, onNav, menuOpen, setMenuO
             <span className="material-symbols-outlined">close</span>
           </button>
           <div className="mobile-menu-links">
-            {sections.map((section) => (
-              <button
-                key={section}
-                className="mobile-menu-link"
-                onClick={() => onNav(section)}
-              >
-                {section.toUpperCase()}
-              </button>
-            ))}
+            {isHome ? (
+              sections.map((section) => (
+                <button
+                  key={section}
+                  className="mobile-menu-link"
+                  onClick={() => handleNavClick(section)}
+                >
+                  {section.toUpperCase()}
+                </button>
+              ))
+            ) : (
+              <>
+                <Link to="/" className="mobile-menu-link">
+                  HOME
+                </Link>
+                <Link to="/careers" className="mobile-menu-link">
+                  CAREERS
+                </Link>
+              </>
+            )}
           </div>
         </div>
       )}
