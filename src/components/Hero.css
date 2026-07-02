@@ -1,0 +1,113 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 160px clamp(20px, 5vw, 64px) 120px;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.5;
+  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 900px;
+}
+
+.hero-headline {
+  margin: 24px 0 32px;
+  line-height: 1.05;
+}
+
+.hero-cta {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 48px;
+  flex-wrap: wrap;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 40px;
+  right: clamp(20px, 5vw, 64px);
+  left: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.hero-scroll span:first-child {
+  font-family: 'Geist', monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transform: rotate(90deg);
+  transform-origin: center;
+  white-space: nowrap;
+}
+
+.scroll-track {
+  width: 1px;
+  height: 60px;
+  background: var(--surface-variant);
+  position: relative;
+  overflow: hidden;
+}
+
+.scroll-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: var(--primary);
+  animation: slide 2.2s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(300%);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 120px clamp(16px, 5vw, 24px) 80px;
+    min-height: auto;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
