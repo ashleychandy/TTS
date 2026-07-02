@@ -17,7 +17,7 @@ section {
 
 /* Section Layout */
 .section {
-  padding: 120px clamp(20px, 5vw, 64px);
+  padding: 120px clamp(16px, 5vw, 64px);
   border-top: 1px solid var(--outline-variant);
 }
 
@@ -53,12 +53,12 @@ section {
 }
 
 .headline-lg {
-  font-size: clamp(2rem, 5vw, 4rem);
+  font-size: clamp(1.8rem, 5vw, 4rem);
   line-height: 1.05;
 }
 
 .headline-md {
-  font-size: clamp(1.4rem, 2.4vw, 2rem);
+  font-size: clamp(1.2rem, 2.4vw, 2rem);
   line-height: 1.1;
 }
 
@@ -68,14 +68,14 @@ section {
 
 .body-text {
   font-family: 'Hanken Grotesk', sans-serif;
-  font-size: 16px;
+  font-size: clamp(14px, 2vw, 16px);
   line-height: 1.7;
   color: var(--on-surface-variant);
   max-width: 500px;
 }
 
 .lead {
-  font-size: 18px;
+  font-size: clamp(16px, 2.5vw, 18px);
   color: var(--on-surface-variant);
   max-width: 560px;
   line-height: 1.6;
@@ -98,6 +98,8 @@ section {
   position: relative;
   overflow: hidden;
   z-index: 1;
+  white-space: nowrap;
+  transition: all 0.3s ease;
 }
 
 .btn::before {
@@ -117,6 +119,10 @@ section {
 
 .btn:hover::before {
   transform: scaleX(1);
+}
+
+.btn:active {
+  transform: scale(0.98);
 }
 
 .btn-secondary {
@@ -141,11 +147,11 @@ section {
 }
 
 .grid-2 {
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
 .grid-3 {
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
 /* Animations */
@@ -176,7 +182,7 @@ section {
 /* Responsive */
 @media (max-width: 768px) {
   .section {
-    padding: 80px clamp(16px, 5vw, 24px);
+    padding: 80px 16px;
   }
 
   .eyebrow {
@@ -186,5 +192,50 @@ section {
   .grid-2,
   .grid-3 {
     grid-template-columns: 1fr;
+  }
+
+  .headline-lg {
+    font-size: clamp(1.4rem, 4vw, 2.2rem);
+  }
+
+  .btn {
+    padding: 14px 24px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 60px 16px;
+  }
+
+  .eyebrow {
+    font-size: 10px;
+    padding: 5px 12px;
+    margin-bottom: 12px;
+  }
+
+  .headline-lg {
+    font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+  }
+
+  .headline-md {
+    font-size: clamp(1rem, 2.2vw, 1.4rem);
+  }
+
+  .body-text,
+  .lead {
+    font-size: 14px;
+  }
+
+  .btn {
+    padding: 12px 20px;
+    font-size: 10px;
+    gap: 8px;
+  }
+
+  .grid-2,
+  .grid-3 {
+    gap: 24px;
   }
 }
