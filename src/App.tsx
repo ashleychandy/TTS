@@ -28,15 +28,42 @@ export default function App() {
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const [scrolled, setScrolled] = useState(false)
-  const [activeSection] = useState('hero')
+  const [activeSection, setActiveSection] = useState('hero')
   const [menuOpen, setMenuOpen] = useState(false)
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [menuOpen])
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
+
+      // Scroll spy logic to update active section
+      const sections = ['hero', 'services', 'process', 'contact']
+      const scrollPosition = window.scrollY + 100 // offset for nav height
+
+      for (const section of sections) {
+        const element = document.getElementById(section)
+        if (element) {
+          const { offsetTop, offsetHeight } = element
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section)
+            break
+          }
+        }
+      }
     }
 
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -47,6 +74,17 @@ export function Layout({ children }: { children: React.ReactNode }) {
       element.scrollIntoView({ behavior: 'smooth' })
     }
   }
+
+  // Handle escape key to close mobile menu
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && menuOpen) {
+        setMenuOpen(false)
+      }
+    }
+    window.addEventListener('keydown', handleEscape)
+    return () => window.removeEventListener('keydown', handleEscape)
+  }, [menuOpen])
 
   return (
     <div className="app">
@@ -118,14 +156,14 @@ function Nav({ scrolled, activeSection, onNav, menuOpen, setMenuOpen }: NavProps
           )}
         </div>
 
-        <button className="nav-hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+        <button className="nav-hamburger" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu" aria-expanded={menuOpen} aria-controls="mobile-menu">
           <span className="material-symbols-outlined">menu</span>
         </button>
       </nav>
 
       {menuOpen && (
-        <div className="mobile-menu">
-          <button className="mobile-menu-close" onClick={() => setMenuOpen(false)}>
+        <div className="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true">
+          <button className="mobile-menu-close" onClick={() => setMenuOpen(false)} aria-label="Close menu">
             <span className="material-symbols-outlined">close</span>
           </button>
           <div className="mobile-menu-links">
@@ -367,6 +405,20 @@ function CTA() {
 
 function Footer() {
   const currentYear = new Date().getFullYear()
+  const location = useLocation()
+  const isHome = location.pathname === '/'
+
+  const handleNavClick = (sectionId: string) => {
+    if (isHome) {
+      const element = document.getElementById(sectionId)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
+    } else {
+      // Navigate to home then scroll
+      window.location.href = `/#${sectionId}`
+    }
+  }
 
   return (
     <footer className="footer">
@@ -385,13 +437,13 @@ function Footer() {
               <h4 className="footer-section-title">Navigate</h4>
               <ul>
                 <li>
-                  <a href="/#services">Services</a>
+                  <button onClick={() => handleNavClick('services')}>Services</button>
                 </li>
                 <li>
-                  <a href="/#process">Process</a>
+                  <button onClick={() => handleNavClick('process')}>Process</button>
                 </li>
                 <li>
-                  <a href="/#contact">Contact</a>
+                  <button onClick={() => handleNavClick('contact')}>Contact</button>
                 </li>
               </ul>
             </nav>
@@ -1353,6 +1405,22 @@ section {
 }
 
 .footer-nav a:hover {
+  color: var(--primary);
+}
+
+.footer-nav button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--on-surface-variant);
+  transition: color 0.3s ease;
+  text-align: left;
+  font-family: inherit;
+}
+
+.footer-nav button:hover {
   color: var(--primary);
 }
 
