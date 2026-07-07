@@ -12,7 +12,6 @@ export default function App() {
 
   return (
     <>
-      <style>{styles}</style>
       <Analytics />
       <Hero onNav={scrollToSection} />
       <Services />
@@ -88,6 +87,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="app">
+      <style>{styles}</style>
       <div className="noise" />
       <Nav
         scrolled={scrolled}
@@ -487,6 +487,298 @@ function Footer() {
         </div>
       </div>
     </footer>
+  )
+}
+
+// ============================================================================
+// CAREER PAGE COMPONENT
+// ============================================================================
+
+const JOB_OPENING = {
+  title: 'Marketing Intern',
+  type: 'Full-time Remote',
+  location: 'India',
+  desc: 'Support our marketing and client acquisition efforts through lead generation, content creation, and campaign execution.',
+  company: 'Thirst Trap Studios is an AI-powered marketing agency that helps e-commerce and DTC brands grow through creative advertising, content production, lead generation, and performance marketing. We combine AI tools with modern marketing strategies to deliver high-quality creative assets and measurable business results.\n\nWe\'re a growing startup focused on innovation, collaboration, and continuous learning. Team members work on real client projects, experiment with new AI tools, and contribute directly to the company\'s growth.',
+  role: 'We are looking for a Digital Marketing Intern to support our marketing and client acquisition efforts. In this role, you\'ll assist with lead generation, market research, social media marketing, AI-powered content creation, and campaign execution. You\'ll work closely with the team to identify potential clients, create engaging marketing content, monitor campaign performance, and explore new growth opportunities.',
+  qualifications: [
+    'Strong written and verbal communication skills.',
+    'Interest in digital marketing, AI, and startup environments.',
+    'Familiarity with AI tools such as ChatGPT, Claude, or Gemini.',
+    'Basic understanding of social media marketing and lead generation.',
+    'Ability to conduct market research and identify business opportunities.',
+    'Organized, proactive, and able to manage multiple tasks independently.',
+    'Currently pursuing or recently completed a degree in Marketing, Business, Communications, or a related field.',
+    'Experience with Canva, Google Workspace, Notion, or similar productivity tools is a plus.',
+  ],
+}
+
+export function Career() {
+  return (
+    <div className="careers-page">
+      <section className="careers-header">
+        <div className="careers-header-content">
+          <div className="eyebrow">Careers / Join Us</div>
+          <h1 className="headline">We're Hiring</h1>
+          <p className="careers-intro">
+            Join a team of innovators building the future of AI-powered marketing. We're looking for
+            talented individuals who are passionate about creative excellence and strategic growth.
+          </p>
+        </div>
+      </section>
+
+      <section className="job-listing">
+        <div className="job-header">
+          <div>
+            <h2 className="headline headline-lg">{JOB_OPENING.title}</h2>
+            <div className="job-meta">
+              <span className="job-type">{JOB_OPENING.type}</span>
+              <span className="job-location">{JOB_OPENING.location}</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="job-content">
+          <div className="job-section">
+            <h3 className="headline headline-md">About The Job</h3>
+            <p>{JOB_OPENING.desc}</p>
+          </div>
+
+          <div className="job-section">
+            <h3 className="headline headline-md">Company Description</h3>
+            <p className="job-paragraph">{JOB_OPENING.company}</p>
+          </div>
+
+          <div className="job-section">
+            <h3 className="headline headline-md">Role Description</h3>
+            <p className="job-paragraph">{JOB_OPENING.role}</p>
+          </div>
+
+          <div className="job-section">
+            <h3 className="headline headline-md">Qualifications</h3>
+            <ul className="qualifications-list">
+              {JOB_OPENING.qualifications.map((qual, idx) => (
+                <li key={idx}>{qual}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="job-section job-cta">
+            <p>Ready to join the team?</p>
+            <a href="mailto:careers@thirsttrapstudios.com?subject=Marketing%20Intern%20Application" className="btn">
+              <span>Apply Now</span>
+              <span className="material-symbols-outlined">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
+
+// ============================================================================
+// PRIVACY PAGE COMPONENT
+// ============================================================================
+
+export function Privacy() {
+  return (
+    <div className="legal-page">
+      <section className="legal-header">
+        <div className="legal-header-content">
+          <h1 className="headline">Privacy Policy</h1>
+          <p className="legal-updated">Last updated: {new Date().toLocaleDateString()}</p>
+        </div>
+      </section>
+
+      <section className="legal-content">
+        <div className="legal-body">
+          <h2>1. Information We Collect</h2>
+          <p>
+            We collect information you provide directly, such as when you contact us, subscribe to our
+            services, or apply for a position. This may include your name, email address, phone number,
+            and other relevant business information.
+          </p>
+
+          <h2>2. How We Use Your Information</h2>
+          <p>
+            We use the information we collect to provide our services, respond to your inquiries, send
+            promotional communications (if you opt-in), and improve our offerings. We do not sell your
+            personal information to third parties.
+          </p>
+
+          <h2>3. Data Security</h2>
+          <p>
+            We implement appropriate security measures to protect your personal information. However, no
+            method of transmission over the internet is completely secure. We cannot guarantee absolute
+            security.
+          </p>
+
+          <h2>4. Third-Party Links</h2>
+          <p>
+            Our website may contain links to third-party websites. We are not responsible for the privacy
+            practices of these external sites. We encourage you to review their privacy policies before
+            providing any personal information.
+          </p>
+
+          <h2>5. Cookies</h2>
+          <p>
+            We may use cookies and similar tracking technologies to enhance your experience on our
+            website. You can control cookie preferences through your browser settings.
+          </p>
+
+          <h2>6. Your Rights</h2>
+          <p>
+            You have the right to access, update, or delete your personal information. To exercise these
+            rights, please contact us at privacy@thirsttrapstudios.com.
+          </p>
+
+          <h2>7. Changes to This Policy</h2>
+          <p>
+            We may update this privacy policy from time to time. We will notify you of any significant
+            changes by posting the updated policy on our website with a new "Last updated" date.
+          </p>
+
+          <h2>8. Contact Us</h2>
+          <p>
+            If you have any questions about our privacy practices, please contact us at
+            privacy@thirsttrapstudios.com.
+          </p>
+        </div>
+      </section>
+    </div>
+  )
+}
+
+// ============================================================================
+// TERMS PAGE COMPONENT
+// ============================================================================
+
+export function Terms() {
+  return (
+    <div className="legal-page">
+      <section className="legal-header">
+        <div className="legal-header-content">
+          <h1 className="headline">Terms of Service</h1>
+          <p className="legal-updated">Last updated: {new Date().toLocaleDateString()}</p>
+        </div>
+      </section>
+
+      <section className="legal-content">
+        <div className="legal-body">
+          <h2>1. Acceptance of Terms</h2>
+          <p>
+            By accessing and using this website, you accept and agree to be bound by the terms and
+            provision of this agreement. If you do not agree to abide by the above, please do not use
+            this service.
+          </p>
+
+          <h2>2. Use License</h2>
+          <p>
+            Permission is granted to temporarily download one copy of the materials (information or
+            software) on our website for personal, non-commercial transitory viewing only. This is the
+            grant of a license, not a transfer of title, and under this license you may not:
+          </p>
+          <ul className="terms-list">
+            <li>Modifying or copying the materials</li>
+            <li>Using the materials for any commercial purpose or for any public display</li>
+            <li>Attempting to decompile or reverse engineer any software contained on the website</li>
+            <li>Removing any copyright or other proprietary notations from the materials</li>
+            <li>Transferring the materials to another person or "mirroring" the materials on another server</li>
+          </ul>
+
+          <h2>3. Disclaimer</h2>
+          <p>
+            The materials on our website are provided on an "as is" basis. Thirst Trap Studios makes no
+            warranties, expressed or implied, and hereby disclaims and negates all other warranties
+            including, without limitation, implied warranties or conditions of merchantability, fitness
+            for a particular purpose, or non-infringement of intellectual property or other violation of
+            rights.
+          </p>
+
+          <h2>4. Limitations</h2>
+          <p>
+            In no event shall Thirst Trap Studios or its suppliers be liable for any damages (including,
+            without limitation, damages for loss of data or profit, or due to business interruption)
+            arising out of the use or inability to use the materials on the website.
+          </p>
+
+          <h2>5. Accuracy of Materials</h2>
+          <p>
+            The materials appearing on our website could include technical, typographical, or
+            photographic errors. Thirst Trap Studios does not warrant that any of the materials on our
+            website are accurate, complete, or current. We may make changes to the materials on our
+            website at any time without notice.
+          </p>
+
+          <h2>6. Links</h2>
+          <p>
+            Thirst Trap Studios has not reviewed all of the sites linked to its website and is not
+            responsible for the contents of any such linked site. The inclusion of any link does not
+            imply endorsement by Thirst Trap Studios of the site. Use of any such linked website is at
+            the user's own risk.
+          </p>
+
+          <h2>7. Modifications</h2>
+          <p>
+            Thirst Trap Studios may revise these terms of service for our website at any time without
+            notice. By using this website, you are agreeing to be bound by the then current version of
+            these terms of service.
+          </p>
+
+          <h2>8. Governing Law</h2>
+          <p>
+            These terms and conditions are governed by and construed in accordance with the laws of India,
+            and you irrevocably submit to the exclusive jurisdiction of the courts in that location.
+          </p>
+
+          <h2>9. Contact Us</h2>
+          <p>
+            If you have any questions about these Terms of Service, please contact us at
+            legal@thirsttrapstudios.com.
+          </p>
+        </div>
+      </section>
+    </div>
+  )
+}
+
+// ============================================================================
+// NOT FOUND PAGE COMPONENT
+// ============================================================================
+
+export function NotFound() {
+  return (
+    <div className="not-found-page">
+      <section className="not-found-content">
+        <div className="not-found-inner">
+          <h1 className="not-found-code">404</h1>
+          <h2 className="headline not-found-title">Page Not Found</h2>
+          <p className="not-found-message">
+            The page you're looking for doesn't exist. It might have been moved or deleted.
+          </p>
+
+          <div className="not-found-actions">
+            <a href="/" className="btn">
+              <span>Back to Home</span>
+              <span className="material-symbols-outlined">arrow_forward</span>
+            </a>
+            <button className="btn-secondary" onClick={() => window.history.back()}>
+              <span>Go Back</span>
+              <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>
+                arrow_back
+              </span>
+            </button>
+          </div>
+
+          <div className="not-found-links">
+            <a href="#services">Services</a>
+            <a href="#process">Process</a>
+            <a href="/careers">Careers</a>
+            <a href="mailto:contact@thirsttrapstudios.com">Contact</a>
+          </div>
+        </div>
+      </section>
+    </div>
   )
 }
 
@@ -1652,6 +1944,376 @@ section {
 
   .material-symbols-outlined {
     font-size: 20px;
+  }
+}
+
+/* ============================================================================
+   CAREER PAGE STYLES (from Career.css)
+   ============================================================================ */
+
+.careers-page {
+  min-height: 100vh;
+  background: var(--background);
+}
+
+.careers-header {
+  padding: 160px clamp(20px, 5vw, 64px) 80px;
+  border-bottom: 1px solid var(--outline-variant);
+}
+
+.careers-header-content {
+  max-width: 900px;
+}
+
+.careers-header .eyebrow {
+  margin-bottom: 16px;
+}
+
+.careers-header h1 {
+  margin: 16px 0 24px;
+}
+
+.careers-intro {
+  font-size: 18px;
+  color: var(--on-surface-variant);
+  line-height: 1.7;
+  max-width: 600px;
+}
+
+.job-listing {
+  padding: 80px clamp(20px, 5vw, 64px);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.job-header {
+  margin-bottom: 60px;
+}
+
+.job-header h2 {
+  margin-bottom: 16px;
+}
+
+.job-meta {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.job-type,
+.job-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border: 1px solid var(--outline-variant);
+  font-family: 'Geist', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--on-surface-variant);
+}
+
+.job-content {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.job-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.job-section h3 {
+  margin-bottom: 8px;
+}
+
+.job-section p {
+  font-size: 16px;
+  color: var(--on-surface-variant);
+  line-height: 1.8;
+}
+
+.job-paragraph {
+  white-space: pre-wrap;
+}
+
+.qualifications-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-left: 0;
+}
+
+.qualifications-list li {
+  display: flex;
+  gap: 12px;
+  font-size: 16px;
+  color: var(--on-surface-variant);
+  line-height: 1.7;
+}
+
+.qualifications-list li::before {
+  content: '•';
+  color: var(--primary);
+  font-weight: bold;
+  min-width: 20px;
+  flex-shrink: 0;
+}
+
+.job-cta {
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid var(--outline-variant);
+}
+
+.job-cta p {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+/* ============================================================================
+   LEGAL PAGES STYLES (from Legal.css)
+   ============================================================================ */
+
+.legal-page {
+  min-height: 100vh;
+  background: var(--background);
+}
+
+.legal-header {
+  padding: 160px clamp(20px, 5vw, 64px) 80px;
+  border-bottom: 1px solid var(--outline-variant);
+}
+
+.legal-header-content {
+  max-width: 900px;
+}
+
+.legal-header h1 {
+  margin-bottom: 16px;
+}
+
+.legal-updated {
+  font-family: 'Geist', monospace;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--on-surface-variant);
+  text-transform: uppercase;
+}
+
+.legal-content {
+  padding: 80px clamp(20px, 5vw, 64px);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.legal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.legal-body h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin-top: 20px;
+}
+
+.legal-body p {
+  font-size: 16px;
+  color: var(--on-surface-variant);
+  line-height: 1.8;
+}
+
+.terms-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 16px 0 0 0;
+  padding-left: 0;
+}
+
+.terms-list li {
+  display: flex;
+  gap: 12px;
+  font-size: 16px;
+  color: var(--on-surface-variant);
+  line-height: 1.7;
+}
+
+.terms-list li::before {
+  content: '•';
+  color: var(--primary);
+  font-weight: bold;
+  min-width: 20px;
+  flex-shrink: 0;
+}
+
+/* ============================================================================
+   NOT FOUND PAGE STYLES (from NotFound.css)
+   ============================================================================ */
+
+.not-found-page {
+  min-height: 100vh;
+  background: var(--background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.not-found-content {
+  padding: 80px clamp(20px, 5vw, 64px);
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.not-found-inner {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.not-found-code {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(80px, 20vw, 200px);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--primary);
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  margin: 0;
+  animation: fadeInDown 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.not-found-title {
+  font-size: clamp(28px, 6vw, 48px);
+  margin: 0;
+  animation: fadeInUp 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.1s both;
+}
+
+.not-found-message {
+  font-size: 18px;
+  color: var(--on-surface-variant);
+  line-height: 1.7;
+  max-width: 500px;
+  margin: 0 auto;
+  animation: fadeInUp 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.2s both;
+}
+
+.not-found-actions {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeInUp 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.3s both;
+}
+
+.not-found-links {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-top: 40px;
+  border-top: 1px solid var(--outline-variant);
+  animation: fadeInUp 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.4s both;
+}
+
+.not-found-links a {
+  font-family: 'Geist', monospace;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--on-surface-variant);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.not-found-links a:hover {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================================
+   PAGE-SPECIFIC RESPONSIVE STYLES
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  .careers-header {
+    padding: 120px clamp(16px, 5vw, 24px) 60px;
+  }
+
+  .job-listing {
+    padding: 60px clamp(16px, 5vw, 24px);
+  }
+
+  .job-meta {
+    gap: 12px;
+  }
+
+  .job-content {
+    gap: 40px;
+  }
+
+  .legal-header {
+    padding: 120px clamp(16px, 5vw, 24px) 60px;
+  }
+
+  .legal-content {
+    padding: 60px clamp(16px, 5vw, 24px);
+  }
+
+  .legal-body {
+    gap: 30px;
+  }
+
+  .legal-body h2 {
+    font-size: 18px;
+  }
+
+  .not-found-content {
+    padding: 60px clamp(16px, 5vw, 24px);
+  }
+
+  .not-found-inner {
+    gap: 24px;
+  }
+
+  .not-found-actions {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .not-found-links {
+    gap: 16px;
+    flex-direction: column;
   }
 }
 ` // End of styles constant
