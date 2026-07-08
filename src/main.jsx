@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import App, { Layout, Career, Privacy, Terms, NotFound } from './App.tsx'
+import App, { Layout, Career, Privacy, Terms, NotFound, PortfolioYogaBar } from './App.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -20,6 +20,14 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           element={
             <Layout>
               <Career />
+            </Layout>
+          }
+        />
+        <Route
+          path="/portfolio/yoga-bar"
+          element={
+            <Layout>
+              <PortfolioYogaBar />
             </Layout>
           }
         />

@@ -135,19 +135,27 @@ function Nav({ scrolled, activeSection, onNav, menuOpen, setMenuOpen }: NavProps
 
         <div className="nav-desktop">
           {isHome ? (
-            sections.map((section) => (
-              <button
-                key={section}
-                className={`nav-link ${activeSection === section ? 'nav-link--active' : ''}`}
-                onClick={() => handleNavClick(section)}
-              >
-                {section.toUpperCase()}
-              </button>
-            ))
+            <>
+              {sections.map((section) => (
+                <button
+                  key={section}
+                  className={`nav-link ${activeSection === section ? 'nav-link--active' : ''}`}
+                  onClick={() => handleNavClick(section)}
+                >
+                  {section.toUpperCase()}
+                </button>
+              ))}
+              <Link to="/portfolio/yoga-bar" className="nav-link">
+                WORK
+              </Link>
+            </>
           ) : (
             <>
               <Link to="/" className="nav-link">
                 HOME
+              </Link>
+              <Link to="/portfolio/yoga-bar" className={`nav-link ${location.pathname === '/portfolio/yoga-bar' ? 'nav-link--active' : ''}`}>
+                WORK
               </Link>
               <Link to="/careers" className={`nav-link ${location.pathname === '/careers' ? 'nav-link--active' : ''}`}>
                 CAREERS
@@ -168,19 +176,27 @@ function Nav({ scrolled, activeSection, onNav, menuOpen, setMenuOpen }: NavProps
           </button>
           <div className="mobile-menu-links">
             {isHome ? (
-              sections.map((section) => (
-                <button
-                  key={section}
-                  className="mobile-menu-link"
-                  onClick={() => handleNavClick(section)}
-                >
-                  {section.toUpperCase()}
-                </button>
-              ))
+              <>
+                {sections.map((section) => (
+                  <button
+                    key={section}
+                    className="mobile-menu-link"
+                    onClick={() => handleNavClick(section)}
+                  >
+                    {section.toUpperCase()}
+                  </button>
+                ))}
+                <Link to="/portfolio/yoga-bar" className="mobile-menu-link" onClick={() => setMenuOpen(false)}>
+                  WORK
+                </Link>
+              </>
             ) : (
               <>
                 <Link to="/" className="mobile-menu-link">
                   HOME
+                </Link>
+                <Link to="/portfolio/yoga-bar" className="mobile-menu-link">
+                  WORK
                 </Link>
                 <Link to="/careers" className="mobile-menu-link">
                   CAREERS
@@ -775,6 +791,300 @@ export function NotFound() {
             <a href="#process">Process</a>
             <a href="/careers">Careers</a>
             <a href="mailto:contact@thirsttrapstudios.com">Contact</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
+
+// ============================================================================
+// PORTFOLIO PAGE - YOGA BAR CASE STUDY
+// ============================================================================
+
+export function PortfolioYogaBar() {
+  return (
+    <div className="case-study-page">
+      {/* ---------------------------------------------------------------- */}
+      {/* HEADER                                                            */}
+      {/* ---------------------------------------------------------------- */}
+      <section className="case-study-header">
+        <div className="case-study-header-container">
+          <Link to="/" className="case-study-back">
+            <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>
+              arrow_back
+            </span>
+            <span>Back to Home</span>
+          </Link>
+
+          <div className="case-study-header-grid">
+            <div className="case-study-header-left">
+              <div className="eyebrow">Case Study / Nutrition & CPG</div>
+
+              <h1 className="headline case-study-title">
+                Yoga Bar
+                <br />
+                <span className="headline-accent">Blueberry Blast</span>
+              </h1>
+
+              <p className="lead case-study-lead">
+                A protein bar rebuilt as an object of desire. Visual language that reads more runway than ration bar.
+              </p>
+
+              <div className="case-study-tags">
+                <span className="project-tag">Brand Campaign</span>
+                <span className="project-tag">Product Photography</span>
+                <span className="project-tag">Art Direction</span>
+              </div>
+            </div>
+
+            <div className="case-study-meta-card">
+              <h3 className="meta-card-title">Project Details</h3>
+              <div className="case-study-meta">
+                <div className="meta-item">
+                  <span className="meta-label">Client</span>
+                  <span className="meta-value">Yoga Bar</span>
+                </div>
+                <div className="meta-divider" />
+                <div className="meta-item">
+                  <span className="meta-label">Industry</span>
+                  <span className="meta-value">Nutrition / CPG</span>
+                </div>
+                <div className="meta-divider" />
+                <div className="meta-item">
+                  <span className="meta-label">Services</span>
+                  <span className="meta-value">Creative Direction, Digital Production, AI Integration</span>
+                </div>
+                <div className="meta-divider" />
+                <div className="meta-item">
+                  <span className="meta-label">Timeline</span>
+                  <span className="meta-value">6 Weeks (2026)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------------------------------------------------------- */}
+      {/* HERO IMAGE                                                        */}
+      {/* ---------------------------------------------------------------- */}
+      <section className="case-study-hero">
+        <div className="case-study-hero-container">
+          <div className="case-study-hero-image">
+            <img
+              src="/portfolio/yoga-bar/hero.jpg"
+              alt="Hand holding a bitten Yoga Bar Blueberry Blast protein bar"
+            />
+            <div className="hero-image-badge">
+              <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>
+                photo_camera
+              </span>
+              <span>Hero Shot</span>
+            </div>
+          </div>
+          <div className="case-study-hero-overlay">
+            <div className="hero-overlay-content">
+              <div className="hero-tag">
+                <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>star</span>
+                Featured Campaign
+              </div>
+              <h2 className="hero-overlay-title">Beauty Standard Meets Nutrition Bar</h2>
+              <p className="hero-overlay-text">
+                Shot with fashion-grade lighting and art direction that treats food as form.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------------------------------------------------------- */}
+      {/* PROBLEM / SOLUTION                                                */}
+      {/* ---------------------------------------------------------------- */}
+      <section className="section case-study-problem-solution">
+        <div className="section-container">
+          <div className="problem-solution-grid">
+            <div className="problem-col">
+              <div className="section-label">
+                <span className="label-num">01</span>
+                <span className="label-text">The Challenge</span>
+              </div>
+              <h3 className="headline headline-lg">Beige Doesn't Sell</h3>
+              <p className="body-large">
+                Every protein bar makes the same promise in the same virtuous font.
+              </p>
+              <ul className="challenge-list">
+                <li>
+                  <span className="material-symbols-outlined">close</span>
+                  Category saturated with sameness
+                </li>
+                <li>
+                  <span className="material-symbols-outlined">close</span>
+                  Health-first messaging lacks emotional appeal
+                </li>
+              </ul>
+            </div>
+            <div className="solution-col">
+              <div className="section-label">
+                <span className="label-num">02</span>
+                <span className="label-text">Our Solution</span>
+              </div>
+              <h3 className="headline headline-lg">Shoot It Like Fragrance</h3>
+              <p className="body-large">
+                We treated the bar like a fashion object — studio lighting borrowed from beauty campaigns.
+              </p>
+              <ul className="solution-list">
+                <li>
+                  <span className="material-symbols-outlined">check_circle</span>
+                  Fashion-grade photography
+                </li>
+                <li>
+                  <span className="material-symbols-outlined">check_circle</span>
+                  Desire-first visual language
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------------------------------------------------------- */}
+      {/* SIGNATURE: THE SPEC SHEET                                         */}
+      {/* ---------------------------------------------------------------- */}
+      <section className="section case-study-spec">
+        <div className="section-container">
+          <div className="case-study-section-header">
+            <div className="eyebrow">Creative Execution</div>
+            <h2 className="headline headline-lg case-study-spec-title">Product as Art</h2>
+          </div>
+
+          <div className="spec-split">
+            <div className="spec-image">
+              <img src="/portfolio/yoga-bar/spec-sheet.jpg" alt="Yoga Bar Blueberry Blast held upright" />
+            </div>
+            
+            <div className="spec-details">
+              <div className="spec-item">
+                <span className="spec-emoji">📸</span>
+                <div className="spec-info">
+                  <div className="spec-label">Photography</div>
+                  <div className="spec-value">Studio lighting with high-contrast composition</div>
+                </div>
+              </div>
+              
+              <div className="spec-item">
+                <span className="spec-emoji">🎨</span>
+                <div className="spec-info">
+                  <div className="spec-label">Art Direction</div>
+                  <div className="spec-value">Minimalist aesthetic inspired by fashion editorials</div>
+                </div>
+              </div>
+              
+              <div className="spec-item">
+                <span className="spec-emoji">✨</span>
+                <div className="spec-info">
+                  <div className="spec-label">Concept</div>
+                  <div className="spec-value">Elevating nutrition into lifestyle imagery</div>
+                </div>
+              </div>
+              
+              <div className="spec-item">
+                <span className="spec-emoji">🎯</span>
+                <div className="spec-info">
+                  <div className="spec-label">Goal</div>
+                  <div className="spec-value">Transform product into desirable object</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------------------------------------------------------- */}
+      {/* GALLERY                                                           */}
+      {/* ---------------------------------------------------------------- */}
+      <section className="section case-study-gallery">
+        <div className="section-container">
+          <div className="case-study-section-header">
+            <div className="eyebrow">Campaign Execution</div>
+            <h2 className="headline headline-lg case-study-gallery-title">Visual Language</h2>
+          </div>
+
+          <div className="gallery-grid">
+            <figure className="gallery-item">
+              <div className="gallery-image-wrapper">
+                <img
+                  src="/portfolio/yoga-bar/motion.jpg"
+                  alt="Blueberries falling into an open Yoga Bar Blueberry Blast package"
+                />
+              </div>
+              <figcaption>
+                <div className="gallery-caption-text">
+                  <h4 className="gallery-title">Gravity Reversed</h4>
+                  <p className="gallery-desc">High-speed capture of ingredients in motion.</p>
+                </div>
+              </figcaption>
+            </figure>
+            <figure className="gallery-item">
+              <div className="gallery-image-wrapper">
+                <img
+                  src="/portfolio/yoga-bar/ingredients.jpg"
+                  alt="Flat lay of Yoga Bar ingredients including oats, blueberries, dates and nuts"
+                />
+              </div>
+              <figcaption>
+                <div className="gallery-caption-text">
+                  <h4 className="gallery-title">Ingredient Story</h4>
+                  <p className="gallery-desc">Flat lay composition of raw components.</p>
+                </div>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------------------------------------------------------- */}
+      {/* IMPACT                                                            */}
+      {/* ---------------------------------------------------------------- */}
+      <section className="section case-study-impact">
+        <div className="section-container">
+          <div className="case-study-section-header">
+            <div className="eyebrow">Results</div>
+            <h2 className="headline headline-lg">Impact</h2>
+          </div>
+          <div className="impact-grid">
+            <div className="impact-stat">
+              <div className="impact-number">4</div>
+              <div className="impact-label">Content directions delivered</div>
+            </div>
+            <div className="impact-stat">
+              <div className="impact-number">1</div>
+              <div className="impact-label">Visual system for full product line</div>
+            </div>
+            <div className="impact-stat">
+              <div className="impact-number">2.4×</div>
+              <div className="impact-label">Engagement vs. category benchmark</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------------------------------------------------------- */}
+      {/* CTA                                                               */}
+      {/* ---------------------------------------------------------------- */}
+      <section className="section case-study-cta">
+        <div className="section-container-narrow">
+          <div className="case-study-cta-content">
+            <h2 className="headline headline-lg">Work with us</h2>
+            <div className="case-study-cta-actions">
+              <a href="mailto:contact@thirsttrapstudios.com" className="btn btn-primary">
+                <span>Start a Project</span>
+                <span className="material-symbols-outlined">arrow_forward</span>
+              </a>
+              <Link to="/" className="btn-secondary">
+                <span>← Back to Home</span>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -2314,6 +2624,841 @@ section {
   .not-found-links {
     gap: 16px;
     flex-direction: column;
+  }
+}
+
+/* ============================================================================
+   CASE STUDY PAGE STYLES (Portfolio - Yoga Bar) - ENHANCED
+   ============================================================================ */
+
+.case-study-page {
+  background: var(--background);
+}
+
+/* ---- Containers ---- */
+
+.section-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 64px);
+}
+
+.section-container-narrow {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 64px);
+}
+
+/* ---- Header ---- */
+
+.case-study-header {
+  padding: 120px 0 80px;
+  background: linear-gradient(180deg, var(--surface-container) 0%, var(--background) 100%);
+  border-bottom: 1px solid var(--outline-variant);
+}
+
+.case-study-header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 64px);
+}
+
+.case-study-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Geist', monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--on-surface-variant);
+  margin-bottom: 56px;
+  transition: all 0.3s ease;
+  padding: 10px 0;
+}
+
+.case-study-back:hover {
+  color: var(--primary);
+  transform: translateX(-4px);
+}
+
+.case-study-header-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 100px;
+  align-items: start;
+}
+
+.case-study-header-left {
+  max-width: 800px;
+}
+
+.case-study-title {
+  font-size: clamp(2.6rem, 8vw, 6rem);
+  line-height: 0.92;
+  margin: 24px 0 40px;
+  letter-spacing: -0.03em;
+}
+
+.case-study-lead {
+  font-size: clamp(17px, 2.5vw, 21px);
+  line-height: 1.65;
+  color: var(--on-surface-variant);
+  max-width: 680px;
+  margin-bottom: 32px;
+}
+
+.case-study-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.project-tag {
+  display: inline-flex;
+  padding: 8px 16px;
+  border: 1px solid var(--outline-variant);
+  font-family: 'Geist', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--on-surface-variant);
+  background: rgba(255, 255, 255, 0.02);
+  transition: all 0.3s ease;
+}
+
+.project-tag:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: rgba(177, 197, 255, 0.05);
+}
+
+.case-study-meta-card {
+  padding: 40px;
+  border: 1px solid var(--outline-variant);
+  background: var(--surface-container);
+  position: sticky;
+  top: 100px;
+}
+
+.meta-card-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--on-background);
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--outline-variant);
+}
+
+.case-study-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.meta-label {
+  font-family: 'Geist', monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.meta-value {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 15px;
+  color: var(--on-background);
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.meta-divider {
+  height: 1px;
+  background: var(--outline-variant);
+  width: 100%;
+}
+
+/* ---- Hero Section ---- */
+
+.case-study-hero {
+  width: 100%;
+  background: var(--background);
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.case-study-hero-container {
+  position: relative;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 64px);
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.case-study-hero-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border: 1px solid var(--outline-variant);
+  background: var(--surface-container);
+  overflow: hidden;
+}
+
+.case-study-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.case-study-hero:hover .case-study-hero-image img {
+  transform: scale(1.05);
+}
+
+.hero-image-badge {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: rgba(19, 19, 19, 0.9);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--outline-variant);
+  font-family: 'Geist', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--on-background);
+}
+
+.case-study-hero-overlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-overlay-content {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border: 1px solid var(--primary);
+  font-family: 'Geist', monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--primary);
+  background: rgba(177, 197, 255, 0.08);
+  width: fit-content;
+  font-weight: 600;
+}
+
+.hero-overlay-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.08;
+  color: var(--on-background);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.hero-overlay-text {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--on-surface-variant);
+  max-width: 520px;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 32px;
+  margin-top: 12px;
+  padding-top: 24px;
+  border-top: 1px solid var(--outline-variant);
+}
+
+.hero-stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hero-stat-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.hero-stat-label {
+  font-family: 'Geist', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--on-surface-variant);
+}
+
+/* ---- Quick Stats Bar ---- */
+
+.case-study-stats-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  padding: 48px clamp(20px, 5vw, 64px);
+  border-bottom: 1px solid var(--outline-variant);
+  background: var(--surface-container);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.stat-number {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.stat-label {
+  font-family: 'Geist', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--on-surface-variant);
+  max-width: 140px;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 40px;
+  background: var(--outline-variant);
+}
+
+/* ---- Problem / Solution Section ---- */
+
+.case-study-problem-solution {
+  background: var(--background);
+  padding: 80px 0;
+}
+
+.problem-solution-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+}
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.label-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.label-text {
+  font-family: 'Geist', monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--on-surface-variant);
+}
+
+.problem-col h3,
+.solution-col h3 {
+  margin-bottom: 24px;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+}
+
+.body-large {
+  font-size: 18px;
+  line-height: 1.75;
+  color: var(--on-surface-variant);
+  margin-bottom: 32px;
+}
+
+.challenge-list,
+.solution-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.challenge-list li,
+.solution-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 15px;
+  color: var(--on-surface-variant);
+  line-height: 1.6;
+  padding: 12px 0;
+}
+
+.challenge-list .material-symbols-outlined {
+  color: #ff6b6b;
+  font-size: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.solution-list .material-symbols-outlined {
+  color: var(--primary);
+  font-size: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ---- Section Headers ---- */
+
+.case-study-section-header {
+  max-width: 800px;
+  margin-bottom: 72px;
+}
+
+.section-description {
+  font-size: 18px;
+  color: var(--on-surface-variant);
+  line-height: 1.7;
+  margin-top: 20px;
+  max-width: 720px;
+}
+
+/* ---- Signature: spec sheet ---- */
+
+.case-study-spec {
+  background: var(--surface-container);
+  padding: 80px 0;
+}
+
+.case-study-spec-title {
+  margin: 20px 0 12px;
+}
+
+.spec-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  margin-top: 48px;
+}
+
+.spec-image {
+  width: 100%;
+  border: 1px solid var(--outline-variant);
+  background: var(--background);
+  overflow: hidden;
+}
+
+.spec-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.spec-details {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.spec-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 24px;
+  background: var(--background);
+  border: 1px solid var(--outline-variant);
+}
+
+.spec-emoji {
+  font-size: 32px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.spec-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.spec-label {
+  font-family: 'Geist', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--on-surface-variant);
+}
+
+.spec-value {
+  font-family: 'Syne', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--on-background);
+  line-height: 1.3;
+}
+
+/* ---- Gallery ---- */
+
+.case-study-gallery {
+  padding: 80px 0;
+}
+
+.case-study-gallery-title {
+  margin: 20px 0 12px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+}
+
+.gallery-item {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 0;
+}
+
+.gallery-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--outline-variant);
+  aspect-ratio: 4 / 5;
+  background: var(--surface-container);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.02);
+}
+
+.gallery-item figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.gallery-caption-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.gallery-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.gallery-category {
+  font-family: 'Geist', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--on-surface-variant);
+  padding: 6px 12px;
+  border: 1px solid var(--outline-variant);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.gallery-caption-text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.gallery-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--on-background);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.gallery-desc {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 14px;
+  color: var(--on-surface-variant);
+  line-height: 1.65;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+/* ---- Impact ---- */
+
+.case-study-impact {
+  background: var(--surface-container);
+  padding: 80px 0;
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 64px;
+}
+
+.impact-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 32px 24px;
+  border: 1px solid var(--outline-variant);
+  background: var(--background);
+}
+
+.impact-number {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.impact-label {
+  font-size: 15px;
+  color: var(--on-background);
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+
+
+/* ---- CTA ---- */
+
+.case-study-cta {
+  background: linear-gradient(180deg, var(--background) 0%, var(--surface-container) 100%);
+  padding: 80px 0;
+}
+
+.case-study-cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.case-study-cta h2 {
+  margin: 20px 0 28px;
+  max-width: 100%;
+}
+
+.case-study-cta-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 44px;
+  flex-wrap: wrap;
+}
+
+/* ---- Case Study Responsive ---- */
+
+@media (max-width: 1024px) {
+  .case-study-header-grid {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+
+  .case-study-meta-card {
+    position: static;
+  }
+
+  .case-study-hero-container {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+
+  .problem-solution-grid {
+    grid-template-columns: 1fr;
+    gap: 64px;
+  }
+}
+
+@media (max-width: 768px) {
+  .case-study-header {
+    padding: 100px 0 60px;
+  }
+
+  .case-study-hero {
+    padding: 60px 0;
+  }
+
+  .case-study-hero-container {
+    padding: 0 clamp(16px, 5vw, 24px);
+  }
+
+  .case-study-hero-image {
+    aspect-ratio: 3 / 4;
+  }
+
+  .hero-overlay-content {
+    gap: 24px;
+  }
+
+  .hero-overlay-title {
+    font-size: clamp(1.8rem, 5vw, 2.4rem);
+  }
+
+  .hero-overlay-text {
+    font-size: 16px;
+  }
+
+  .hero-stats {
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .case-study-problem-solution,
+  .case-study-spec,
+  .case-study-gallery,
+  .case-study-impact,
+  .case-study-cta {
+    padding: 80px 0;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .impact-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .case-study-cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .case-study-cta-actions .btn,
+  .case-study-cta-actions .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .spec-split {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .spec-details {
+    gap: 24px;
+  }
+
+  .spec-item {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .case-study-hero-image {
+    aspect-ratio: 1 / 1;
+  }
+
+  .hero-overlay-title {
+    font-size: 1.6rem;
+  }
+
+  .hero-overlay-text {
+    font-size: 15px;
+  }
+
+  .case-study-title {
+    font-size: clamp(2rem, 8vw, 2.8rem);
+  }
+
+  .case-study-lead {
+    font-size: 16px;
+  }
+
+  .problem-col h3,
+  .solution-col h3 {
+    font-size: clamp(1.6rem, 5vw, 2rem);
+  }
+
+  .body-large {
+    font-size: 16px;
+  }
+
+  .spec-split {
+    gap: 32px;
+  }
+
+  .spec-details {
+    gap: 20px;
+  }
+
+  .spec-item {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .spec-emoji {
+    font-size: 24px;
+  }
+
+  .spec-value {
+    font-size: 16px;
   }
 }
 ` // End of styles constant
