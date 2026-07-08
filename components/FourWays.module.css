@@ -7,12 +7,19 @@
   overflow: hidden; /* Locks scrolling to maintain poster composition */
   width: 100%;
   height: 100vh;
+  position: relative;
+}
+
+.fourWaysImage {
+  object-fit: cover;
+  z-index: 0;
 }
 
 .posterCanvas {
   position: relative;
   width: 100%;
   height: 100%;
+  z-index: 1;
 }
 
 /* --- Main Headline --- */

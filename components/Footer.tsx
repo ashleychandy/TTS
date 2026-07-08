@@ -22,8 +22,8 @@ export default function Footer() {
 
       <div className={styles.footerGrid}>
         <div className={styles.footerCol}>
-          <div className={styles.footerText}>CREATIVE AGENCY</div>
-          <div className={styles.footerText}>BASED IN EUROPE</div>
+          <div className={styles.footerText}>Thirst Trap Studios</div>
+          <div className={styles.footerText}>BASED ON EARTH</div>
 
           <div className={styles.contactGroup}>
             <div className={styles.footerText}>ksshlv@creativestudio.com</div>

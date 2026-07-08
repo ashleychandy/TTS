@@ -1,8 +1,15 @@
 import styles from "./FourWays.module.css";
+import Image from "next/image";
 
 export default function FourWays() {
   return (
     <section className={styles.fourWays}>
+      <Image
+        src="/LandingPage/Four Ways.png"
+        alt="Four Ways background"
+        fill
+        className={styles.fourWaysImage}
+      />
       <div className={styles.posterCanvas}>
         {/* Top Right Star SVG */}
         <div className={styles.starIcon}>

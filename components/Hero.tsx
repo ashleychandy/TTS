@@ -57,23 +57,23 @@ export default function Hero() {
         <header className={styles.header}>
           <div className={styles.logo}>
             <span className={styles.logoStar}>✸</span>
-            <span>RUFAU</span>
+            <span>Thirst Trap Studios</span>
           </div>
           <div>DIGITAL<br />DESIGN</div>
           <div>ART<br />DIRECTION</div>
           <div className={styles.headerItemRight}>
-            BASED IN EUROPE<br />WORKING WORLDWIDE
+            BASED ON EARTH<br />WORKING WORLDWIDE
           </div>
         </header>
 
         <main className={styles.middleSection}>
           <div className={styles.projectsInfo}>
-            SELECTED PROJECTS<br />2022 — 2025
+            SELECTED PROJECTS
           </div>
 
           <div className={styles.agencyInfo}>
             <div className={styles.agencyDescription}>
-              CREATIVE AGENCY<br />
+              THIRST TRAP STUDIOS<br />
               TURNING BOLD IDEAS,<br />
               VISUAL SYSTEMS AND<br />
               DIGITAL EXPERIENCES.

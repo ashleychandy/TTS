@@ -8,10 +8,10 @@ export default function SelectedWorks() {
         SELECTED WORKS
       </div>
       <div className={`${styles.headerItem} ${styles.headerCenter}`}>
-        OCEANIC AGENCY
+        Thirst Trap Studios
       </div>
       <div className={`${styles.headerItem} ${styles.headerRight}`}>
-        2022 — 2025
+        2026 — BEYOND
       </div>
 
       {/* Main Title */}
@@ -54,7 +54,7 @@ export default function SelectedWorks() {
 
       {/* Bottom Left Text */}
       <div className={styles.bottomInfo}>
-        12+ PROJECTS DELIVERED
+        4 PROJECTS
         <br />
         ACROSS 4 DISCIPLINES
       </div>
