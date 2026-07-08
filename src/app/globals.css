@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------
+   BUREAU — design tokens
+   Palette: Raw Red / Heat Red / Deep Black / Pure White / Cold Grey
+--------------------------------------------------- */
+@theme inline {
+  --color-raw-red: #8f151b;
+  --color-heat-red: #cc0921;
+  --color-deep-black: #252525;
+  --color-pure-white: #ffffff;
+  --color-cold-grey: #686868;
+
+  --font-display: "Archivo", "Arial Black", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  --ease-signature: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root {
+  --header-h: 84px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-pure-white);
+  color: var(--color-deep-black);
+  font-family: var(--font-body);
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-heat-red);
+  color: var(--color-pure-white);
+}
+
+/* Display typography helper — mimics the Benzin Semibold used across the
+   original design: tight tracking, uppercase, heavy weight. */
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  line-height: 0.95;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+}
+
+/* Reveal-on-scroll utility, respects reduced motion */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s var(--ease-signature), transform 0.8s var(--ease-signature);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+/* Focus visibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-heat-red);
+  outline-offset: 3px;
+}
+
+/* Thin scrollbar accent (progressive enhancement only) */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-pure-white);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-deep-black);
+}
