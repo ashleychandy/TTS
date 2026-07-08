@@ -1,4 +1,5 @@
 import styles from "./Intro.module.css";
+import Image from "next/image";
 
 export default function Intro() {
   return (
@@ -77,10 +78,38 @@ export default function Intro() {
 
         {/* 4 Gradient Cards Section */}
         <div className={styles.cardsContainer}>
-          <div className={styles.card}></div>
-          <div className={styles.card}></div>
-          <div className={styles.card}></div>
-          <div className={styles.card}></div>
+          <div className={styles.card}>
+            <Image
+              src="/LandingPage/Intro 1.png"
+              alt="Brand identity showcase"
+              fill
+              className={styles.cardImage}
+            />
+          </div>
+          <div className={styles.card}>
+            <Image
+              src="/LandingPage/Intro 2.png"
+              alt="Digital design example"
+              fill
+              className={styles.cardImage}
+            />
+          </div>
+          <div className={styles.card}>
+            <Image
+              src="/LandingPage/Intro 3.png"
+              alt="Creative direction work"
+              fill
+              className={styles.cardImage}
+            />
+          </div>
+          <div className={styles.card}>
+            <Image
+              src="/LandingPage/Intro 4.png"
+              alt="Visual system design"
+              fill
+              className={styles.cardImage}
+            />
+          </div>
         </div>
       </div>
     </section>

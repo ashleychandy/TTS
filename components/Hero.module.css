@@ -6,14 +6,23 @@
   overflow: hidden;
   height: 100vh;
   width: 100%;
+  max-width: 100vw;
+  position: relative;
+}
+
+.heroImage {
+  object-fit: cover;
+  z-index: 0;
 }
 
 .container {
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 2.5vw 2.5vw 1vw 2.5vw;
+  padding: 2.5vw;
   position: relative;
+  overflow: hidden;
+  z-index: 1;
 }
 
 /* --- Header / Top Navigation --- */
@@ -89,20 +98,21 @@
 .footerText {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-end;
   margin-bottom: -1.5vw;
+  /* no side padding here — JS computes the exact-fit font-size instead */
 }
 
 .hugeText {
-  font-size: 26.5vw;
+  font-size: 24vw;   /* fallback shown briefly before JS measures + corrects it */
   font-weight: 900;
-  letter-spacing: -0.04em;
-  line-height: 0.73;
+  letter-spacing: -0.03em;
+  line-height: 0.85;
   text-transform: uppercase;
   margin: 0;
-  transform: scaleX(1.05);
-  transform-origin: left bottom;
+  padding: 0;
+  white-space: nowrap;
 }
 
 /* --- Mobile fallback --- */

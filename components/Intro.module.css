@@ -118,6 +118,12 @@
   border-radius: 1.2vw;
   /* Complex radial gradient to mimic a subtle spotlight effect */
   background: radial-gradient(circle at 50% 35%, #b80016 0%, #6e000d 55%, #1f0002 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.cardImage {
+  object-fit: cover;
 }
 
 /* --- Mobile fallback --- */
