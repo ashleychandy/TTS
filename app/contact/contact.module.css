@@ -1,0 +1,19 @@
+.contactHero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.contactImage {
+  object-fit: cover !important;
+}
+
+/* Mobile fallback */
+@media (max-width: 768px) {
+  .contactHero {
+    height: auto;
+    min-height: 100vh;
+  }
+}

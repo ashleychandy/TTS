@@ -10,6 +10,7 @@
   padding: 3vw var(--page-padding) 0 var(--page-padding);
   display: flex;
   flex-direction: column;
+  overflow: hidden; /* Prevent whitespace from showing below */
 }
 
 /* Top row of footer (Paragraph & Star) */
@@ -73,9 +74,27 @@
   opacity: 0.6;
 }
 
-/* Specific spacing for contact block */
 .contactGroup {
   margin-top: 1.5vw;
+}
+
+.emailCTA {
+  font-size: 0.75vw;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.6vw 1.2vw;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.emailCTA:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.8);
 }
 
 .copyright {
@@ -87,19 +106,22 @@
 /* Bottom row of footer (Massive Text) */
 .footerBottom {
   width: 100%;
-  overflow: hidden; /* Clips the bottom of the text */
   display: flex;
   justify-content: center;
+  align-items: flex-end;
+  margin-bottom: -2vw; /* Increased negative margin to pull text down */
+  padding-bottom: 1.5vw; /* Add padding under the text */
+  /* no side padding here — JS computes the exact-fit font-size instead */
 }
 
 .massiveText {
-  font-size: 26.8vw; /* Precisely scaled to fill width */
-  font-weight: 700;
-  line-height: 0.72; /* Cuts off top/bottom spacing to sit flush */
-  letter-spacing: -0.04em;
-  margin: 0;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 0.85;
   text-transform: uppercase;
-  transform-origin: bottom center;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
 }
 
 /* --- Mobile fallback --- */

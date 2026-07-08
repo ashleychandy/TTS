@@ -1,15 +1,57 @@
+"use client"; // needed for hooks
+
+import { useLayoutEffect, useRef, useState } from "react";
 import styles from "./Footer.module.css";
 
+function useFitText(paddingPx = 24) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLHeadingElement>(null);
+  const [fontSize, setFontSize] = useState<number | null>(null);
+
+  useLayoutEffect(() => {
+    const container = containerRef.current;
+    const text = textRef.current;
+    if (!container || !text) return;
+
+    const fit = () => {
+      const available = container.clientWidth - paddingPx * 2;
+      if (available <= 0) return;
+
+      const prevFontSize = text.style.fontSize;
+      text.style.fontSize = "100px"; // fixed reference size
+      const natural = text.scrollWidth; // real width at 100px
+      text.style.fontSize = prevFontSize;
+
+      if (natural > 0) setFontSize((available / natural) * 100);
+    };
+
+    // measure only after the real font has loaded, not the fallback
+    if (typeof document !== "undefined" && "fonts" in document) {
+      document.fonts.ready.then(fit);
+    } else {
+      fit();
+    }
+
+    const observer = new ResizeObserver(fit);
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, [paddingPx]);
+
+  return { containerRef, textRef, fontSize };
+}
+
 export default function Footer() {
+  const { containerRef, textRef, fontSize } = useFitText(24); // 24px padding, each side (matching Hero)
+
   return (
     <footer className={styles.footer}>
       <div className={styles.footerTop}>
         <p className={styles.footerDesc}>
-          WE ARE AN INDEPENDENT CREATIVE AGENCY BASED
+          WE ARE AN INDEPENDENT CREATIVE AGENCY.
           <br />
-          IN EUROPE. WE COMBINE BOLD VISION WITH SHARP
+          WE COMBINE BOLD VISION WITH SHARP
           <br />
-          EXECUTION AND DELIVER AT STARTUP SPEED.
+          EXECUTION AND DELIVER WITH SPEED.
         </p>
 
         <svg
@@ -26,17 +68,18 @@ export default function Footer() {
           <div className={styles.footerText}>BASED ON EARTH</div>
 
           <div className={styles.contactGroup}>
-            <div className={styles.footerText}>ksshlv@creativestudio.com</div>
-            <div className={styles.footerText}>+38 000 000 000</div>
+            <a href="mailto:contact.thirsttrapstudios@gmail.com" className={styles.emailCTA}>
+              contact.thirsttrapstudios@gmail.com
+            </a>
           </div>
 
           <div className={`${styles.footerText} ${styles.copyright}`}>
-            © 2026 CREATIVE AGENCY
+            © 2026 Thirst Trap Studios
           </div>
         </div>
 
         <div className={styles.footerCol}>
-          <a href="#" className={styles.footerLink}>
+          <a href="/" className={styles.footerLink}>
             HOME
           </a>
           <a href="#" className={styles.footerLink}>
@@ -49,12 +92,9 @@ export default function Footer() {
             SELECTED WORK
           </a>
           <a href="#" className={styles.footerLink}>
-            TESTIMONIALS
-          </a>
-          <a href="#" className={styles.footerLink}>
             PROCESS
           </a>
-          <a href="#" className={styles.footerLink}>
+          <a href="/contact" className={styles.footerLink}>
             CONTACT
           </a>
         </div>
@@ -69,20 +109,24 @@ export default function Footer() {
         </div>
 
         <div className={styles.footerCol}>
-          <a href="#" className={styles.footerLink}>
+          <a href="https://www.instagram.com/thirst.trap.studios/" target="_blank" rel="noopener noreferrer" className={styles.footerLink}>
             INSTAGRAM ↗
           </a>
-          <a href="#" className={styles.footerLink}>
-            BEHANCE ↗
-          </a>
-          <a href="#" className={styles.footerLink}>
+          
+          <a href="https://www.linkedin.com/company/thirst-trap-studios/" target="_blank" rel="noopener noreferrer" className={styles.footerLink}>
             LINKEDIN ↗
           </a>
         </div>
       </div>
 
-      <div className={styles.footerBottom}>
-        <h2 className={styles.massiveText}>AGENCY</h2>
+      <div className={styles.footerBottom} ref={containerRef}>
+        <h2
+          className={styles.massiveText}
+          ref={textRef}
+          style={fontSize ? { fontSize: `${fontSize}px` } : undefined}
+        >
+          AGENCY
+        </h2>
       </div>
     </footer>
   );

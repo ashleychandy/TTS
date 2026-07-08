@@ -81,14 +81,20 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  position: relative;
+  width: 100%;
 }
 
 .gradientBox {
+  position: relative;
   width: 100%;
   aspect-ratio: 1.05 / 1; /* Slightly wider than a perfect square */
   border-radius: 1vw;
-  /* Complex radial gradient to mimic a deep, spotlighted red box */
-  background: radial-gradient(circle at 60% 40%, #a80010 0%, #6e0005 60%, #300000 100%);
+  overflow: hidden;
+}
+
+.imageContent {
+  object-fit: cover !important;
 }
 
 /* Generic Star Icon Styles */

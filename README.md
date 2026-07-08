@@ -108,4 +108,4 @@ Private - All Rights Reserved
 
 ## Contact
 
-ksshlv@creativestudio.com
+contact.thirsttrapstudios@gmail.com

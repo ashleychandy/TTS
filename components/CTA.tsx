@@ -1,4 +1,5 @@
 import styles from "./CTA.module.css";
+import Image from "next/image";
 
 export default function CTA() {
   return (
@@ -17,7 +18,7 @@ export default function CTA() {
               WE TURN IDEAS INTO BOLD VISUAL IDENTITIES AND DIGITAL
               EXPERIENCES THAT STAND OUT AND SELL.
             </p>
-            <a href="#" className={styles.btnPrimary}>
+            <a href="mailto:contact.thirsttrapstudios@gmail.com" className={styles.btnPrimary}>
               START A PROJECT
             </a>
           </div>
@@ -32,7 +33,15 @@ export default function CTA() {
       </div>
 
       <div className={styles.ctaRight}>
-        <div className={styles.gradientBox}></div>
+        <div className={styles.gradientBox}>
+          <Image
+            src="/LandingPage/contact.png"
+            alt="Contact visual"
+            fill
+            className={styles.imageContent}
+            sizes="(max-width: 900px) 100vw, 50vw"
+          />
+        </div>
       </div>
     </section>
   );
