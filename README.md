@@ -1,94 +1,111 @@
-# Bureau — Raw Creative Agency
+# Creative Agency Portfolio
 
-A Next.js (App Router) rebuild of the Bureau creative-agency landing page
-design, including the 404 page. Built with TypeScript, Tailwind CSS v4, and
-self-hosted fonts (no external font CDN calls at build or runtime).
+A modern, high-end portfolio website for a creative agency built with Next.js 15, React 19, and TypeScript.
 
-## Stack
+## Features
 
-- **Next.js 16** (App Router, React 19)
-- **Tailwind CSS v4** (CSS-first `@theme` config, see `src/app/globals.css`)
-- **@fontsource/archivo** — self-hosted display typeface (stands in for the
-  original Benzin display face used in the source design)
-- All icons are small inline SVGs in `src/components/icons.tsx` to keep the
-  bundle lean
+- 🎨 Bold, Swiss-inspired design with deep red color palette
+- 📱 Fully responsive (desktop-first approach)
+- ⚡ Next.js 15 App Router for optimal performance
+- 🎯 TypeScript for type safety
+- 🎭 CSS Modules for scoped styling
+- 🚀 Zero external dependencies (except Next.js/React)
 
-## Getting started
+## Project Structure
+
+```
+TTS/
+├── app/
+│   ├── layout.tsx       # Root layout with metadata
+│   ├── page.tsx         # Main page combining all sections
+│   └── globals.css      # Global styles
+├── components/
+│   ├── Hero.tsx         # Landing hero section
+│   ├── Hero.module.css
+│   ├── Intro.tsx        # Brand statement section
+│   ├── Intro.module.css
+│   ├── FourWays.tsx     # Services showcase
+│   ├── FourWays.module.css
+│   ├── SelectedWorks.tsx # Portfolio grid
+│   ├── SelectedWorks.module.css
+│   ├── CTA.tsx          # Call-to-action section
+│   ├── CTA.module.css
+│   ├── Footer.tsx       # Site footer
+│   └── Footer.module.css
+└── package.json
+```
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+ (you have v24.10.0)
+- npm 8+ (you have v11.6.1)
+
+### Installation
+
+1. Install dependencies:
 
 ```bash
 npm install
+```
+
+2. Run the development server:
+
+```bash
 npm run dev
 ```
 
-Open http://localhost:3000.
+3. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-```bash
-npm run build   # production build
-npm run start   # serve the production build
-npm run lint    # eslint
-```
+### Available Scripts
 
-## Structure
+- `npm run dev` - Start development server
+- `npm run build` - Create production build
+- `npm start` - Start production server
+- `npm run lint` - Run ESLint
 
-```
-src/
-  app/
-    layout.tsx        Root layout, font + metadata
-    page.tsx           Composes all homepage sections
-    not-found.tsx       Custom 404 page
-    globals.css         Design tokens (colors, type, motion)
-  components/
-    Header.tsx           Sticky nav + full-screen mobile menu
-    Hero.tsx              Full-bleed portrait hero, oversized wordmark
-    AboutIntro.tsx         Statement + 4-photo strip
-    FourWays.tsx            Numbered services list on portrait bg
-    SelectedWork.tsx         Masonry-style project grid
-    Philosophy.tsx            Manifesto statement section
-    Process.tsx                Big wordmark + numbered process steps
-    Testimonials.tsx            Client-side quote carousel
-    CTA.tsx                      Closing call to action
-    Footer.tsx                     Nav columns + giant wordmark
-    Reveal.tsx                     IntersectionObserver scroll-reveal
-    icons.tsx                       Sparkle / star / arrow SVGs
-  lib/
-    data.ts        All copy/content lives here — nav links, services,
-                     work items, testimonials, process steps
-public/images/    Local JPGs used across the site
-```
+## Sections Overview
 
-## Design tokens
+The single-page layout consists of 6 sections stacked vertically:
 
-Defined in `src/app/globals.css` under `@theme inline`:
+1. **Hero** - Full-viewport landing with massive "CREATE" typography
+2. **Intro** - Brand statement with 4 gradient cards
+3. **FourWays** - Services showcase in poster-style layout
+4. **SelectedWorks** - Portfolio grid with scattered card layout
+5. **CTA** - Call-to-action with contact button
+6. **Footer** - Contact info, navigation, and social links
 
-| Token | Hex |
-|---|---|
-| `raw-red` | `#8F151B` |
-| `heat-red` | `#CC0921` |
-| `deep-black` | `#252525` |
-| `pure-white` | `#FFFFFF` |
-| `cold-grey` | `#686868` |
+## Design System
 
-Used as Tailwind utilities directly, e.g. `bg-raw-red`, `text-heat-red`.
+### Colors
+- Primary Red Dark: `#6e0505`
+- Primary Red Medium: `#8a0000`
+- Brand Red: `#a80015`
+- Background: `#fdfdfd`
+- Text Dark: `#333333`
 
-## Content
+### Typography
+- Font: Helvetica Neue
+- Scales: 0.7vw → 26.8vw (viewport-based)
+- All uppercase for impact
 
-All copy lives in `src/lib/data.ts` — swap nav labels, service descriptions,
-work items, and testimonials there without touching component markup.
+### Spacing
+- Page padding: 3vw
+- Component gaps: 2-4vw
+- Consistent viewport units
 
-## Images
+## Browser Support
 
-`public/images/` contains placeholder studio photography adapted from the
-original reference design. Swap in your own licensed photography before
-shipping to production — filenames are referenced directly in `data.ts` and
-each component, so a same-name replacement is a drop-in swap.
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
 
-## Notes on fonts
+## License
 
-The original reference used **Benzin** (display) and **Helvetica Neue**
-(body). Benzin isn't freely licensable for web self-hosting, so this build
-uses **Archivo** (800/900 weight) as a close-in-spirit bold grotesque
-stand-in, self-hosted via `@fontsource/archivo`. Body copy uses a system
-font stack (`Helvetica Neue, Helvetica, Arial, sans-serif`) which resolves
-to real Helvetica Neue on macOS/iOS and a clean fallback elsewhere. If you
-own a Benzin/Helvetica Neue web license, drop the `.woff2` files into
-`public/fonts/` and wire them up with `@font-face` in `globals.css`.
+Private - All Rights Reserved
+
+## Contact
+
+ksshlv@creativestudio.com

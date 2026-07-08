@@ -1,0 +1,173 @@
+.intro {
+  --red: #a80015;
+  --grey: #7d7d7d;
+  --bg-color: #fdfdfd;
+
+  background-color: var(--bg-color);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: var(--red);
+  overflow-x: hidden;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* --- Corner Elements (Absolute Positioning) --- */
+.cornerStar {
+  position: absolute;
+  top: 3.5vw;
+  left: 4vw;
+  width: 3.5vw;
+  height: 3.5vw;
+}
+
+.cornerText {
+  position: absolute;
+  font-size: 0.8vw;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.topRight {
+  top: 3.5vw;
+  right: 4vw;
+  text-align: left;
+}
+
+.bottomLeft {
+  bottom: 3.5vw;
+  left: 4vw;
+}
+
+/* --- Main Content Layout --- */
+.mainContainer {
+  padding-top: 8vw;
+  padding-left: 21vw;
+  padding-right: 6vw;
+  padding-bottom: 4vw;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Text Section --- */
+.textSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* The headline block is inline-flex so it shrink-wraps to its longest line.
+   This allows the first line to be perfectly right-aligned to the rest of the text. */
+.headlineBlock {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 4.6vw;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.headlineBlock .line {
+  white-space: nowrap;
+}
+
+.headlineBlock .line1 {
+  align-self: flex-end; /* Pushes just this line to the right edge of the block */
+}
+
+.textGrey {
+  color: var(--grey);
+}
+
+/* Inline Star SVG styling */
+.inlineIcon {
+  display: inline-block;
+  width: 3.8vw;
+  height: 3.8vw;
+  vertical-align: middle;
+  margin: 0 0.2vw;
+  transform: translateY(-0.3vw); /* Slight optical adjustment */
+}
+
+/* Sub-paragraph styling */
+.subText {
+  margin-top: 1.8vw;
+  font-size: 1.1vw;
+  font-weight: 400;
+  color: var(--grey);
+  line-height: 1.25;
+  letter-spacing: 0;
+  max-width: 40vw; /* Keeps the paragraph from getting too wide */
+}
+
+/* --- Cards Section --- */
+.cardsContainer {
+  margin-top: 4.5vw;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2vw;
+  width: 100%;
+}
+
+.card {
+  aspect-ratio: 1 / 1.35; /* Maintains vertical rectangle proportions */
+  border-radius: 1.2vw;
+  /* Complex radial gradient to mimic a subtle spotlight effect */
+  background: radial-gradient(circle at 50% 35%, #b80016 0%, #6e000d 55%, #1f0002 100%);
+}
+
+/* --- Mobile fallback --- */
+@media (max-width: 768px) {
+  .cornerText {
+    font-size: 12px;
+  }
+
+  .cornerStar {
+    width: 30px;
+    height: 30px;
+  }
+
+  .mainContainer {
+    padding: 80px 20px 40px 20px;
+  }
+
+  .headlineBlock {
+    font-size: 32px;
+    display: flex;
+    align-items: stretch;
+  }
+
+  .headlineBlock .line {
+    white-space: normal;
+    text-align: left;
+  }
+
+  .headlineBlock .line1 {
+    align-self: flex-start;
+  }
+
+  .inlineIcon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .subText {
+    font-size: 14px;
+    max-width: 100%;
+    margin-top: 20px;
+  }
+
+  .cardsContainer {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .card {
+    aspect-ratio: auto;
+    height: 200px;
+  }
+}

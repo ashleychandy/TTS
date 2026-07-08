@@ -1,0 +1,119 @@
+.fourWays {
+  /* Using a subtle radial gradient to mimic the deep, flat red tone of the image */
+  background-color: #4a0910;
+  background: radial-gradient(circle at 50% 50%, #631018 0%, #460910 100%);
+  color: #ffffff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  overflow: hidden; /* Locks scrolling to maintain poster composition */
+  width: 100%;
+  height: 100vh;
+}
+
+.posterCanvas {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* --- Main Headline --- */
+.headline {
+  position: absolute;
+  top: 10vh;
+  left: 4.5vw;
+  font-size: 5.5vw;
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.headline .line3 {
+  margin-left: 5vw; /* Indents the last line to match the design */
+}
+
+/* --- Star Icon --- */
+.starIcon {
+  position: absolute;
+  top: 10vh;
+  right: 4.5vw;
+  width: 3.5vw;
+  height: 3.5vw;
+}
+
+/* --- Scattered Text Blocks --- */
+.textBlock {
+  position: absolute;
+  font-size: 0.9vw;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* Number styling within blocks */
+.textBlock .num {
+  display: inline-block;
+  margin-right: 0.5vw;
+}
+
+/* Positioning coordinates estimated from original image */
+.item01 {
+  top: 48vh;
+  left: 4.5vw;
+}
+
+.item02 {
+  bottom: 12vh;
+  left: 21vw;
+}
+
+.item03 {
+  top: 39vh;
+  right: 14vw;
+}
+
+.item04 {
+  bottom: 21vh;
+  right: 4.5vw;
+}
+
+/* --- Mobile fallback --- */
+@media (max-width: 768px) {
+  .fourWays {
+    overflow-y: auto; /* Allow scrolling on phones */
+    height: auto;
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+
+  .posterCanvas {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    position: static;
+    height: auto;
+  }
+
+  .headline {
+    position: static;
+    font-size: 40px;
+  }
+
+  .headline .line3 {
+    margin-left: 20px;
+  }
+
+  .starIcon {
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .textBlock {
+    position: static;
+    font-size: 14px;
+    max-width: 100%;
+  }
+}

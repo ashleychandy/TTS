@@ -1,0 +1,145 @@
+.cta {
+  --brand-red-dark: #6e0505;
+  --brand-red-medium: #8a0000;
+  --text-dark: #333333;
+  --font-main: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --page-padding: 3vw;
+
+  background-color: #fdfdfd;
+  font-family: var(--font-main);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4vw;
+  padding: 4vw var(--page-padding) 4vw var(--page-padding);
+  position: relative;
+}
+
+/* Left Content Column */
+.ctaLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Spreads out label, text, and star */
+}
+
+.topLabel {
+  font-size: 0.7vw;
+  font-weight: 500;
+  color: var(--brand-red-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8vw;
+}
+
+.headline {
+  font-size: 4.5vw;
+  font-weight: 600;
+  color: var(--brand-red-dark);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  margin-bottom: 2vw;
+}
+
+/* Wrapper to indent the subtext and button */
+.indentedContent {
+  padding-left: 12vw;
+  margin-bottom: 6vw;
+}
+
+.subtext {
+  font-size: 0.9vw;
+  font-weight: 400;
+  color: var(--text-dark);
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  max-width: 25vw;
+  margin-bottom: 2.5vw;
+}
+
+.btnPrimary {
+  display: inline-block;
+  background-color: var(--brand-red-dark);
+  color: #ffffff;
+  padding: 1vw 2vw;
+  border-radius: 50px;
+  font-size: 0.8vw;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btnPrimary:hover {
+  transform: translateY(-2px);
+  background-color: #550000;
+}
+
+/* Right Image/Gradient Column */
+.ctaRight {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.gradientBox {
+  width: 100%;
+  aspect-ratio: 1.05 / 1; /* Slightly wider than a perfect square */
+  border-radius: 1vw;
+  /* Complex radial gradient to mimic a deep, spotlighted red box */
+  background: radial-gradient(circle at 60% 40%, #a80010 0%, #6e0005 60%, #300000 100%);
+}
+
+/* Generic Star Icon Styles */
+.starIcon {
+  width: 3vw;
+  height: 3vw;
+}
+
+.redStar {
+  fill: var(--brand-red-dark);
+}
+
+/* --- Mobile fallback --- */
+@media (max-width: 900px) {
+  .cta {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 40px 20px;
+  }
+
+  .topLabel {
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+
+  .headline {
+    font-size: 42px;
+  }
+
+  .indentedContent {
+    padding-left: 0;
+    margin-bottom: 30px;
+  }
+
+  .subtext {
+    font-size: 14px;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .btnPrimary {
+    font-size: 14px;
+    padding: 12px 24px;
+  }
+
+  .starIcon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .gradientBox {
+    aspect-ratio: 1/1;
+  }
+}

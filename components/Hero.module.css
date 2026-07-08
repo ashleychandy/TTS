@@ -1,0 +1,163 @@
+.hero {
+  background-color: #6a0005;
+  background: radial-gradient(circle at 40% 40%, #7e030a 0%, #4a0002 60%, #200000 100%);
+  color: #ffffff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  overflow: hidden;
+  height: 100vh;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 2.5vw 2.5vw 1vw 2.5vw;
+  position: relative;
+}
+
+/* --- Header / Top Navigation --- */
+.header {
+  display: grid;
+  grid-template-columns: 20% 20% 1fr auto;
+  font-size: 0.85vw;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.logo {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-weight: 500;
+}
+
+.logoStar {
+  font-size: 1.2vw;
+  line-height: 0.8;
+}
+
+.headerItemRight {
+  text-align: right;
+}
+
+/* --- Middle Section --- */
+.middleSection {
+  flex-grow: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.projectsInfo {
+  position: absolute;
+  left: 0;
+  top: 45%;
+  font-size: 0.85vw;
+  letter-spacing: 0.05em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.agencyInfo {
+  position: absolute;
+  left: 50%;
+  top: 35%;
+}
+
+.agencyDescription {
+  font-size: 1.5vw;
+  line-height: 1.1;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin-bottom: 2.5vw;
+}
+
+.services {
+  display: flex;
+  gap: 11vw;
+  padding-left: 15vw;
+  font-size: 0.85vw;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+/* --- Bottom Huge Text --- */
+.footerText {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: -1.5vw;
+}
+
+.hugeText {
+  font-size: 26.5vw;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.73;
+  text-transform: uppercase;
+  margin: 0;
+  transform: scaleX(1.05);
+  transform-origin: left bottom;
+}
+
+/* --- Mobile fallback --- */
+@media (max-aspect-ratio: 1/1) {
+  .hero {
+    overflow: auto;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .header {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    font-size: 12px;
+  }
+
+  .headerItemRight {
+    text-align: left;
+  }
+
+  .logoStar {
+    font-size: 16px;
+  }
+
+  .middleSection {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 50px;
+  }
+
+  .projectsInfo,
+  .agencyInfo {
+    position: relative;
+    left: 0;
+    top: 0;
+    margin-bottom: 40px;
+  }
+
+  .agencyDescription {
+    font-size: 20px;
+  }
+
+  .services {
+    padding-left: 0;
+    gap: 40px;
+    font-size: 12px;
+  }
+
+  .footerText {
+    margin-top: auto;
+  }
+
+  .hugeText {
+    font-size: 24vw;
+    transform: none;
+    letter-spacing: -2px;
+  }
+}
