@@ -63,6 +63,12 @@
   margin-right: 0.5vw;
 }
 
+/* Desktop - keep title and desc inline */
+.serviceTitle,
+.serviceDesc {
+  display: inline;
+}
+
 /* Positioning coordinates estimated from original image */
 .item01 {
   top: 48vh;
@@ -84,19 +90,34 @@
   right: 4.5vw;
 }
 
-/* --- Mobile fallback --- */
+/* --- Mobile Responsive --- */
+@media (max-width: 1024px) {
+  .headline {
+    font-size: 4.5vw;
+  }
+
+  .starIcon {
+    width: 4vw;
+    height: 4vw;
+  }
+
+  .textBlock {
+    font-size: 1.1vw;
+  }
+}
+
 @media (max-width: 768px) {
   .fourWays {
-    overflow-y: auto; /* Allow scrolling on phones */
+    overflow-y: auto;
     height: auto;
     min-height: 100vh;
-    padding: 40px 20px;
+    padding: 80px 20px 60px;
   }
 
   .posterCanvas {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 32px;
     position: static;
     height: auto;
   }
@@ -104,6 +125,16 @@
   .headline {
     position: static;
     font-size: 40px;
+    line-height: 1.15;
+    margin-top: 0;
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .headline span {
+    display: block;
   }
 
   .headline .line3 {
@@ -112,15 +143,99 @@
 
   .starIcon {
     position: absolute;
-    top: 40px;
+    top: 20px;
     right: 20px;
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
   }
 
   .textBlock {
     position: static;
     font-size: 14px;
+    line-height: 1.7;
     max-width: 100%;
+    padding: 24px 20px;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+  }
+
+  .textBlock .num {
+    display: block;
+    margin-right: 0;
+    margin-bottom: 12px;
+    font-weight: 700;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .serviceTitle {
+    display: block;
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 8px;
+    letter-spacing: 0.03em;
+  }
+
+  .serviceDesc {
+    display: block;
+    opacity: 0.9;
+    line-height: 1.65;
+  }
+
+  /* Remove item positioning classes on mobile */
+  .item01,
+  .item02,
+  .item03,
+  .item04 {
+    position: static;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    right: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .fourWays {
+    padding: 70px 16px 48px;
+  }
+
+  .posterCanvas {
+    gap: 24px;
+  }
+
+  .headline {
+    font-size: 32px;
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+
+  .headline .line3 {
+    margin-left: 16px;
+  }
+
+  .starIcon {
+    top: 16px;
+    right: 16px;
+    width: 28px;
+    height: 28px;
+  }
+
+  .textBlock {
+    font-size: 13px;
+    line-height: 1.7;
+    padding: 20px 16px;
+    border-radius: 10px;
+  }
+
+  .textBlock .num {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+
+  .serviceTitle {
+    font-size: 14px;
+    margin-bottom: 6px;
   }
 }

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import styles from "./product_page_1.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function ProductPage1() {
   const [enlargedImage, setEnlargedImage] = useState<string | null>(null);
@@ -15,6 +15,29 @@ export default function ProductPage1() {
     setEnlargedImage(null);
   };
 
+  // Handle body scroll lock and keyboard events
+  useEffect(() => {
+    if (enlargedImage) {
+      // Lock body scroll
+      document.body.style.overflow = 'hidden';
+
+      // Handle Escape key
+      const handleEscape = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') {
+          handleCloseEnlarged();
+        }
+      };
+
+      document.addEventListener('keydown', handleEscape);
+
+      return () => {
+        // Cleanup: restore scroll and remove listener
+        document.body.style.overflow = 'unset';
+        document.removeEventListener('keydown', handleEscape);
+      };
+    }
+  }, [enlargedImage]);
+
   return (
     <main className={styles.page}>
       {/* HERO */}
@@ -22,27 +45,38 @@ export default function ProductPage1() {
         <div 
           className={styles.heroImage}
           onClick={() => handleImageClick("/ProductPage1/4.png")}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              handleImageClick("/ProductPage1/4.png");
+            }
+          }}
+          aria-label="View large image of Lakmé Lip Balm hero"
         >
           <Image
             src="/ProductPage1/4.png"
-            alt="Lakmé Lip Balm hero"
+            alt="Lakmé Lip Balm hero showcasing the premium product"
             fill
             className={styles.image}
+            priority
+            sizes="(max-width: 900px) 100vw, 50vw"
           />
         </div>
 
         <div className={styles.heroContent}>
           <div className={styles.logo}>Lakmé.</div>
 
-          <div className={styles.about}>
+          <p className={styles.about}>
             A premium campaign created to showcase the Lakmé Lip Balm through
             clean beauty visuals, expressive portraits, and product-focused
             storytelling. Every frame highlights hydration, softness, and
             effortless everyday beauty.
-          </div>
+          </p>
 
           <div>
-            <div className={styles.titleBig}>Lakmé Lip Balm.</div>
+            <h1 className={styles.titleBig}>Lakmé Lip Balm.</h1>
           </div>
         </div>
       </section>
@@ -64,65 +98,37 @@ export default function ProductPage1() {
           </div>
 
           <div className={styles.productGrid}>
-            <div className={styles.product}>
-              <div 
-                className={styles.productImage}
-                onClick={() => handleImageClick("/ProductPage1/3.png")}
-              >
-                <Image
-                  src="/ProductPage1/3.png"
-                  alt="Beauty Portrait"
-                  fill
-                  className={styles.image}
-                />
-              </div>
-              <p>Beauty Portrait</p>
-            </div>
-
-            <div className={styles.product}>
-              <div 
-                className={styles.productImage}
-                onClick={() => handleImageClick("/ProductPage1/2.png")}
-              >
-                <Image
-                  src="/ProductPage1/2.png"
-                  alt="Close-Up Campaign"
-                  fill
-                  className={styles.image}
-                />
-              </div>
-              <p>Close-Up Campaign</p>
-            </div>
-
-            <div className={styles.product}>
-              <div 
-                className={styles.productImage}
-                onClick={() => handleImageClick("/ProductPage1/6.png")}
-              >
-                <Image
-                  src="/ProductPage1/6.png"
-                  alt="Natural Glow"
-                  fill
-                  className={styles.image}
-                />
-              </div>
-              <p>Natural Glow</p>
-            </div>
-
-            <div className={styles.product}>
-              <div 
-                className={styles.productImage}
-                onClick={() => handleImageClick("/ProductPage1/5.png")}
-              >
-                <Image
-                  src="/ProductPage1/5.png"
-                  alt="Editorial Beauty Shot"
-                  fill
-                  className={styles.image}
-                />
-              </div>
-              <p>Editorial Beauty Shot</p>
-            </div>
+            {[
+              { src: "/ProductPage1/3.png", alt: "Beauty Portrait showcasing natural look", label: "Beauty Portrait" },
+              { src: "/ProductPage1/2.png", alt: "Close-Up Campaign highlighting product detail", label: "Close-Up Campaign" },
+              { src: "/ProductPage1/6.png", alt: "Natural Glow beauty shot", label: "Natural Glow" },
+              { src: "/ProductPage1/5.png", alt: "Editorial Beauty Shot with artistic styling", label: "Editorial Beauty Shot" }
+            ].map((item, index) => (
+              <article key={index} className={styles.product}>
+                <div 
+                  className={styles.productImage}
+                  onClick={() => handleImageClick(item.src)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      handleImageClick(item.src);
+                    }
+                  }}
+                  aria-label={`View large image: ${item.label}`}
+                >
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    fill
+                    className={styles.image}
+                    sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 25vw"
+                  />
+                </div>
+                <p>{item.label}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -140,12 +146,22 @@ export default function ProductPage1() {
             <div 
               className={styles.smallImage}
               onClick={() => handleImageClick("/ProductPage1/lip balm 2.png")}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  handleImageClick("/ProductPage1/lip balm 2.png");
+                }
+              }}
+              aria-label="View large image of product close-up"
             >
               <Image
                 src="/ProductPage1/lip balm 2.png"
-                alt="Product close-up"
+                alt="Product close-up showcasing texture and quality"
                 fill
                 className={styles.image}
+                sizes="(max-width: 900px) 100vw, 600px"
               />
             </div>
           </div>
@@ -153,12 +169,22 @@ export default function ProductPage1() {
           <div 
             className={styles.largeImage}
             onClick={() => handleImageClick("/ProductPage1/1.png")}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                handleImageClick("/ProductPage1/1.png");
+              }
+            }}
+            aria-label="View large image of featured product"
           >
             <Image
               src="/ProductPage1/1.png"
-              alt="Feature product"
+              alt="Featured product in elegant setting"
               fill
               className={styles.image}
+              sizes="(max-width: 900px) 100vw, 50vw"
             />
           </div>
         </div>
@@ -166,13 +192,28 @@ export default function ProductPage1() {
 
       {/* ENLARGED IMAGE MODAL */}
       {enlargedImage && (
-        <div className={styles.modal} onClick={handleCloseEnlarged}>
+        <div 
+          className={styles.modal} 
+          onClick={handleCloseEnlarged}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Image preview"
+        >
+          <button
+            className={styles.closeButton}
+            onClick={handleCloseEnlarged}
+            aria-label="Close image preview"
+          >
+            ✕
+          </button>
           <div className={styles.modalContent}>
             <Image
               src={enlargedImage}
               alt="Enlarged view"
               fill
               className={styles.modalImage}
+              sizes="90vw"
+              priority
             />
           </div>
         </div>

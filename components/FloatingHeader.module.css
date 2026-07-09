@@ -73,6 +73,10 @@
   transition: transform 0.2s ease;
 }
 
+.arrowOpen {
+  transform: rotate(180deg);
+}
+
 .dropdownMenu {
   position: absolute;
   top: 100%;
@@ -129,12 +133,12 @@
   opacity: 0.5;
 }
 
-/* --- Mobile fallback --- */
-@media (max-aspect-ratio: 1/1) {
+/* --- Mobile Responsive --- */
+@media (max-width: 1024px) {
   .floatingHeader {
     top: 20px;
     left: 20px;
-    gap: 30px;
+    gap: 2rem;
   }
 
   .floatingHeaderRight {
@@ -143,7 +147,46 @@
   }
 
   .logoButton {
+    font-size: 14px;
+  }
+
+  .logoStar {
+    font-size: 18px;
+  }
+
+  .dropdownButton {
+    font-size: 14px;
+  }
+
+  .arrow {
     font-size: 12px;
+  }
+
+  .dropdownMenu {
+    padding: 12px 0;
+    min-width: 180px;
+  }
+
+  .dropdownItem {
+    padding: 12px 0;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .floatingHeader {
+    top: 16px;
+    left: 16px;
+    gap: 1.5rem;
+  }
+
+  .floatingHeaderRight {
+    right: 16px;
+  }
+
+  .logoButton {
+    font-size: 13px;
+    gap: 8px;
   }
 
   .logoStar {
@@ -151,7 +194,11 @@
   }
 
   .dropdownButton {
-    font-size: 12px;
+    font-size: 13px;
+    padding: 8px;
+    min-height: 44px; /* Touch-friendly */
+    display: flex;
+    align-items: center;
   }
 
   .arrow {
@@ -159,11 +206,43 @@
   }
 
   .dropdownMenu {
-    padding: 10px 0;
+    padding: 8px 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
 
   .dropdownItem {
-    padding: 10px 0;
+    padding: 12px 16px;
+    font-size: 13px;
+    min-height: 44px; /* Touch-friendly */
+    display: flex;
+    align-items: center;
+  }
+
+  .dropdownMenuRight {
+    right: -8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .floatingHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .floatingHeaderRight {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .logoButton {
+    font-size: 12px;
+  }
+
+  .dropdownButton {
     font-size: 12px;
   }
 }

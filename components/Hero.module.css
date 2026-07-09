@@ -115,18 +115,39 @@
   white-space: nowrap;
 }
 
-/* --- Mobile fallback --- */
-@media (max-aspect-ratio: 1/1) {
+/* --- Mobile Responsive --- */
+@media (max-width: 1024px) {
+  .header {
+    font-size: 1.2vw;
+  }
+
+  .agencyDescription {
+    font-size: 2vw;
+  }
+
+  .services {
+    font-size: 1.2vw;
+    gap: 8vw;
+  }
+}
+
+@media (max-width: 768px) {
   .hero {
-    overflow: auto;
     height: auto;
     min-height: 100vh;
+    overflow-y: auto;
+  }
+
+  .container {
+    padding: 20px;
+    gap: 40px;
   }
 
   .header {
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    font-size: 12px;
+    gap: 16px;
+    font-size: 11px;
+    line-height: 1.4;
   }
 
   .headerItemRight {
@@ -140,34 +161,67 @@
   .middleSection {
     flex-direction: column;
     align-items: flex-start;
-    padding-top: 50px;
+    padding-top: 40px;
+    gap: 32px;
   }
 
-  .projectsInfo,
+  .projectsInfo {
+    position: relative;
+    left: 0;
+    top: 0;
+    font-size: 11px;
+  }
+
   .agencyInfo {
     position: relative;
     left: 0;
     top: 0;
-    margin-bottom: 40px;
   }
 
   .agencyDescription {
-    font-size: 20px;
+    font-size: 22px;
+    line-height: 1.15;
+    margin-bottom: 24px;
   }
 
   .services {
     padding-left: 0;
     gap: 40px;
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .footerText {
-    margin-top: auto;
+    margin-top: 40px;
+    margin-bottom: -20px;
   }
 
   .hugeText {
-    font-size: 24vw;
-    transform: none;
-    letter-spacing: -2px;
+    font-size: 20vw;
+    letter-spacing: -0.04em;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 16px;
+  }
+
+  .header {
+    font-size: 10px;
+    gap: 12px;
+  }
+
+  .agencyDescription {
+    font-size: 18px;
+  }
+
+  .services {
+    flex-direction: column;
+    gap: 12px;
+    font-size: 10px;
+  }
+
+  .hugeText {
+    font-size: 22vw;
   }
 }

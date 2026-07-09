@@ -48,10 +48,11 @@ export default function Hero() {
     <section className={styles.hero}>
       <Image
         src="/LandingPage/hero.png"
-        alt="Hero background"
+        alt=""
         fill
         className={styles.heroImage}
         priority
+        sizes="100vw"
       />
       <div className={styles.container}>
         <header className={styles.header}>
@@ -63,25 +64,25 @@ export default function Hero() {
           </div>
         </header>
 
-        <main className={styles.middleSection}>
-          <div className={styles.projectsInfo}>
+        <div className={styles.middleSection}>
+          <p className={styles.projectsInfo}>
             DIGITAL DESIGN
-          </div>
+          </p>
 
           <div className={styles.agencyInfo}>
-            <div className={styles.agencyDescription}>
+            <p className={styles.agencyDescription}>
               THIRST TRAP STUDIOS<br />
               TURNING BOLD IDEAS,<br />
               VISUAL SYSTEMS AND<br />
               DIGITAL EXPERIENCES.
-            </div>
+            </p>
 
             <div className={styles.services}>
               <div>CREATIVE<br />STUDIO</div>
               <div>BRAND<br />IDENTITY</div>
             </div>
           </div>
-        </main>
+        </div>
 
         <footer className={styles.footerText} ref={containerRef}>
           <h1

@@ -1,58 +1,47 @@
 import styles from "./SelectedWorks.module.css";
 
 export default function SelectedWorks() {
+  const works = [
+    { category: "DIGITAL DESIGN", id: 1 },
+    { category: "BRAND IDENTITY", id: 2 },
+    { category: "DIGITAL DESIGN", id: 3 },
+    { category: "BRAND IDENTITY", id: 4 },
+    { category: "DIGITAL DESIGN", id: 5 },
+    { category: "BRAND IDENTITY", id: 6 }
+  ];
+
   return (
-    <section className={styles.selectedWorks}>
+    <section className={styles.selectedWorks} aria-labelledby="selected-works-heading">
       {/* Header */}
       <div className={`${styles.headerItem} ${styles.headerLeft}`}>
         SELECTED WORKS
       </div>
-      <div className={`${styles.headerItem} ${styles.headerCenter}`}>
+      <div className={`${styles.headerItem} ${styles.headerCenter}`} aria-hidden="true">
         Thirst Trap Studios
       </div>
-      <div className={`${styles.headerItem} ${styles.headerRight}`}>
+      <div className={`${styles.headerItem} ${styles.headerRight}`} aria-hidden="true">
         2026 — BEYOND
       </div>
 
       {/* Main Title */}
-      <h1 className={styles.mainTitle}>
+      <h2 id="selected-works-heading" className={styles.mainTitle}>
         SELECTED
         <br />
         WORKS
-      </h1>
+      </h2>
 
-      {/* Scattered Portfolio Elements */}
-      <div className={`${styles.workItem} ${styles.item1}`}>
-        <div className={styles.cardVisual}></div>
-        <div className={styles.uppercaseLabel}>DIGITAL DESIGN</div>
-      </div>
+      {/* Portfolio Grid */}
+      {works.map((work) => (
+        <article 
+          key={work.id}
+          className={`${styles.workItem} ${styles[`item${work.id}`]}`}
+        >
+          <div className={styles.cardVisual}></div>
+          <p className={styles.uppercaseLabel}>{work.category}</p>
+        </article>
+      ))}
 
-      <div className={`${styles.workItem} ${styles.item2}`}>
-        <div className={styles.cardVisual}></div>
-        <div className={styles.uppercaseLabel}>BRAND IDENTITY</div>
-      </div>
-
-      <div className={`${styles.workItem} ${styles.item3}`}>
-        <div className={styles.cardVisual}></div>
-        <div className={styles.uppercaseLabel}>DIGITAL DESIGN</div>
-      </div>
-
-      <div className={`${styles.workItem} ${styles.item4}`}>
-        <div className={styles.cardVisual}></div>
-        <div className={styles.uppercaseLabel}>BRAND IDENTITY</div>
-      </div>
-
-      <div className={`${styles.workItem} ${styles.item5}`}>
-        <div className={styles.cardVisual}></div>
-        <div className={styles.uppercaseLabel}>DIGITAL DESIGN</div>
-      </div>
-
-      <div className={`${styles.workItem} ${styles.item6}`}>
-        <div className={styles.cardVisual}></div>
-        <div className={styles.uppercaseLabel}>BRAND IDENTITY</div>
-      </div>
-
-      {/* Bottom Left Text */}
+      {/* Bottom Info */}
       <div className={styles.bottomInfo}>
         4 PROJECTS
         <br />

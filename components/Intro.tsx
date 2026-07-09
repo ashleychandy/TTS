@@ -5,7 +5,7 @@ export default function Intro() {
   return (
     <section className={styles.intro}>
       {/* Corner Star Logo */}
-      <div className={styles.cornerStar}>
+      <div className={styles.cornerStar} aria-hidden="true">
         <svg viewBox="0 0 100 100" width="100%" height="100%">
           {/* Cubic bezier path to draw a sharp 4-pointed sparkle star */}
           <path
@@ -33,16 +33,16 @@ export default function Intro() {
       <div className={styles.mainContainer}>
         {/* Typography Section */}
         <div className={styles.textSection}>
-          <div className={styles.headlineBlock}>
-            <div className={`${styles.line} ${styles.line1}`}>
+          <h2 className={styles.headlineBlock}>
+            <span className={`${styles.line} ${styles.line1}`}>
               WE HELP AMBITIOUS
-            </div>
-            <div className={styles.line}>TURN BOLD IDEAS INTO BRANDS</div>
-            <div className={styles.line}>
+            </span>
+            <span className={styles.line}>TURN BOLD IDEAS INTO BRANDS</span>
+            <span className={styles.line}>
               <span className={styles.textGrey}>POWERFUL VISUAL</span>
 
               {/* Inline Circle-Star Icon */}
-              <span className={styles.inlineIcon}>
+              <span className={styles.inlineIcon} aria-hidden="true">
                 <svg viewBox="0 0 100 100" width="100%" height="100%">
                   <defs>
                     <mask id="star-mask">
@@ -65,51 +65,35 @@ export default function Intro() {
               </span>
 
               <span className={styles.textGrey}>IDENTITIES</span>
-            </div>
-            <div className={styles.line}>AND DIGITAL EXPERIENCES</div>
-          </div>
+            </span>
+            <span className={styles.line}>AND DIGITAL EXPERIENCES</span>
+          </h2>
 
-          <div className={styles.subText}>
+          <p className={styles.subText}>
             WE CREATE BRANDS, VISUAL SYSTEMS AND DIGITAL EXPERIENCES
             <br />
             THAT HELP COMPANIES STAND OUT IN A FAST-MOVING WORLD.
-          </div>
+          </p>
         </div>
 
         {/* 4 Gradient Cards Section */}
         <div className={styles.cardsContainer}>
-          <div className={styles.card}>
-            <Image
-              src="/LandingPage/Intro 1.png"
-              alt="Brand identity showcase"
-              fill
-              className={styles.cardImage}
-            />
-          </div>
-          <div className={styles.card}>
-            <Image
-              src="/LandingPage/Intro 2.png"
-              alt="Digital design example"
-              fill
-              className={styles.cardImage}
-            />
-          </div>
-          <div className={styles.card}>
-            <Image
-              src="/LandingPage/Intro 3.png"
-              alt="Creative direction work"
-              fill
-              className={styles.cardImage}
-            />
-          </div>
-          <div className={styles.card}>
-            <Image
-              src="/LandingPage/Intro 4.png"
-              alt="Visual system design"
-              fill
-              className={styles.cardImage}
-            />
-          </div>
+          {[
+            { id: "intro-1", src: "/LandingPage/Intro 1.png", alt: "Brand identity showcase example" },
+            { id: "intro-2", src: "/LandingPage/Intro 2.png", alt: "Digital design portfolio piece" },
+            { id: "intro-3", src: "/LandingPage/Intro 3.png", alt: "Creative direction work sample" },
+            { id: "intro-4", src: "/LandingPage/Intro 4.png", alt: "Visual system design example" }
+          ].map((item) => (
+            <article key={item.id} className={styles.card}>
+              <Image
+                src={item.src}
+                alt={item.alt}
+                fill
+                className={styles.cardImage}
+                sizes="(max-width: 1024px) 50vw, 25vw"
+              />
+            </article>
+          ))}
         </div>
       </div>
     </section>

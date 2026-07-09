@@ -148,13 +148,27 @@
   height: 12vw;
 }
 
-/* --- Mobile fallback --- */
-@media (max-width: 800px) {
+/* --- Mobile Responsive --- */
+@media (max-width: 1024px) {
+  .mainTitle {
+    font-size: 5vw;
+  }
+
+  .headerItem {
+    font-size: 0.9vw;
+  }
+
+  .uppercaseLabel {
+    font-size: 1vw;
+  }
+}
+
+@media (max-width: 768px) {
   .selectedWorks {
     overflow-y: auto;
     height: auto;
     min-height: 100vh;
-    padding: 20px;
+    padding: 24px 20px 60px;
     display: flex;
     flex-direction: column;
   }
@@ -163,41 +177,80 @@
     position: static;
     transform: none;
     font-size: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+    line-height: 1.4;
   }
 
   .headerCenter,
   .headerRight {
-    display: none; /* Simplify header for mobile */
+    display: none;
   }
 
   .mainTitle {
     position: static;
-    font-size: 48px;
-    margin: 40px 0;
+    font-size: 44px;
+    line-height: 0.95;
+    margin: 32px 0 48px;
+    color: var(--brand-red);
   }
 
   .workItem {
     position: static;
     width: 100% !important;
     height: auto !important;
-    margin-bottom: 40px;
+    margin-bottom: 32px;
     gap: 12px;
   }
 
   .cardVisual {
-    aspect-ratio: 1 / 1.1; /* Standardize card shape on mobile */
+    aspect-ratio: 1 / 1.1;
     height: auto;
-    border-radius: 8px;
+    min-height: 280px;
+    border-radius: 12px;
   }
 
   .uppercaseLabel {
-    font-size: 14px;
+    font-size: 11px;
+    letter-spacing: 0.05em;
   }
 
   .bottomInfo {
     position: static;
-    font-size: 12px;
-    margin-top: 40px;
+    font-size: 10px;
+    margin-top: 32px;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 480px) {
+  .selectedWorks {
+    padding: 20px 16px 48px;
+  }
+
+  .headerItem {
+    font-size: 9px;
+  }
+
+  .mainTitle {
+    font-size: 36px;
+    margin: 24px 0 36px;
+  }
+
+  .workItem {
+    margin-bottom: 24px;
+  }
+
+  .cardVisual {
+    min-height: 240px;
+    border-radius: 10px;
+  }
+
+  .uppercaseLabel {
+    font-size: 10px;
+  }
+
+  .bottomInfo {
+    font-size: 9px;
+    margin-top: 24px;
   }
 }

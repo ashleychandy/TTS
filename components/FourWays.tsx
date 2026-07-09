@@ -2,17 +2,45 @@ import styles from "./FourWays.module.css";
 import Image from "next/image";
 
 export default function FourWays() {
+  const services = [
+    {
+      id: "service-01",
+      num: "01",
+      title: "BRAND IDENTITY",
+      desc: "BRAND LOGO, COLOR, TYPOGRAPHY, VOICE. EVERYTHING THAT MAKES A BRAND RECOGNIZABLE AT FIRST GLANCE."
+    },
+    {
+      id: "service-02",
+      num: "02",
+      title: "DIGITAL DESIGN",
+      desc: "LANDING PAGES, WEBSITES, UI/UX INTERFACES THAT CONVERT AND LEAVE AN IMPRESSION."
+    },
+    {
+      id: "service-03",
+      num: "03",
+      title: "ART DIRECTION",
+      desc: "FROM CONCEPT TO FINAL OUTPUT. WE OWN THE VISUAL IDEA AT EVERY STAGE OF THE PROCESS."
+    },
+    {
+      id: "service-04",
+      num: "04",
+      title: "CREATIVE STUDIO",
+      desc: "CAMPAIGNS, CONTENT, VISUAL SYSTEMS FOR SOCIAL MEDIA AND BEYOND."
+    }
+  ];
+
   return (
-    <section className={styles.fourWays}>
+    <section className={styles.fourWays} aria-labelledby="four-ways-heading">
       <Image
         src="/LandingPage/Four Ways.png"
-        alt="Four Ways background"
+        alt=""
         fill
         className={styles.fourWaysImage}
+        sizes="100vw"
       />
       <div className={styles.posterCanvas}>
         {/* Top Right Star SVG */}
-        <div className={styles.starIcon}>
+        <div className={styles.starIcon} aria-hidden="true">
           <svg viewBox="0 0 100 100" width="100%" height="100%">
             <path
               d="M 50,0 C 50,35 35,50 0,50 C 35,50 50,65 50,100 C 50,65 65,50 100,50 C 65,50 50,35 50,0 Z"
@@ -22,55 +50,23 @@ export default function FourWays() {
         </div>
 
         {/* Main Title */}
-        <div className={styles.headline}>
-          <div>FOUR WAYS TO</div>
-          <div>MAKE YOUR BRAND</div>
-          <div className={styles.line3}>UNFORGETTABLE</div>
-        </div>
+        <h2 id="four-ways-heading" className={styles.headline}>
+          <span>FOUR WAYS TO</span>
+          <span>MAKE YOUR BRAND</span>
+          <span className={styles.line3}>UNFORGETTABLE</span>
+        </h2>
 
-        {/* Detail Block 01 */}
-        <div className={`${styles.textBlock} ${styles.item01}`}>
-          <span className={styles.num}>01 —</span> BRAND IDENTITY. BRAND
-          <br />
-          LOGO, COLOR, TYPOGRAPHY, VOICE.
-          <br />
-          EVERYTHING THAT MAKES A BRAND
-          <br />
-          RECOGNIZABLE AT FIRST GLANCE.
-        </div>
-
-        {/* Detail Block 02 */}
-        <div className={`${styles.textBlock} ${styles.item02}`}>
-          <span className={styles.num}>02 —</span> DIGITAL DESIGN LANDING
-          <br />
-          PAGES, WEBSITES, UI/UX
-          <br />
-          INTERFACES THAT CONVERT
-          <br />
-          AND LEAVE AN IMPRESSION.
-        </div>
-
-        {/* Detail Block 03 */}
-        <div className={`${styles.textBlock} ${styles.item03}`}>
-          <span className={styles.num}>03 —</span> ART DIRECTION. FROM
-          <br />
-          CONCEPT TO FINAL OUTPUT. WE
-          <br />
-          OWN THE VISUAL IDEA AT EVERY
-          <br />
-          STAGE OF THE PROCESS.
-        </div>
-
-        {/* Detail Block 04 */}
-        <div className={`${styles.textBlock} ${styles.item04}`}>
-          <span className={styles.num}>04 —</span> CREATIVE STUDIO
-          <br />
-          CAMPAIGNS, CONTENT,
-          <br />
-          VISUAL SYSTEMS FOR
-          <br />
-          SOCIAL MEDIA AND BEYOND.
-        </div>
+        {/* Service Blocks */}
+        {services.map((service, index) => (
+          <article 
+            key={service.id}
+            className={`${styles.textBlock} ${styles[`item0${index + 1}`]}`}
+          >
+            <span className={styles.num}>{service.num} —</span>
+            <strong className={styles.serviceTitle}>{service.title}.</strong>
+            <span className={styles.serviceDesc}> {service.desc}</span>
+          </article>
+        ))}
       </div>
     </section>
   );
