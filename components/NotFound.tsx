@@ -15,13 +15,6 @@ export default function NotFound() {
         <div className={styles.bgText}>404</div>
       </div>
 
-      {/* Header Navigation */}
-      <header
-        className={`${styles.cornerElement} ${styles.headerLogo} ${styles.uiText}`}
-      >
-        <span className={styles.star}>✸</span> {SITE_CONFIG.name}
-      </header>
-
       <div
         className={`${styles.cornerElement} ${styles.headerInfo} ${styles.uiText}`}
       >
