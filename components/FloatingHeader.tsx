@@ -4,11 +4,15 @@ import { useState } from "react";
 import Link from "next/link";
 import styles from "./FloatingHeader.module.css";
 
-export default function FloatingHeader() {
+interface FloatingHeaderProps {
+  position?: "left" | "right";
+}
+
+export default function FloatingHeader({ position = "left" }: FloatingHeaderProps) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   return (
-    <header className={styles.floatingHeader}>
+    <header className={`${styles.floatingHeader} ${position === "right" ? styles.floatingHeaderRight : ""}`}>
       <Link href="/" className={styles.logoButton}>
         <span className={styles.logoStar}>✸</span>
         <span>Thirst Trap Studios</span>
@@ -25,14 +29,14 @@ export default function FloatingHeader() {
         </button>
         
         {isDropdownOpen && (
-          <div className={styles.dropdownMenu}>
+          <div className={`${styles.dropdownMenu} ${position === "right" ? styles.dropdownMenuRight : ""}`}>
             <Link href="/products/product-1" className={styles.dropdownItem}>
               LAKME
             </Link>
-            <Link href="/products/product-2" className={styles.dropdownItem}>
+            <Link href="/products/product-2" className={`${styles.dropdownItem} ${styles.dropdownItemDisabled}`}>
               PLUM
             </Link>
-            <Link href="#" className={styles.dropdownItem}>
+            <Link href="#" className={`${styles.dropdownItem} ${styles.dropdownItemDisabled}`}>
               YOGA BAR
             </Link>
           </div>

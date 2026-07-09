@@ -1,6 +1,6 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import FloatingHeader from "@/components/FloatingHeader";
+import ConditionalHeader from "@/components/ConditionalHeader";
 
 export const metadata: Metadata = {
   title: "Thirst Trap Studios",
@@ -11,6 +11,12 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -19,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <FloatingHeader />
+        <ConditionalHeader />
         {children}
       </body>
     </html>

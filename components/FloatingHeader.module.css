@@ -8,6 +8,12 @@
   gap: 3vw;
 }
 
+.floatingHeaderRight {
+  left: auto;
+  right: 2.5vw;
+  flex-direction: row-reverse;
+}
+
 .logoButton {
   display: flex;
   align-items: flex-start;
@@ -77,6 +83,12 @@
   animation: fadeIn 0.2s ease;
 }
 
+.dropdownMenuRight {
+  left: auto;
+  right: 0;
+  text-align: right;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -106,12 +118,28 @@
   opacity: 0.7;
 }
 
+.dropdownItemDisabled {
+  color: #999;
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.dropdownItemDisabled:hover {
+  opacity: 0.5;
+}
+
 /* --- Mobile fallback --- */
 @media (max-aspect-ratio: 1/1) {
   .floatingHeader {
     top: 20px;
     left: 20px;
     gap: 30px;
+  }
+
+  .floatingHeaderRight {
+    left: auto;
+    right: 20px;
   }
 
   .logoButton {

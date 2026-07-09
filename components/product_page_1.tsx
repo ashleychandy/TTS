@@ -2,13 +2,27 @@
 
 import Image from "next/image";
 import styles from "./product_page_1.module.css";
+import { useState } from "react";
 
 export default function ProductPage1() {
+  const [enlargedImage, setEnlargedImage] = useState<string | null>(null);
+
+  const handleImageClick = (src: string) => {
+    setEnlargedImage(src);
+  };
+
+  const handleCloseEnlarged = () => {
+    setEnlargedImage(null);
+  };
+
   return (
     <main className={styles.page}>
       {/* HERO */}
       <section className={`${styles.container} ${styles.hero}`}>
-        <div className={styles.heroImage}>
+        <div 
+          className={styles.heroImage}
+          onClick={() => handleImageClick("/ProductPage1/4.png")}
+        >
           <Image
             src="/ProductPage1/4.png"
             alt="Lakmé Lip Balm hero"
@@ -28,7 +42,6 @@ export default function ProductPage1() {
           </div>
 
           <div>
-            <div className={styles.titleSmall}>Campaign Spotlight</div>
             <div className={styles.titleBig}>Lakmé Lip Balm.</div>
           </div>
         </div>
@@ -47,16 +60,15 @@ export default function ProductPage1() {
                 and premium product placement to create engaging marketing
                 visuals across digital and social platforms.
               </p>
-
-              <a href="#" className={styles.shopBtn}>
-                VIEW CAMPAIGN →
-              </a>
             </div>
           </div>
 
           <div className={styles.productGrid}>
             <div className={styles.product}>
-              <div className={styles.productImage}>
+              <div 
+                className={styles.productImage}
+                onClick={() => handleImageClick("/ProductPage1/3.png")}
+              >
                 <Image
                   src="/ProductPage1/3.png"
                   alt="Beauty Portrait"
@@ -68,7 +80,10 @@ export default function ProductPage1() {
             </div>
 
             <div className={styles.product}>
-              <div className={styles.productImage}>
+              <div 
+                className={styles.productImage}
+                onClick={() => handleImageClick("/ProductPage1/2.png")}
+              >
                 <Image
                   src="/ProductPage1/2.png"
                   alt="Close-Up Campaign"
@@ -80,7 +95,10 @@ export default function ProductPage1() {
             </div>
 
             <div className={styles.product}>
-              <div className={styles.productImage}>
+              <div 
+                className={styles.productImage}
+                onClick={() => handleImageClick("/ProductPage1/6.png")}
+              >
                 <Image
                   src="/ProductPage1/6.png"
                   alt="Natural Glow"
@@ -92,7 +110,10 @@ export default function ProductPage1() {
             </div>
 
             <div className={styles.product}>
-              <div className={styles.productImage}>
+              <div 
+                className={styles.productImage}
+                onClick={() => handleImageClick("/ProductPage1/5.png")}
+              >
                 <Image
                   src="/ProductPage1/5.png"
                   alt="Editorial Beauty Shot"
@@ -116,7 +137,10 @@ export default function ProductPage1() {
               FEELS EFFORTLESS.
             </h2>
 
-            <div className={styles.smallImage}>
+            <div 
+              className={styles.smallImage}
+              onClick={() => handleImageClick("/ProductPage1/lip balm 2.png")}
+            >
               <Image
                 src="/ProductPage1/lip balm 2.png"
                 alt="Product close-up"
@@ -126,7 +150,10 @@ export default function ProductPage1() {
             </div>
           </div>
 
-          <div className={styles.largeImage}>
+          <div 
+            className={styles.largeImage}
+            onClick={() => handleImageClick("/ProductPage1/1.png")}
+          >
             <Image
               src="/ProductPage1/1.png"
               alt="Feature product"
@@ -136,6 +163,20 @@ export default function ProductPage1() {
           </div>
         </div>
       </section>
+
+      {/* ENLARGED IMAGE MODAL */}
+      {enlargedImage && (
+        <div className={styles.modal} onClick={handleCloseEnlarged}>
+          <div className={styles.modalContent}>
+            <Image
+              src={enlargedImage}
+              alt="Enlarged view"
+              fill
+              className={styles.modalImage}
+            />
+          </div>
+        </div>
+      )}
     </main>
   );
 }
