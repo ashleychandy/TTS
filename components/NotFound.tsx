@@ -1,5 +1,11 @@
+/**
+ * NotFound component - 404 error page
+ * Features centered error message with navigation
+ */
+
 import Link from "next/link";
-import styles from "./not-found.module.css";
+import { SITE_CONFIG, SOCIAL_LINKS } from "@/lib/constants";
+import styles from "./NotFound.module.css";
 
 export default function NotFound() {
   return (
@@ -13,7 +19,7 @@ export default function NotFound() {
       <header
         className={`${styles.cornerElement} ${styles.headerLogo} ${styles.uiText}`}
       >
-        <span className={styles.star}>✸</span> Thirst Trap Studios
+        <span className={styles.star}>✸</span> {SITE_CONFIG.name}
       </header>
 
       <div
@@ -26,7 +32,6 @@ export default function NotFound() {
 
       {/* Center Error Content */}
       <main className={styles.centerBlock}>
-       
         <div className={styles.errorCode}>404</div>
         <h1 className={styles.errorTitle}>ERROR PAGE</h1>
 
@@ -39,14 +44,14 @@ export default function NotFound() {
       <div
         className={`${styles.cornerElement} ${styles.footerCopy} ${styles.uiText}`}
       >
-        © 2026 Thirst Trap Studios
+        © 2026 {SITE_CONFIG.name}
       </div>
 
       <div
         className={`${styles.cornerElement} ${styles.footerSocials} ${styles.uiText}`}
       >
-        <a href="https://www.instagram.com/thirst.trap.studios/" target="_blank" rel="noopener noreferrer">INSTAGRAM ↗</a>
-        <a href="https://www.linkedin.com/company/thirst-trap-studios/" target="_blank" rel="noopener noreferrer">LINKEDIN ↗</a>
+        <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer">INSTAGRAM ↗</a>
+        <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer">LINKEDIN ↗</a>
       </div>
     </div>
   );

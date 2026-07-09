@@ -1,11 +1,17 @@
-import ProductPage2 from "@/components/product_page_2";
+import ProductPage2 from "@/components/ProductPage2";
 import Footer from "@/components/Footer";
+import FloatingHeader from "@/components/FloatingHeader";
+import ScrollToTop from "@/components/ui/ScrollToTop";
 
 export default function Product2Page() {
   return (
-    <main>
-      <ProductPage2 />
-      <Footer />
-    </main>
+    <>
+      <FloatingHeader position="right" />
+      <main>
+        <ProductPage2 />
+        <Footer />
+      </main>
+      <ScrollToTop />
+    </>
   );
 }

@@ -1,6 +1,7 @@
-import ProductPage1 from "@/components/product_page_1";
+import ProductPage1 from "@/components/ProductPage1";
 import Footer from "@/components/Footer";
 import FloatingHeader from "@/components/FloatingHeader";
+import ScrollToTop from "@/components/ui/ScrollToTop";
 
 export default function Product1Page() {
   return (
@@ -10,6 +11,7 @@ export default function Product1Page() {
         <ProductPage1 />
         <Footer />
       </main>
+      <ScrollToTop />
     </>
   );
 }

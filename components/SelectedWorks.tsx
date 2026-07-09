@@ -1,15 +1,12 @@
+/**
+ * SelectedWorks component - Portfolio grid section
+ * Displays scattered card layout with work categories
+ */
+
+import { works } from "@/data/works";
 import styles from "./SelectedWorks.module.css";
 
 export default function SelectedWorks() {
-  const works = [
-    { category: "DIGITAL DESIGN", id: 1 },
-    { category: "BRAND IDENTITY", id: 2 },
-    { category: "DIGITAL DESIGN", id: 3 },
-    { category: "BRAND IDENTITY", id: 4 },
-    { category: "DIGITAL DESIGN", id: 5 },
-    { category: "BRAND IDENTITY", id: 6 }
-  ];
-
   return (
     <section className={styles.selectedWorks} aria-labelledby="selected-works-heading">
       {/* Header */}

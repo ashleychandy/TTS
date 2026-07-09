@@ -4,6 +4,35 @@
   margin: 0;
 }
 
+:root {
+  /* Colors */
+  --color-primary-red-dark: #6e0505;
+  --color-primary-red-medium: #8a0000;
+  --color-brand-red: #a80015;
+  --color-accent: #ff6b6b;
+  --color-background: #fdfdfd;
+  --color-text-dark: #333333;
+  --color-text-grey: #999999;
+  --color-white: #ffffff;
+  
+  /* Spacing */
+  --spacing-base: 2.5vw;
+  --spacing-small: 1vw;
+  --spacing-medium: 3vw;
+  --spacing-large: 4vw;
+  
+  /* Breakpoints (for reference in JS) */
+  --breakpoint-mobile: 480px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 1024px;
+  
+  /* Legacy variable for backward compatibility */
+  --red: var(--color-brand-red);
+  
+  /* Smooth scroll configuration */
+  scroll-behavior: smooth;
+}
+
 html {
   max-width: 100vw;
   overflow-x: hidden;
@@ -11,6 +40,8 @@ html {
   /* Better font rendering on mobile */
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  /* Smooth scrolling with padding for fixed header */
+  scroll-padding-top: 100px;
 }
 
 body {
@@ -21,6 +52,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   /* Improve touch scrolling on iOS */
   -webkit-overflow-scrolling: touch;
+  background: var(--color-background);
+  color: var(--color-text-dark);
 }
 
 a {
@@ -35,6 +68,11 @@ button,
 a,
 [role="button"] {
   touch-action: manipulation;
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 main {
@@ -62,13 +100,29 @@ img {
 
 /* Focus styles for better keyboard navigation */
 *:focus-visible {
-  outline: 3px solid #ef0000;
+  outline: 3px solid var(--color-accent);
   outline-offset: 4px;
 }
 
 button:focus-visible,
 a:focus-visible,
 [role="button"]:focus-visible {
-  outline: 3px solid #ef0000;
+  outline: 3px solid var(--color-accent);
   outline-offset: 2px;
+}
+
+/* Skip link for accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-brand-red);
+  color: var(--color-white);
+  padding: 8px 16px;
+  text-decoration: none;
+  z-index: 10000;
+}
+
+.skip-link:focus {
+  top: 0;
 }

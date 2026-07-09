@@ -1,3 +1,8 @@
+/**
+ * ConditionalHeader component - Conditionally renders header based on route
+ * Hides header on product pages to avoid duplication
+ */
+
 "use client";
 
 import { usePathname } from "next/navigation";

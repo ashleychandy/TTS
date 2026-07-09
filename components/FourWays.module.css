@@ -63,8 +63,12 @@
   margin-right: 0.5vw;
 }
 
-/* Desktop - keep title and desc inline */
-.serviceTitle,
+/* Desktop - keep elements inline where needed */
+.serviceTitle {
+  display: inline;
+  font-weight: 600;
+}
+
 .serviceDesc {
   display: inline;
 }

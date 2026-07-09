@@ -3,15 +3,19 @@ import Intro from "@/components/Intro";
 import FourWays from "@/components/FourWays";
 import SelectedWorks from "@/components/SelectedWorks";
 import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ui/ScrollToTop";
 
 export default function Home() {
   return (
-    <main>
-      <Hero />
-      <Intro />
-      <FourWays />
-      <SelectedWorks />
-      <Footer />
-    </main>
+    <>
+      <main>
+        <Hero />
+        <Intro />
+        <FourWays />
+        <SelectedWorks />
+        <Footer />
+      </main>
+      <ScrollToTop />
+    </>
   );
 }

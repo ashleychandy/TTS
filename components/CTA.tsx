@@ -1,7 +1,14 @@
+/**
+ * CTA component - Call-to-action section
+ * Features headline, subtext, contact button, and visual gradient
+ */
+
 "use client";
 
-import styles from "./CTA.module.css";
 import Image from "next/image";
+import { SITE_CONFIG } from "@/lib/constants";
+import StarIcon from "@/components/ui/StarIcon";
+import styles from "./CTA.module.css";
 
 export default function CTA() {
   return (
@@ -21,7 +28,7 @@ export default function CTA() {
               EXPERIENCES THAT STAND OUT AND SELL.
             </p>
             <a 
-              href="mailto:contact.thirsttrapstudios@gmail.com" 
+              href={`mailto:${SITE_CONFIG.contactEmail}`}
               className={styles.btnPrimary}
               aria-label="Start a project - Contact us via email"
             >
@@ -30,13 +37,10 @@ export default function CTA() {
           </div>
         </div>
 
-        <svg
+        <StarIcon 
           className={`${styles.starIcon} ${styles.redStar}`}
-          viewBox="0 0 100 100"
-          aria-hidden="true"
-        >
-          <path d="M50 0 C50 35 35 50 0 50 C35 50 50 65 50 100 C50 65 65 50 100 50 C65 50 50 35 50 0 Z" />
-        </svg>
+          fill="var(--red)"
+        />
       </div>
 
       <div className={styles.ctaRight}>

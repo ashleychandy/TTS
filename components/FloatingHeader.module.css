@@ -4,7 +4,7 @@
   left: 2.5vw;
   z-index: 1000;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 3vw;
 }
 
@@ -16,7 +16,7 @@
 
 .logoButton {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 6px;
   font-weight: 500;
   font-size: 0.85vw;
@@ -30,6 +30,9 @@
   border: none;
   cursor: pointer;
   transition: opacity 0.2s ease;
+  padding: 0;
+  min-height: auto;
+  min-width: auto;
 }
 
 .logoButton:hover {
@@ -38,7 +41,7 @@
 
 .logoStar {
   font-size: 1.2vw;
-  line-height: 0.8;
+  line-height: 1;
 }
 
 /* --- Dropdown --- */
@@ -62,6 +65,8 @@
   cursor: pointer;
   transition: opacity 0.2s ease;
   padding: 0;
+  min-height: auto;
+  min-width: auto;
 }
 
 .dropdownButton:hover {
@@ -71,6 +76,7 @@
 .arrow {
   font-size: 0.7vw;
   transition: transform 0.2s ease;
+  line-height: 1;
 }
 
 .arrowOpen {

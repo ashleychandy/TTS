@@ -1,18 +1,19 @@
-import styles from "./Intro.module.css";
+/**
+ * Intro component - Brand statement section with gradient cards
+ * Features corner decorations, typography, and responsive card grid
+ */
+
 import Image from "next/image";
+import { introCards } from "@/data/intro";
+import StarIcon from "@/components/ui/StarIcon";
+import styles from "./Intro.module.css";
 
 export default function Intro() {
   return (
     <section className={styles.intro}>
       {/* Corner Star Logo */}
       <div className={styles.cornerStar} aria-hidden="true">
-        <svg viewBox="0 0 100 100" width="100%" height="100%">
-          {/* Cubic bezier path to draw a sharp 4-pointed sparkle star */}
-          <path
-            d="M 50,0 C 50,35 35,50 0,50 C 35,50 50,65 50,100 C 50,65 65,50 100,50 C 65,50 50,35 50,0 Z"
-            fill="var(--red)"
-          />
-        </svg>
+        <StarIcon fill="var(--red)" />
       </div>
 
       {/* Top Right Text */}
@@ -78,12 +79,7 @@ export default function Intro() {
 
         {/* 4 Gradient Cards Section */}
         <div className={styles.cardsContainer}>
-          {[
-            { id: "intro-1", src: "/LandingPage/Intro 1.png", alt: "Brand identity showcase example" },
-            { id: "intro-2", src: "/LandingPage/Intro 2.png", alt: "Digital design portfolio piece" },
-            { id: "intro-3", src: "/LandingPage/Intro 3.png", alt: "Creative direction work sample" },
-            { id: "intro-4", src: "/LandingPage/Intro 4.png", alt: "Visual system design example" }
-          ].map((item) => (
+          {introCards.map((item) => (
             <article key={item.id} className={styles.card}>
               <Image
                 src={item.src}

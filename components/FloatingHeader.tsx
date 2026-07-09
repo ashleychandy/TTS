@@ -1,7 +1,17 @@
+/**
+ * FloatingHeader component - Sticky navigation header
+ * Features logo, dropdown menu, and responsive mobile behavior
+ * 
+ * @param position - Whether to position left or right (default: "left")
+ */
+
 "use client";
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { useMediaQuery, BREAKPOINTS } from "@/hooks/useMediaQuery";
+import { SITE_CONFIG } from "@/lib/constants";
+import { projectsNavigation } from "@/data/navigation";
 import styles from "./FloatingHeader.module.css";
 
 interface FloatingHeaderProps {
@@ -10,19 +20,8 @@ interface FloatingHeaderProps {
 
 export default function FloatingHeader({ position = "left" }: FloatingHeaderProps) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const isMobile = useMediaQuery(BREAKPOINTS.tablet);
   const dropdownRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
 
   // Handle click outside to close dropdown on mobile
   useEffect(() => {
@@ -46,9 +45,9 @@ export default function FloatingHeader({ position = "left" }: FloatingHeaderProp
 
   return (
     <header className={`${styles.floatingHeader} ${position === "right" ? styles.floatingHeaderRight : ""}`}>
-      <Link href="/" className={styles.logoButton} aria-label="Home - Thirst Trap Studios">
+      <Link href="/" className={styles.logoButton} aria-label={`Home - ${SITE_CONFIG.name}`}>
         <span className={styles.logoStar} aria-hidden="true">✸</span>
-        <span>Thirst Trap Studios</span>
+        <span>{SITE_CONFIG.name}</span>
       </Link>
       
       <div 
@@ -70,15 +69,25 @@ export default function FloatingHeader({ position = "left" }: FloatingHeaderProp
         
         {isDropdownOpen && (
           <nav className={`${styles.dropdownMenu} ${position === "right" ? styles.dropdownMenuRight : ""}`}>
-            <Link href="/products/product-1" className={styles.dropdownItem}>
-              LAKME
-            </Link>
-            <Link href="/products/product-2" className={`${styles.dropdownItem} ${styles.dropdownItemDisabled}`}>
-              PLUM
-            </Link>
-            <Link href="#" className={`${styles.dropdownItem} ${styles.dropdownItemDisabled}`}>
-              YOGA BAR
-            </Link>
+            {projectsNavigation.map((item) => (
+              item.disabled ? (
+                <span
+                  key={item.href}
+                  className={`${styles.dropdownItem} ${styles.dropdownItemDisabled}`}
+                  aria-disabled="true"
+                >
+                  {item.label}
+                </span>
+              ) : (
+                <Link 
+                  key={item.href}
+                  href={item.href} 
+                  className={styles.dropdownItem}
+                >
+                  {item.label}
+                </Link>
+              )
+            ))}
           </nav>
         )}
       </div>
