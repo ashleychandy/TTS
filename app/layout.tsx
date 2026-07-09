@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import FloatingHeader from "@/components/FloatingHeader";
 
 export const metadata: Metadata = {
   title: "Thirst Trap Studios",
@@ -17,7 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <FloatingHeader />
+        {children}
+      </body>
     </html>
   );
 }

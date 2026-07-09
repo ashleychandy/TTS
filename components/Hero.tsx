@@ -55,11 +55,8 @@ export default function Hero() {
       />
       <div className={styles.container}>
         <header className={styles.header}>
-          <div className={styles.logo}>
-            <span className={styles.logoStar}>✸</span>
-            <span>Thirst Trap Studios</span>
-          </div>
-          <div>DIGITAL<br />DESIGN</div>
+          <div></div>
+          <div><br /></div>
           <div>ART<br />DIRECTION</div>
           <div className={styles.headerItemRight}>
             BASED ON EARTH<br />WORKING WORLDWIDE
@@ -68,7 +65,7 @@ export default function Hero() {
 
         <main className={styles.middleSection}>
           <div className={styles.projectsInfo}>
-            SELECTED PROJECTS
+            DIGITAL DESIGN
           </div>
 
           <div className={styles.agencyInfo}>
