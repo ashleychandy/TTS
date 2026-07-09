@@ -4,6 +4,7 @@
 
 "use client";
 
+import Link from "next/link";
 import { useFitText } from "@/hooks/useFitText";
 import { SITE_CONFIG, SOCIAL_LINKS } from "@/lib/constants";
 import { mainNavigation, footerNavigation } from "@/data/navigation";
@@ -55,13 +56,13 @@ export default function Footer() {
                 {link.label}
               </span>
             ) : (
-              <a 
+              <Link 
                 key={`nav-${link.label}-${index}`}
                 href={link.href} 
                 className={styles.footerLink}
               >
                 {link.label}
-              </a>
+              </Link>
             )
           ))}
         </div>
@@ -78,13 +79,13 @@ export default function Footer() {
                 {link.label}
               </span>
             ) : (
-              <a 
+              <Link 
                 key={`legal-${link.label}-${index}`}
                 href={link.href} 
                 className={styles.footerLink}
               >
                 {link.label}
-              </a>
+              </Link>
             )
           ))}
         </div>

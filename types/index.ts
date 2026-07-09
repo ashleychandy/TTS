@@ -30,6 +30,8 @@ export interface Service {
 export interface Work {
   category: string;
   id: number;
+  image: string;
+  alt: string;
 }
 
 export interface IntroCard {
