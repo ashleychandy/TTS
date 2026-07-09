@@ -44,10 +44,10 @@ export default function Footer() {
         </div>
 
         <div className={styles.footerCol}>
-          {mainNavigation.map((link) => (
+          {mainNavigation.map((link, index) => (
             link.disabled ? (
               <span 
-                key={link.href}
+                key={`nav-${link.label}-${index}`}
                 className={styles.footerLink}
                 style={{ opacity: 0.5, cursor: 'not-allowed' }}
                 aria-disabled="true"
@@ -56,7 +56,7 @@ export default function Footer() {
               </span>
             ) : (
               <a 
-                key={link.href} 
+                key={`nav-${link.label}-${index}`}
                 href={link.href} 
                 className={styles.footerLink}
               >
@@ -67,10 +67,10 @@ export default function Footer() {
         </div>
 
         <div className={styles.footerCol}>
-          {footerNavigation.legal.map((link) => (
+          {footerNavigation.legal.map((link, index) => (
             link.disabled ? (
               <span 
-                key={link.href}
+                key={`legal-${link.label}-${index}`}
                 className={styles.footerLink}
                 style={{ opacity: 0.5, cursor: 'not-allowed' }}
                 aria-disabled="true"
@@ -79,7 +79,7 @@ export default function Footer() {
               </span>
             ) : (
               <a 
-                key={link.href} 
+                key={`legal-${link.label}-${index}`}
                 href={link.href} 
                 className={styles.footerLink}
               >

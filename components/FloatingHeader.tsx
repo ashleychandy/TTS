@@ -11,7 +11,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useMediaQuery, BREAKPOINTS } from "@/hooks/useMediaQuery";
 import { SITE_CONFIG } from "@/lib/constants";
-import { projectsNavigation } from "@/data/navigation";
+import { portfolioNavigation } from "@/data/navigation";
 import styles from "./FloatingHeader.module.css";
 
 interface FloatingHeaderProps {
@@ -61,18 +61,18 @@ export default function FloatingHeader({ position = "left" }: FloatingHeaderProp
           onClick={toggleDropdown}
           aria-expanded={isDropdownOpen}
           aria-haspopup="true"
-          aria-label="Projects menu"
+          aria-label="Portfolio menu"
         >
-          PROJECTS
+          PORTFOLIO
           <span className={`${styles.arrow} ${isDropdownOpen ? styles.arrowOpen : ''}`} aria-hidden="true">▾</span>
         </button>
         
         {isDropdownOpen && (
           <nav className={`${styles.dropdownMenu} ${position === "right" ? styles.dropdownMenuRight : ""}`}>
-            {projectsNavigation.map((item) => (
+            {portfolioNavigation.map((item, index) => (
               item.disabled ? (
                 <span
-                  key={item.href}
+                  key={`portfolio-${item.label}-${index}`}
                   className={`${styles.dropdownItem} ${styles.dropdownItemDisabled}`}
                   aria-disabled="true"
                 >
@@ -80,7 +80,7 @@ export default function FloatingHeader({ position = "left" }: FloatingHeaderProp
                 </span>
               ) : (
                 <Link 
-                  key={item.href}
+                  key={`portfolio-${item.label}-${index}`}
                   href={item.href} 
                   className={styles.dropdownItem}
                 >
