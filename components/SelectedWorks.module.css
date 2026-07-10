@@ -21,6 +21,10 @@
   font-weight: 400;
   letter-spacing: 0.03em;
   text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+  white-space: nowrap;
 }
 
 /* --- Top Header Navigation --- */
@@ -76,9 +80,9 @@
   position: absolute;
   display: flex;
   flex-direction: column;
-  gap: 1vw; /* Space between card and text label */
   width: var(--item-width, 11.5vw);
-  height: var(--item-height, 12vw);
+  height: auto;
+  align-items: flex-start;
 }
 
 /* Complex background gradient to mimic the moody, darkroom aesthetic */
@@ -93,9 +97,10 @@
   /* Very subtle inner highlight to define edges */
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
   width: 100%;
-  height: 100%;
+  height: var(--item-height, 12vw);
   position: relative;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .cardImage {
@@ -210,6 +215,10 @@
   .uppercaseLabel {
     font-size: 11px;
     letter-spacing: 0.05em;
+    line-height: 1.2;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
   }
 
   .bottomInfo {
@@ -245,6 +254,10 @@
 
   .uppercaseLabel {
     font-size: 10px;
+    line-height: 1.2;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
   }
 
   .bottomInfo {

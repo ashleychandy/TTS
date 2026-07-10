@@ -149,7 +149,6 @@ export default function SelectedWorks() {
               />
             )}
           </div>
-          <p className={styles.uppercaseLabel}>{work.category}</p>
         </article>
       ))}
 
