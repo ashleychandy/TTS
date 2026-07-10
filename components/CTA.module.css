@@ -42,7 +42,7 @@
 
 /* Wrapper to indent the subtext and button */
 .indentedContent {
-  padding-left: 12vw;
+  padding-left: 0;
   margin-bottom: 6vw;
 }
 
