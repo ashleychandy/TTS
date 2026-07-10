@@ -34,9 +34,11 @@ export default function Footer() {
           <div className={styles.footerText}>BASED ON EARTH</div>
 
           <div className={styles.contactGroup}>
-            <a href={`mailto:${SITE_CONFIG.contactEmail}`} className={styles.emailCTA}>
-              {SITE_CONFIG.contactEmail}
-            </a>
+            <span className={styles.linkWrapper}>
+              <a href={`mailto:${SITE_CONFIG.contactEmail}`} className={styles.footerLink}>
+                {SITE_CONFIG.contactEmail}
+              </a>
+            </span>
           </div>
 
           <div className={`${styles.footerText} ${styles.copyright}`}>
@@ -45,37 +47,52 @@ export default function Footer() {
         </div>
 
         <div className={styles.footerCol}>
+          <div className={styles.footerText} style={{ marginBottom: 'clamp(4px, 0.4vw, 8px)' }}>
+            NAVIGATION
+          </div>
           {mainNavigation.filter(link => !link.disabled).map((link, index) => (
-            <Link 
-              key={`nav-${link.label}-${index}`}
-              href={link.href} 
-              className={styles.footerLink}
-            >
-              {link.label}
-            </Link>
+            <span key={`nav-${link.label}-${index}`} className={styles.linkWrapper}>
+              <Link 
+                href={link.href} 
+                className={styles.footerLink}
+              >
+                {link.label}
+              </Link>
+            </span>
           ))}
         </div>
 
         <div className={styles.footerCol}>
+          <div className={styles.footerText} style={{ marginBottom: 'clamp(4px, 0.4vw, 8px)' }}>
+            LEGAL
+          </div>
           {footerNavigation.legal.filter(link => !link.disabled).map((link, index) => (
-            <Link 
-              key={`legal-${link.label}-${index}`}
-              href={link.href} 
-              className={styles.footerLink}
-            >
-              {link.label}
-            </Link>
+            <span key={`legal-${link.label}-${index}`} className={styles.linkWrapper}>
+              <Link 
+                href={link.href} 
+                className={styles.footerLink}
+              >
+                {link.label}
+              </Link>
+            </span>
           ))}
         </div>
 
         <div className={styles.footerCol}>
-          <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" className={styles.footerLink}>
-            INSTAGRAM ↗
-          </a>
+          <div className={styles.footerText} style={{ marginBottom: 'clamp(4px, 0.4vw, 8px)' }}>
+            SOCIAL
+          </div>
+          <span className={styles.linkWrapper}>
+            <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" className={styles.footerLink}>
+              INSTAGRAM
+            </a>
+          </span>
           
-          <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" className={styles.footerLink}>
-            LINKEDIN ↗
-          </a>
+          <span className={styles.linkWrapper}>
+            <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" className={styles.footerLink}>
+              LINKEDIN
+            </a>
+          </span>
         </div>
       </div>
 

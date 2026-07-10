@@ -1,9 +1,9 @@
 .footer {
   --font-main: "Helvetica Neue", Helvetica, Arial, sans-serif;
   --page-padding: 3vw;
-  --footer-link-size: clamp(10px, 0.75vw, 14px);
-  --footer-text-size: clamp(10px, 0.75vw, 14px);
-  --footer-email-size: clamp(10px, 0.85vw, 14px);
+  --footer-link-size: clamp(12px, 1vw, 16px);
+  --footer-text-size: clamp(12px, 1vw, 16px);
+  --footer-email-size: clamp(12px, 1.1vw, 16px);
   --footer-col-gap: clamp(8px, 0.4vw, 12px);
   --footer-grid-row-gap: clamp(20px, 2vw, 32px);
   --footer-grid-col-gap: clamp(20px, 3vw, 36px);
@@ -24,7 +24,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 6vw;
+  margin-bottom: 2vw;
   padding-bottom: 3vw;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -51,11 +51,13 @@
 /* Middle row of footer (4 Column Links Grid) */
 .footerGrid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  grid-template-columns: 1.75fr 1fr 1fr 1fr;
   gap: var(--footer-grid-row-gap) var(--footer-grid-col-gap);
   margin-bottom: clamp(40px, 8vw, 80px);
   align-items: start;
   padding-top: clamp(16px, 2vw, 24px);
+  /* Ensure all columns start at same baseline */
+  align-content: start;
 }
 
 .footerCol {
@@ -64,6 +66,9 @@
   gap: var(--footer-col-gap);
   justify-content: flex-start;
   align-items: flex-start;
+  min-width: 0; /* Prevent flex children from overflowing */
+  /* Ensure consistent alignment across columns */
+  height: 100%;
 }
 
 .footerText {
@@ -73,7 +78,8 @@
   letter-spacing: 0.04em;
   margin: 0;
   padding: 0;
-  line-height: 1.2;
+  line-height: 1;
+  color: #ccaa88;
 }
 
 .footerLink {
@@ -84,11 +90,19 @@
   text-transform: uppercase;
   letter-spacing: 0.04em;
   transition: opacity 0.3s ease;
-  display: block;
-  line-height: 1.2;
+  display: inline;
+  line-height: 1;
   margin: 0;
   padding: 0;
   white-space: nowrap;
+  width: fit-content;
+  height: fit-content;
+}
+
+.linkWrapper {
+  display: block;
+  width: fit-content;
+  line-height: 1;
 }
 
 .footerLink:hover {
@@ -101,32 +115,18 @@
 }
 
 .contactGroup {
-  /* Use flex gap only for consistent vertical rhythm */
-}
-
-.emailCTA {
-  font-size: var(--footer-email-size);
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: #ffffff;
-  text-decoration: none;
-  display: inline-block;
-  padding: clamp(8px, 0.6vw, 12px) clamp(12px, 1.2vw, 18px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50px;
-  transition: all 0.3s ease;
-}
-
-.emailCTA:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.8);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: clamp(4px, 0.4vw, 8px);
 }
 
 .copyright {
   font-size: clamp(8px, 0.7vw, 11px);
   opacity: 0.8;
-  /* Use flex gap only for consistent vertical rhythm */
+  margin-top: clamp(8px, 0.8vw, 12px);
+  /* Separate copyright from other content for better visual hierarchy */
 }
 
 .footerBottom {
@@ -183,9 +183,11 @@
 
   .footerGrid {
     grid-template-columns: 1fr 1fr;
-    gap: clamp(20px, 4vw, 28px) clamp(16px, 3vw, 24px);
+    gap: clamp(24px, 5vw, 32px) clamp(20px, 4vw, 28px);
     margin-bottom: clamp(40px, 8vw, 56px);
     padding-top: 0;
+    /* Ensure columns align properly on tablet */
+    align-items: start;
   }
 
   .footerCol {
@@ -194,26 +196,17 @@
 
   .footerText,
   .footerLink {
-    font-size: clamp(10px, 2vw, 12px);
-    line-height: 1.4;
-  }
-
-  .emailCTA {
-    font-size: clamp(10px, 2vw, 12px);
-    padding: clamp(8px, 1vw, 10px) clamp(14px, 2vw, 18px);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 44px; /* Touch-friendly */
+    font-size: clamp(11px, 2.2vw, 14px);
+    line-height: 1;
   }
 
   .contactGroup {
-    /* Use flex gap only for consistent vertical rhythm */
+    margin-top: clamp(6px, 1vw, 10px);
   }
 
   .copyright {
     font-size: clamp(9px, 1.8vw, 11px);
-    /* Use flex gap only for consistent vertical rhythm */
+    margin-top: clamp(10px, 1.5vw, 14px);
   }
 
   .footerBottom {
@@ -257,12 +250,8 @@
 
   .footerText,
   .footerLink {
-    font-size: clamp(9px, 1.8vw, 10px);
-  }
-
-  .emailCTA {
-    font-size: clamp(9px, 1.8vw, 10px);
-    padding: clamp(10px, 1vw, 12px) clamp(14px, 2vw, 16px);
+    font-size: clamp(10px, 2vw, 12px);
+    line-height: 1;
   }
 
   .massiveText {

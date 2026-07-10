@@ -55,22 +55,27 @@
   line-height: 1.25;
   letter-spacing: 0.02em;
   text-transform: uppercase;
+  max-width: 12vw;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* Number styling within blocks */
 .textBlock .num {
-  display: inline-block;
-  margin-right: 0.5vw;
+  display: block;
+  margin-right: 0;
+  margin-bottom: 0.3vw;
 }
 
-/* Desktop - keep elements inline where needed */
+/* Desktop - keep elements block for proper wrapping */
 .serviceTitle {
-  display: inline;
+  display: block;
   font-weight: 600;
+  margin-bottom: 0.2vw;
 }
 
 .serviceDesc {
-  display: inline;
+  display: block;
 }
 
 /* Positioning coordinates estimated from original image */
@@ -159,9 +164,6 @@
     line-height: 1.7;
     max-width: 100%;
     padding: 24px 20px;
-    background: rgba(0, 0, 0, 0.25);
-    border-radius: 12px;
-    backdrop-filter: blur(10px);
   }
 
   .textBlock .num {

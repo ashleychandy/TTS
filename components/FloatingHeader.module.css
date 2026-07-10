@@ -40,8 +40,9 @@
 }
 
 .logoStar {
-  font-size: 1.2vw;
-  line-height: 1;
+  width: 1.2vw;
+  height: 1.2vw;
+  flex-shrink: 0;
 }
 
 /* --- Dropdown --- */
@@ -157,7 +158,8 @@
   }
 
   .logoStar {
-    font-size: 18px;
+    width: 18px;
+    height: 18px;
   }
 
   .dropdownButton {
@@ -196,7 +198,8 @@
   }
 
   .logoStar {
-    font-size: 16px;
+    width: 16px;
+    height: 16px;
   }
 
   .dropdownButton {

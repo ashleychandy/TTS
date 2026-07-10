@@ -12,6 +12,7 @@ import Link from "next/link";
 import { useMediaQuery, BREAKPOINTS } from "@/hooks/useMediaQuery";
 import { SITE_CONFIG } from "@/lib/constants";
 import { portfolioNavigation } from "@/data/navigation";
+import StarIcon from "@/components/ui/StarIcon";
 import styles from "./FloatingHeader.module.css";
 
 interface FloatingHeaderProps {
@@ -46,7 +47,7 @@ export default function FloatingHeader({ position = "left" }: FloatingHeaderProp
   return (
     <header className={`${styles.floatingHeader} ${position === "right" ? styles.floatingHeaderRight : ""}`}>
       <Link href="/" className={styles.logoButton} aria-label={`Home - ${SITE_CONFIG.name}`}>
-        <span className={styles.logoStar} aria-hidden="true">✸</span>
+        <StarIcon className={styles.logoStar} fill="currentColor" aria-hidden="true" />
         <span>{SITE_CONFIG.name}</span>
       </Link>
       

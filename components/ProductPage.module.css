@@ -169,6 +169,7 @@
   height: 100vh;
   justify-content: space-between;
   padding: 70px 90px;
+  align-items: flex-start;
 }
 
 .logo {
@@ -227,23 +228,30 @@
 .bestTop {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   margin-bottom: 80px;
   gap: 60px;
+  flex-wrap: nowrap;
 }
 
 .bestTop h2 {
   font-size: 72px;
   font-weight: 800;
+  flex-shrink: 0;
+  margin: 0;
+  line-height: 1.1;
 }
 
 .bestDesc {
   max-width: 500px;
+  display: flex;
+  align-items: center;
+  margin: 0;
 }
 
 .bestDesc p {
   line-height: 1.8;
-  margin-bottom: 30px;
+  margin: 0;
   font-size: 16px;
 }
 
@@ -291,6 +299,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 40px;
+  width: 100%;
 }
 
 .product {
@@ -304,13 +313,8 @@
   border-radius: 16px;
   position: relative;
   overflow: hidden;
-}
-
-.product p {
-  margin-top: 15px;
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
+  width: 100%;
+  height: auto;
 }
 
 /* FEATURE */
