@@ -66,7 +66,7 @@ export default function Footer() {
           <div className={styles.footerText} style={{ marginBottom: 'clamp(4px, 0.4vw, 8px)' }}>
             LEGAL
           </div>
-          {footerNavigation.legal.filter(link => !link.disabled).map((link, index) => (
+          {footerNavigation.legal.map((link, index) => (
             <span key={`legal-${link.label}-${index}`} className={styles.linkWrapper}>
               <Link 
                 href={link.href} 
