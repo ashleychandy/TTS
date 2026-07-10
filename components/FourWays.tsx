@@ -35,7 +35,7 @@ export default function FourWays() {
             key={service.id}
             className={`${styles.textBlock} ${styles[`item0${index + 1}`]}`}
           >
-            <span className={styles.num}>{service.num} —</span>
+            <span className={styles.num}>{service.num}</span>
             <strong className={styles.serviceTitle}>{service.title}.</strong>
             <span className={styles.serviceDesc}> {service.desc}</span>
           </article>
