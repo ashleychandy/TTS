@@ -2,7 +2,24 @@
  * Product 1 (Lakmé) data
  */
 
-export const product1Data = {
+import type { ProductImage } from "@/types/index";
+
+interface Product1Data {
+  logo: string;
+  title: string;
+  about: string;
+  heroImage: ProductImage;
+  galleryImages: ProductImage[];
+  featureImages: {
+    small: ProductImage;
+    large: ProductImage;
+  };
+  galleryTitle?: string;
+  galleryDescription?: string;
+  featureHeading?: string;
+}
+
+export const product1Data: Product1Data = {
   logo: "Lakmé.",
   title: "Lakmé Lip Balm.",
   about: "A premium campaign created to showcase the Lakmé Lip Balm through clean beauty visuals, expressive portraits, and product-focused storytelling. Every frame highlights hydration, softness, and effortless everyday beauty.",
@@ -41,5 +58,8 @@ export const product1Data = {
       src: "/ProductPage1/1.png",
       alt: "Featured product in elegant setting",
     }
-  }
+  },
+  galleryTitle: "CAMPAIGN GALLERY",
+  galleryDescription: "A curated collection of lifestyle portraits featuring the Lakmé Lip Balm. The campaign combines soft lighting, minimal styling, and premium product placement to create engaging marketing visuals across digital and social platforms.",
+  featureHeading: "BEAUTY THAT\nFEELS EFFORTLESS."
 } as const;

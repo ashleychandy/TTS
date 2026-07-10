@@ -37,3 +37,10 @@ export const BREAKPOINTS = {
   tablet: 768,
   desktop: 1024,
 } as const;
+
+export const MEDIA_QUERIES = {
+  mobile: `(max-width: ${BREAKPOINTS.mobile}px)`,
+  tablet: `(max-width: ${BREAKPOINTS.tablet}px)`,
+  desktop: `(max-width: ${BREAKPOINTS.desktop}px)`,
+  wide: `(min-width: ${BREAKPOINTS.desktop + 1}px)`,
+} as const;

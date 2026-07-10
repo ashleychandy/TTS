@@ -45,48 +45,26 @@ export default function Footer() {
         </div>
 
         <div className={styles.footerCol}>
-          {mainNavigation.map((link, index) => (
-            link.disabled ? (
-              <span 
-                key={`nav-${link.label}-${index}`}
-                className={styles.footerLink}
-                style={{ opacity: 0.5, cursor: 'not-allowed' }}
-                aria-disabled="true"
-              >
-                {link.label}
-              </span>
-            ) : (
-              <Link 
-                key={`nav-${link.label}-${index}`}
-                href={link.href} 
-                className={styles.footerLink}
-              >
-                {link.label}
-              </Link>
-            )
+          {mainNavigation.filter(link => !link.disabled).map((link, index) => (
+            <Link 
+              key={`nav-${link.label}-${index}`}
+              href={link.href} 
+              className={styles.footerLink}
+            >
+              {link.label}
+            </Link>
           ))}
         </div>
 
         <div className={styles.footerCol}>
-          {footerNavigation.legal.map((link, index) => (
-            link.disabled ? (
-              <span 
-                key={`legal-${link.label}-${index}`}
-                className={styles.footerLink}
-                style={{ opacity: 0.5, cursor: 'not-allowed' }}
-                aria-disabled="true"
-              >
-                {link.label}
-              </span>
-            ) : (
-              <Link 
-                key={`legal-${link.label}-${index}`}
-                href={link.href} 
-                className={styles.footerLink}
-              >
-                {link.label}
-              </Link>
-            )
+          {footerNavigation.legal.filter(link => !link.disabled).map((link, index) => (
+            <Link 
+              key={`legal-${link.label}-${index}`}
+              href={link.href} 
+              className={styles.footerLink}
+            >
+              {link.label}
+            </Link>
           ))}
         </div>
 

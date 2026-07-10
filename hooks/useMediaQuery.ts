@@ -36,9 +36,5 @@ export function useMediaQuery(query: string): boolean {
   return matches;
 }
 
-export const BREAKPOINTS = {
-  mobile: '(max-width: 480px)',
-  tablet: '(max-width: 768px)',
-  desktop: '(max-width: 1024px)',
-  wide: '(min-width: 1025px)',
-} as const;
+// Re-export for convenience
+export { MEDIA_QUERIES as BREAKPOINTS } from "@/lib/constants";

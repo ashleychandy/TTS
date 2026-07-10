@@ -3,7 +3,6 @@
  * Displays scattered card layout with work categories
  */
 
-import Image from "next/image";
 import { works } from "@/data/works";
 import styles from "./SelectedWorks.module.css";
 
@@ -34,14 +33,7 @@ export default function SelectedWorks() {
           key={work.id}
           className={`${styles.workItem} ${styles[`item${work.id}`]}`}
         >
-          <div className={styles.cardVisual}>
-            <Image
-              src={work.image}
-              alt={work.alt}
-              fill
-              className={styles.cardImage}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            />
+          <div className={styles.cardVisual} style={{ backgroundColor: "#ff0000" }}>
           </div>
           <p className={styles.uppercaseLabel}>{work.category}</p>
         </article>
