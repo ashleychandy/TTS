@@ -101,11 +101,13 @@
   justify-content: center;
   align-items: flex-end;
   margin-bottom: -1.5vw;
+  /* Reserve space to prevent layout shift */
+  min-height: clamp(100px, 30vw, 350px);
   /* no side padding here — JS computes the exact-fit font-size instead */
 }
 
 .hugeText {
-  font-size: 24vw;   /* fallback shown briefly before JS measures + corrects it */
+  font-size: clamp(80px, 24vw, 500px);
   font-weight: 900;
   letter-spacing: -0.03em;
   line-height: 0.85;
@@ -113,6 +115,7 @@
   margin: 0;
   padding: 0;
   white-space: nowrap;
+  contain: layout style paint;
 }
 
 /* --- Mobile Responsive --- */

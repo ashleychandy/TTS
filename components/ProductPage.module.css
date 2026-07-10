@@ -263,6 +263,7 @@
   cursor: pointer;
   transition: transform 0.3s ease, opacity 0.3s ease;
   position: relative;
+  will-change: transform;
 }
 
 .heroImage:hover,

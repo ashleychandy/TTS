@@ -9,8 +9,7 @@
   background-color: var(--bg-color);
   font-family: var(--font-main);
   color: var(--text-dark);
-  /* Hide overflow on desktop to maintain the fixed poster composition */
-  overflow: hidden;
+  /* Allow overflow for absolutely positioned items */
   width: 100%;
   height: 100vh;
   position: relative;
@@ -78,6 +77,8 @@
   display: flex;
   flex-direction: column;
   gap: 1vw; /* Space between card and text label */
+  width: var(--item-width, 11.5vw);
+  height: var(--item-height, 12vw);
 }
 
 /* Complex background gradient to mimic the moody, darkroom aesthetic */
@@ -111,48 +112,36 @@
   /* Far Left Large */
   top: 18vh;
   left: 2.5vw;
-  width: 18.5vw;
-  height: 24vw;
 }
 
 .item2 {
   /* Top Mid-Left Small */
   top: 18vh;
   left: 23.5vw;
-  width: 11.5vw;
-  height: 12vw;
 }
 
 .item3 {
   /* Middle Center Small */
   top: 40.5vh;
   left: 37.5vw;
-  width: 11.5vw;
-  height: 12vw;
 }
 
 .item4 {
   /* Center Right Large */
   top: 40.5vh;
   left: 51.5vw;
-  width: 18.5vw;
-  height: 24.5vw;
 }
 
 .item5 {
   /* Bottom Right Small */
   top: 62.5vh;
   left: 72.5vw;
-  width: 11.5vw;
-  height: 12.5vw;
 }
 
 .item6 {
   /* Far Right Middle Small */
   top: 40.5vh;
-  left: 86.5vw;
-  width: 11.5vw;
-  height: 12vw;
+  right: 2.5vw;
 }
 
 /* --- Mobile Responsive --- */
@@ -178,6 +167,7 @@
     padding: 24px 20px 60px;
     display: flex;
     flex-direction: column;
+    contain: content;
   }
 
   .headerItem {
@@ -214,6 +204,7 @@
     height: auto;
     min-height: 280px;
     border-radius: 12px;
+    contain: layout style paint;
   }
 
   .uppercaseLabel {

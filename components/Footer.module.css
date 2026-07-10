@@ -136,6 +136,8 @@
   align-items: flex-end;
   margin-bottom: clamp(-20px, -1.5vw, -12px);
   padding-bottom: clamp(12px, 2vw, 24px);
+  /* Reserve space to prevent layout shift */
+  min-height: clamp(100px, 30vw, 350px);
   /* no side padding here — JS computes the exact-fit font-size instead */
 }
 
@@ -147,6 +149,8 @@
   margin: 0;
   padding: 0;
   white-space: nowrap;
+  font-size: clamp(80px, 24vw, 500px);
+  contain: layout style paint;
 }
 
 /* --- Mobile Responsive --- */

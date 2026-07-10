@@ -5,12 +5,13 @@
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.95);
-  z-index: 9999;
+  z-index: 9998;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
   animation: fadeIn 0.2s ease;
+  will-change: opacity;
 }
 
 @keyframes fadeIn {
@@ -34,7 +35,7 @@
   height: 56px;
   border-radius: 50%;
   cursor: pointer;
-  z-index: 10000;
+  z-index: 9999;
   transition: all 0.2s ease;
   display: flex;
   align-items: center;
@@ -42,6 +43,7 @@
   line-height: 1;
   padding: 0;
   backdrop-filter: blur(10px);
+  will-change: transform, background;
 }
 
 .closeButton:hover {

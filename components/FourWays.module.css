@@ -164,6 +164,7 @@
     line-height: 1.7;
     max-width: 100%;
     padding: 24px 20px;
+    contain: layout style paint;
   }
 
   .textBlock .num {

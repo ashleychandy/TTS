@@ -18,6 +18,8 @@ export function useFitText(paddingPx = 24) {
     const text = textRef.current;
     if (!container || !text) return;
 
+    let resizeTimeout: NodeJS.Timeout;
+
     const fit = () => {
       const available = container.clientWidth - paddingPx * 2;
       if (available <= 0) return;
@@ -30,6 +32,12 @@ export function useFitText(paddingPx = 24) {
       if (natural > 0) setFontSize((available / natural) * 100);
     };
 
+    // Debounced resize handler (100ms)
+    const handleResize = () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(fit, 100);
+    };
+
     // measure only after the real font has loaded, not the fallback
     if (typeof document !== "undefined" && "fonts" in document) {
       document.fonts.ready.then(fit);
@@ -37,9 +45,12 @@ export function useFitText(paddingPx = 24) {
       fit();
     }
 
-    const observer = new ResizeObserver(fit);
+    const observer = new ResizeObserver(handleResize);
     observer.observe(container);
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      clearTimeout(resizeTimeout);
+    };
   }, [paddingPx]);
 
   return { containerRef, textRef, fontSize };
