@@ -38,6 +38,17 @@ export const IMAGES_TO_PRELOAD = {
     "/ProductPage1/lip balm 2.png",
   ],
   
+  // Product page 2 (Luxe Essence - using ProductPage1 images as reference)
+  product2: [
+    "/ProductPage1/4.png",
+    "/ProductPage1/3.png",
+    "/ProductPage1/2.png",
+    "/ProductPage1/6.png",
+    "/ProductPage1/5.png",
+    "/ProductPage1/lip balm 2.png",
+    "/ProductPage1/1.png",
+  ],
+  
   // Favicon
   favicon: "/favicon.png",
 };
@@ -53,6 +64,7 @@ export function getAllImages(): string[] {
     ...IMAGES_TO_PRELOAD.intro,
     ...IMAGES_TO_PRELOAD.works,
     ...IMAGES_TO_PRELOAD.product1,
+    ...IMAGES_TO_PRELOAD.product2,
     IMAGES_TO_PRELOAD.favicon,
   ];
 }

@@ -1,11 +1,10 @@
 /**
- * ProductPage2 component - Coming Soon placeholder
- * 
- * @deprecated Use ProductPage component with isComingSoon={true} instead
+ * ProductPage2 component - Premium Skincare Product
  */
 
 import ProductPage from "@/components/ProductPage";
+import { product2Data } from "@/data/product-2";
 
 export default function ProductPage2() {
-  return <ProductPage data={null} isComingSoon={true} />;
+  return <ProductPage data={product2Data} isComingSoon={false} />;
 }

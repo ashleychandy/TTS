@@ -81,6 +81,7 @@ export default function RootLayout({
         <link rel="prefetch" href="/" />
         <link rel="prefetch" href="/contact" />
         <link rel="prefetch" href="/lakme" />
+        <link rel="prefetch" href="/product2" />
         <link rel="prefetch" href="/privacy" />
 
         {/* Preload critical images */}

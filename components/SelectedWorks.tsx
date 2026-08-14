@@ -118,7 +118,7 @@ export default function SelectedWorks() {
         SELECTED WORKS
       </div>
       <div className={`${styles.headerItem} ${styles.headerCenter}`} aria-hidden="true">
-        Thirst Trap Studios
+        NEIGHBR Studios
       </div>
       <div className={`${styles.headerItem} ${styles.headerRight}`} aria-hidden="true">
         2026 — BEYOND

@@ -11,6 +11,7 @@ export const mainNavigation: NavLink[] = [
 
 export const portfolioNavigation: NavLink[] = [
   { label: 'LAKME', href: '/lakme' },
+  { label: 'PLOM', href: '/product2', disabled: true },
 ];
 
 export const footerNavigation = {

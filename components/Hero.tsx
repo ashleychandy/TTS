@@ -39,7 +39,7 @@ export default function Hero() {
 
           <div className={styles.agencyInfo}>
             <p className={styles.agencyDescription}>
-              THIRST TRAP STUDIOS<br />
+              NEIGHBR STUDIOS<br />
               TURNING BOLD IDEAS,<br />
               VISUAL SYSTEMS AND<br />
               DIGITAL EXPERIENCES.
