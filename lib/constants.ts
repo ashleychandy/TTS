@@ -5,7 +5,7 @@
 export const SITE_CONFIG = {
   name: process.env.NEXT_PUBLIC_SITE_NAME || "NEIGHBR Studios",
   url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
-  contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "contact.neighbr@gmail.com",
+  contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "neighbrstudios@gmail.com",
   description: "We turn ideas into bold visual identities and digital experiences that stand out and sell. Independent creative agency based on Earth.",
 } as const;
 
