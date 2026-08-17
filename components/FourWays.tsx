@@ -24,7 +24,7 @@ export default function FourWays() {
 
         {/* Main Title */}
         <h2 id="four-ways-heading" className={styles.headline}>
-          <span>FOUR WAYS TO</span>
+          <span>FOUR WAYS TO </span>
           <span>MAKE YOUR BRAND</span>
           <span className={styles.line3}>UNFORGETTABLE</span>
         </h2>
