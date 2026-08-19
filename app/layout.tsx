@@ -7,8 +7,10 @@ import type { Metadata, Viewport } from "next";
 import { ErrorBoundary } from "@/components/ui/ErrorBoundary";
 import ConditionalHeader from "@/components/ConditionalHeader";
 import ImagePreloader from "@/components/ImagePreloader";
+import LenisScroll from "@/components/LenisScroll";
 import { SITE_CONFIG } from "@/lib/constants";
 import { getAllImages } from "@/lib/imagePreloader";
+import "lenis/dist/lenis.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -95,11 +97,13 @@ export default function RootLayout({
         ))}
       </head>
       <body>
-        <ErrorBoundary>
-          <ConditionalHeader />
-          <ImagePreloader />
-          {children}
-        </ErrorBoundary>
+        <LenisScroll>
+          <ErrorBoundary>
+            <ConditionalHeader />
+            <ImagePreloader />
+            {children}
+          </ErrorBoundary>
+        </LenisScroll>
       </body>
     </html>
   );
