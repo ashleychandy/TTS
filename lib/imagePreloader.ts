@@ -57,7 +57,7 @@ export const IMAGES_TO_PRELOAD = {
  * Get all images as a flat array
  */
 export function getAllImages(): string[] {
-  return [
+  const allImages = [
     IMAGES_TO_PRELOAD.hero,
     IMAGES_TO_PRELOAD.contact,
     IMAGES_TO_PRELOAD.fourWays,
@@ -67,4 +67,6 @@ export function getAllImages(): string[] {
     ...IMAGES_TO_PRELOAD.product2,
     IMAGES_TO_PRELOAD.favicon,
   ];
+  
+  return [...new Set(allImages)];
 }
