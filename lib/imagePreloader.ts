@@ -38,15 +38,17 @@ export const IMAGES_TO_PRELOAD = {
     "/ProductPage1/lip balm 2.png",
   ],
   
-  // Product page 2 (Luxe Essence - using ProductPage1 images as reference)
+  // Product page 2 (Rose.01)
   product2: [
-    "/ProductPage1/4.png",
-    "/ProductPage1/3.png",
-    "/ProductPage1/2.png",
-    "/ProductPage1/6.png",
-    "/ProductPage1/5.png",
-    "/ProductPage1/lip balm 2.png",
-    "/ProductPage1/1.png",
+    "/ProductPage2/1.png",
+    "/ProductPage2/2.png",
+    "/ProductPage2/3.png",
+  ],
+
+  // Product page 2 landing
+  product2Landing: [
+    "/ProductPage2/land1.png",
+    "/ProductPage2/land2.png",
   ],
   
   // Favicon
@@ -65,6 +67,7 @@ export function getAllImages(): string[] {
     ...IMAGES_TO_PRELOAD.works,
     ...IMAGES_TO_PRELOAD.product1,
     ...IMAGES_TO_PRELOAD.product2,
+    ...IMAGES_TO_PRELOAD.product2Landing,
     IMAGES_TO_PRELOAD.favicon,
   ];
   

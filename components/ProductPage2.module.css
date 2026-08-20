@@ -1,226 +1,250 @@
 .page {
-  background: #fdfdfd;
-  color: #111;
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.container {
   width: 100%;
-  max-width: none;
-  margin: 0;
-  padding: 60px 40px;
+  overflow: hidden;
 }
 
-/* ---------------- HERO ---------------- */
-
-.hero {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 80vh;
+.topBanner {
+  width: 100%;
+  aspect-ratio: 16 / 6;
+  min-height: 200px;
+  background: #dfb9b5;
+  position: relative;
+  overflow: hidden;
 }
 
-.heroContent {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  max-width: 800px;
-  gap: 32px;
-}
-
-.starWrapper {
-  width: 120px;
-  height: 120px;
-  animation: pulse 3s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.05);
-    opacity: 0.8;
-  }
-}
-
-.star {
+.bannerImage {
+  position: relative;
   width: 100%;
   height: 100%;
 }
 
-.comingSoon {
-  font-size: 96px;
-  font-weight: 900;
-  letter-spacing: -0.03em;
-  color: #a80015;
-  line-height: 0.9;
-  margin: 0;
+.productImage {
+  object-fit: cover;
 }
 
-.subtitle {
-  font-size: 20px;
-  line-height: 1.6;
-  color: #666;
-  max-width: 600px;
-  font-weight: 300;
+.brandSection {
+  width: 100%;
+  min-height: 1400px;
+  background: #ffffff;
+  position: relative;
+  padding: 4vw 2vw 4vw 4vw;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
-.actions {
+.imageLarge {
+  position: absolute;
+  left: 1%;
+  top: 6%;
+  width: 42%;
+  aspect-ratio: 0.97;
+  overflow: hidden;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #f3d9d9, #f6dfdf);
+}
+
+.brandTitle {
+  position: absolute;
+  left: 1%;
+  top: 48%;
+  z-index: 10;
   display: flex;
+  align-items: center;
   gap: 16px;
-  margin-top: 16px;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 
-.btnPrimary {
-  background: #a80015;
-  color: white;
-  border: none;
-  padding: 16px 40px;
-  font-size: 14px;
-  cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: background 0.3s ease, transform 0.2s ease;
+.brandFocus {
+  display: block;
+  font-size: clamp(11px, 1vw, 16px);
+  line-height: 1;
+  font-weight: 700;
+  color: #3368A0;
+  white-space: nowrap;
 }
 
-.btnPrimary:hover {
-  background: #8a0011;
-  transform: translateY(-2px);
+.brandTitle h1 {
+  margin: 0;
+  font-size: clamp(72px, 8vw, 140px);
+  line-height: 0.8;
+  letter-spacing: -0.075em;
+  font-weight: 800;
+  color: #3368A0;
 }
 
-.btnSecondary {
-  background: transparent;
-  color: #a80015;
-  border: 2px solid #a80015;
-  padding: 16px 40px;
-  font-size: 14px;
-  cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: all 0.3s ease;
+.description {
+  position: absolute;
+  right: 1%;
+  top: 8%;
+  max-width: 38%;
+  padding-right: 0;
 }
 
-.btnSecondary:hover {
-  background: #a80015;
-  color: white;
-  transform: translateY(-2px);
+.description p {
+  font-size: clamp(12px, 1vw, 16px);
+  line-height: 1.5;
+  color: #3368A0;
+  margin: 0;
+  text-align: right;
 }
 
-.info {
-  margin-top: 32px;
-  padding-top: 32px;
-  border-top: 1px solid #e0e0e0;
+.description strong {
+  font-weight: 700;
 }
 
-.info p {
-  font-size: 14px;
-  color: #999;
-  margin-bottom: 8px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+.imageSmall {
+  position: absolute;
+  left: 1%;
+  top: 62%;
+  width: 20%;
+  aspect-ratio: 0.72;
+  overflow: hidden;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f6dddd, #f8e4e4);
 }
 
-.emailLink {
-  font-size: 16px;
-  color: #a80015;
-  text-decoration: none;
-  font-weight: 500;
-  transition: opacity 0.3s ease;
+.imageBottom {
+  position: absolute;
+  right: 1%;
+  top: 38%;
+  width: 48%;
+  aspect-ratio: 0.94;
+  overflow: hidden;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #d8cfca, #ded6d1);
 }
 
-.emailLink:hover {
-  opacity: 0.7;
-  text-decoration: underline;
+.bottomSection {
+  width: 100%;
+  aspect-ratio: 16 / 6;
+  min-height: 200px;
+  background: linear-gradient(135deg, #dfd0c7, #eadbd2);
+  position: relative;
+  overflow: hidden;
 }
 
-/* ---------------- Responsive ---------------- */
+.bottomSectionImage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
 
-@media (max-width: 1024px) {
-  .comingSoon {
-    font-size: 72px;
+@media (max-width: 900px) {
+  .brandSection {
+    min-height: 1100px;
+    padding: 6vw 1vw;
   }
 
-  .subtitle {
-    font-size: 18px;
-  }
-}
-
-@media (max-width: 768px) {
-  .container {
-    padding: 40px 32px;
+  .imageLarge {
+    left: 1%;
+    top: 6%;
+    width: 44%;
+    aspect-ratio: 0.97;
   }
 
-  .starWrapper {
-    width: 96px;
-    height: 96px;
+  .brandTitle {
+    left: 1%;
+    top: 48%;
+    gap: 12px;
   }
 
-  .comingSoon {
-    font-size: 56px;
+  .brandTitle h1 {
+    font-size: clamp(48px, 7vw, 100px);
   }
 
-  .subtitle {
-    font-size: 16px;
+  .description {
+    right: 1%;
+    top: 8%;
+    max-width: 42%;
+    text-align: right;
   }
 
-  .actions {
-    flex-direction: column;
-    width: 100%;
+  .imageSmall {
+    left: 1%;
+    top: 62%;
+    width: 22%;
   }
 
-  .btnPrimary,
-  .btnSecondary {
-    width: 100%;
+  .imageBottom {
+    right: 1%;
+    top: 38%;
+    width: 50%;
   }
 }
 
 @media (max-width: 600px) {
-  .container {
-    padding: 32px 24px;
+  .brandSection {
+    min-height: auto;
+    padding: 12vw 6vw;
+    position: static;
   }
 
-  .heroContent {
-    gap: 24px;
+  .imageLarge {
+    position: static;
+    left: auto;
+    top: auto;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    margin-bottom: 24px;
+    border-radius: 12px;
   }
 
-  .starWrapper {
-    width: 80px;
-    height: 80px;
+  .description {
+    position: static;
+    right: auto;
+    top: auto;
+    max-width: 100%;
+    margin-bottom: 20px;
+    text-align: left;
   }
 
-  .comingSoon {
-    font-size: 42px;
+  .description p {
+    font-size: 14px;
+    line-height: 1.5;
   }
 
-  .subtitle {
-    font-size: 15px;
-    line-height: 1.6;
+  .brandTitle {
+    position: static;
+    left: auto;
+    top: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 20px;
   }
 
-  .btnPrimary,
-  .btnSecondary {
-    padding: 14px 32px;
-    font-size: 13px;
+  .brandFocus {
+    font-size: 11px;
   }
 
-  .info {
-    margin-top: 24px;
-    padding-top: 24px;
+  .brandTitle h1 {
+    font-size: clamp(48px, 15vw, 90px);
+    line-height: 0.85;
+  }
+
+  .imageSmall {
+    position: static;
+    left: auto;
+    top: auto;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 0.72;
+    margin-bottom: 16px;
+    border-radius: 12px;
+  }
+
+  .imageBottom {
+    position: static;
+    right: auto;
+    bottom: auto;
+    top: auto;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 0.8;
+    border-radius: 12px;
+  }
+
+  .bottomSection {
+    min-height: 150px;
   }
 }

@@ -39,7 +39,7 @@ export default function Hero() {
 
           <div className={styles.agencyInfo}>
             <p className={styles.agencyDescription}>
-              NEIGHBR STUDIOS<br />
+              neighbr studios<br />
               TURNING BOLD IDEAS,<br />
               VISUAL SYSTEMS AND<br />
               DIGITAL EXPERIENCES.

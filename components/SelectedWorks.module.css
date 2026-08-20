@@ -33,7 +33,6 @@
   top: 3.5vw;
   font-size: var(--text-xs);
   letter-spacing: 0.04em;
-  text-transform: uppercase;
 }
 
 .headerLeft {

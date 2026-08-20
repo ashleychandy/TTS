@@ -3,15 +3,15 @@
  */
 
 export const SITE_CONFIG = {
-  name: process.env.NEXT_PUBLIC_SITE_NAME || "NEIGHBR Studios",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
-  contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "neighbrstudios@gmail.com",
+  name: "neighbr studios",
+  url: "http://localhost:3000",
+  contactEmail: "neighbrstudios@gmail.com",
   description: "We turn ideas into bold visual identities and digital experiences that stand out and sell. Independent creative agency based on Earth.",
 } as const;
 
 export const SOCIAL_LINKS = {
-  instagram: process.env.NEXT_PUBLIC_INSTAGRAM_URL || "https://www.instagram.com/neighbr.studios/",
-  linkedin: process.env.NEXT_PUBLIC_LINKEDIN_URL || "https://www.linkedin.com/company/neighbr-studios/",
+  instagram: "https://www.instagram.com/neighbr.studios/",
+  linkedin: "https://www.linkedin.com/company/neighbr-studios/",
 } as const;
 
 export const COLORS = {

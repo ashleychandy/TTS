@@ -1,8 +1,3 @@
-/**
- * Loading component - Displays while page content is loading
- * Uses Suspense boundary fallback
- */
-
 export default function Loading() {
   return (
     <div style={{

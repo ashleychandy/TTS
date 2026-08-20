@@ -8,6 +8,7 @@ import { ErrorBoundary } from "@/components/ui/ErrorBoundary";
 import ConditionalHeader from "@/components/ConditionalHeader";
 import ImagePreloader from "@/components/ImagePreloader";
 import LenisScroll from "@/components/LenisScroll";
+import Preloader from "@/external_components/Preloader/preloader";
 import { SITE_CONFIG } from "@/lib/constants";
 import { getAllImages } from "@/lib/imagePreloader";
 import "lenis/dist/lenis.css";
@@ -97,6 +98,7 @@ export default function RootLayout({
         ))}
       </head>
       <body>
+        <Preloader />
         <LenisScroll>
           <ErrorBoundary>
             <ConditionalHeader />
