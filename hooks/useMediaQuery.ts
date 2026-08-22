@@ -1,7 +1,7 @@
 /**
  * Custom hook for responsive media queries
  * Returns true if the media query matches
- * 
+ *
  * @param query - CSS media query string
  * @returns Boolean indicating if query matches
  */
@@ -13,7 +13,7 @@ export function useMediaQuery(query: string): boolean {
 
   useEffect(() => {
     const media = window.matchMedia(query);
-    
+
     // Set initial value
     setMatches(media.matches);
 
@@ -24,10 +24,10 @@ export function useMediaQuery(query: string): boolean {
 
     // Modern browsers
     if (media.addEventListener) {
-      media.addEventListener('change', listener);
-      return () => media.removeEventListener('change', listener);
+      media.addEventListener("change", listener);
+      return () => media.removeEventListener("change", listener);
     }
-    
+
     // Fallback for older browsers
     media.addListener(listener);
     return () => media.removeListener(listener);

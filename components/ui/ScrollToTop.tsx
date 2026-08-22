@@ -1,20 +1,13 @@
-/**
- * ScrollToTop button component
- * Shows a button to scroll back to top when user scrolls down
- */
-
 "use client";
 
 import { useState, useEffect } from "react";
 import { smoothScrollToTop } from "@/lib/smoothScroll";
-import styles from "./ScrollToTop.module.css";
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const toggleVisibility = () => {
-      // Show button when page is scrolled down 300px
       if (window.scrollY > 300) {
         setIsVisible(true);
       } else {
@@ -22,10 +15,8 @@ export default function ScrollToTop() {
       }
     };
 
-    // Check on mount
     toggleVisibility();
 
-    // Add scroll listener
     window.addEventListener("scroll", toggleVisibility, { passive: true });
 
     return () => window.removeEventListener("scroll", toggleVisibility);
@@ -42,7 +33,7 @@ export default function ScrollToTop() {
   return (
     <button
       onClick={handleClick}
-      className={styles.scrollToTop}
+      className="fixed bottom-10 right-10 w-14 h-14 bg-primary-red-brand text-white border-none rounded-full cursor-pointer flex items-center justify-center shadow-lg transition-all duration-300 z-[200] animate-fadeIn hover:bg-primary-red-medium hover:translate-y-[-4px] hover:shadow-xl active:translate-y-[-2px] md:bottom-6 md:right-6 md:w-12 md:h-12 sm:bottom-5 sm:right-5 sm:w-11 sm:h-11"
       aria-label="Scroll to top"
       type="button"
     >
@@ -55,6 +46,7 @@ export default function ScrollToTop() {
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
+        className="md:w-5 md:h-5 sm:w-[18px] sm:h-[18px]"
       >
         <polyline points="18 15 12 9 6 15"></polyline>
       </svg>

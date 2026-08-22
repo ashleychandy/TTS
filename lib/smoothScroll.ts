@@ -75,5 +75,5 @@ export function smoothScrollToTop(duration: number = 800): void {
  * Check if smooth scroll is supported
  */
 export function isSmoothScrollSupported(): boolean {
-  return 'scrollBehavior' in document.documentElement.style;
+  return "scrollBehavior" in document.documentElement.style;
 }

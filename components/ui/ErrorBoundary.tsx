@@ -1,8 +1,3 @@
-/**
- * ErrorBoundary component - Catches React errors and displays fallback UI
- * Prevents entire app from crashing on component errors
- */
-
 "use client";
 
 import { Component, ReactNode } from "react";
@@ -28,7 +23,6 @@ export class ErrorBoundary extends Component<Props, State> {
   }
 
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
-    // Log to error reporting service
     console.error("Error caught by boundary:", error, errorInfo);
   }
 
@@ -39,29 +33,14 @@ export class ErrorBoundary extends Component<Props, State> {
       }
 
       return (
-        <div style={{
-          padding: '40px',
-          textAlign: 'center',
-          fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif'
-        }}>
-          <h2 style={{ fontSize: '24px', marginBottom: '16px', color: '#a80015' }}>
-            Something went wrong
-          </h2>
-          <p style={{ color: '#666', marginBottom: '24px' }}>
+        <div className="px-10 py-10 text-center font-sans">
+          <h2 className="text-2xl mb-4 text-primary-red-brand">Something went wrong</h2>
+          <p className="text-[#666] mb-6">
             We&apos;re sorry for the inconvenience. Please try refreshing the page.
           </p>
           <button
             onClick={() => this.setState({ hasError: false })}
-            style={{
-              background: '#a80015',
-              color: 'white',
-              border: 'none',
-              padding: '12px 24px',
-              fontSize: '14px',
-              cursor: 'pointer',
-              textTransform: 'uppercase',
-              letterSpacing: '0.05em'
-            }}
+            className="bg-primary-red-brand text-white border-none px-6 py-3 text-sm cursor-pointer uppercase tracking-widest font-semibold rounded transition-all duration-300 hover:bg-[#8a0011] hover:translate-y-[-2px]"
           >
             Try Again
           </button>

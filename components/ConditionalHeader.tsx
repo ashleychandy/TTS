@@ -1,18 +1,7 @@
-/**
- * ConditionalHeader component - Conditionally renders header based on route
- * Hides header on portfolio pages to avoid duplication
- */
-
 "use client";
 
-import { usePathname } from "next/navigation";
 import FloatingHeader from "@/components/FloatingHeader";
 
 export default function ConditionalHeader() {
-  const pathname = usePathname();
-  const isPortfolioPage = pathname?.startsWith("/lakme");
-
-  if (isPortfolioPage) return null;
-  
   return <FloatingHeader />;
 }

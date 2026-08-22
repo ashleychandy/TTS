@@ -4,20 +4,17 @@
  */
 
 export const IMAGES_TO_PRELOAD = {
-  // Landing page images
   hero: "/LandingPage/hero.png",
   contact: "/LandingPage/contact.png",
   fourWays: "/LandingPage/Four Ways.png",
-  
-  // Intro section
+
   intro: [
     "/LandingPage/Intro 1.png",
     "/LandingPage/Intro 2.png",
     "/LandingPage/Intro 3.png",
     "/LandingPage/Intro 4.png",
   ],
-  
-  // Portfolio works
+
   works: [
     "/LandingPage/6.png",
     "/LandingPage/7.png",
@@ -26,38 +23,21 @@ export const IMAGES_TO_PRELOAD = {
     "/LandingPage/10.png",
     "/LandingPage/11.png",
   ],
-  
-  // Product page 1 (Lakmé)
-  product1: [
-    "/ProductPage1/1.png",
-    "/ProductPage1/2.png",
-    "/ProductPage1/3.png",
-    "/ProductPage1/4.png",
-    "/ProductPage1/5.png",
-    "/ProductPage1/6.png",
-    "/ProductPage1/lip balm 2.png",
-  ],
-  
-  // Product page 2 (Rose.01)
-  product2: [
-    "/ProductPage2/1.png",
-    "/ProductPage2/2.png",
-    "/ProductPage2/3.png",
+
+  portfolio: [
+    "/Portfolio/1.png",
+    "/Portfolio/2.png",
+    "/Portfolio/3.png",
+    "/Portfolio/4.png",
+    "/Portfolio/5.png",
+    "/Portfolio/6.png",
+    "/Portfolio/7.png",
+    "/Portfolio/8.png",
   ],
 
-  // Product page 2 landing
-  product2Landing: [
-    "/ProductPage2/land1.png",
-    "/ProductPage2/land2.png",
-  ],
-  
-  // Favicon
   favicon: "/favicon.png",
 };
 
-/**
- * Get all images as a flat array
- */
 export function getAllImages(): string[] {
   const allImages = [
     IMAGES_TO_PRELOAD.hero,
@@ -65,11 +45,9 @@ export function getAllImages(): string[] {
     IMAGES_TO_PRELOAD.fourWays,
     ...IMAGES_TO_PRELOAD.intro,
     ...IMAGES_TO_PRELOAD.works,
-    ...IMAGES_TO_PRELOAD.product1,
-    ...IMAGES_TO_PRELOAD.product2,
-    ...IMAGES_TO_PRELOAD.product2Landing,
+    ...IMAGES_TO_PRELOAD.portfolio,
     IMAGES_TO_PRELOAD.favicon,
   ];
-  
+
   return [...new Set(allImages)];
 }

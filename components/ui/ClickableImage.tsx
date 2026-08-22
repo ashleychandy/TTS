@@ -1,7 +1,7 @@
 /**
  * ClickableImage component - Image that opens in modal when clicked
  * Handles keyboard navigation and accessibility
- * 
+ *
  * @param src - Image source URL
  * @param alt - Image alt text
  * @param className - Optional CSS class for wrapper
@@ -26,18 +26,17 @@ interface ClickableImageProps {
   priority?: boolean;
 }
 
-export default function ClickableImage({ 
-  src, 
-  alt, 
+export default function ClickableImage({
+  src,
+  alt,
   className,
   imageClassName,
   onClick,
   sizes = "(max-width: 900px) 100vw, 50vw",
-  priority = false
+  priority = false,
 }: ClickableImageProps) {
-  
   const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
-    if (e.key === 'Enter' || e.key === ' ') {
+    if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
       onClick(src);
     }
@@ -59,7 +58,7 @@ export default function ClickableImage({
         className={imageClassName}
         sizes={sizes}
         priority={priority}
-        style={{ objectFit: 'cover' }}
+        style={{ objectFit: "cover" }}
       />
     </div>
   );

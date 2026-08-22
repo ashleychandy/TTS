@@ -1,17 +1,18 @@
 # dependencies
-/node_modules
+/node_modules/
 /.pnp
 .pnp.js
 
 # testing
-/coverage
+/coverage/
+/.nyc_output/
 
-# next.js
+# Next.js
 /.next/
 /out/
 
 # production
-/build
+/build/
 
 # misc
 .DS_Store
@@ -21,15 +22,16 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
 # local env files
-.env*.local
 .env
+.env*.local
 
-# vercel
+# Vercel
 .vercel
 
-# typescript
+# TypeScript
 *.tsbuildinfo
 next-env.d.ts
 
@@ -37,6 +39,15 @@ next-env.d.ts
 diff.txt
 toFix.md
 
-# testing
-coverage/
-.nyc_output/
+# IDE / editor
+.idea/
+*.swp
+*.swo
+.vscode/*
+!.vscode/settings.json
+
+# OS
+Thumbs.db
+
+# Generated codebase dump
+codebase.txt

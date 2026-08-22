@@ -1,60 +1,76 @@
-/**
- * Hero component - Main landing section with dynamic text sizing
- * Features full-viewport background, header navigation, and fitted text
- */
-
 "use client";
 
 import Image from "next/image";
 import { useFitText } from "@/hooks/useFitText";
-import styles from "./Hero.module.css";
 
 export default function Hero() {
-  const { containerRef, textRef, fontSize } = useFitText(24); // 24px padding, each side
+  const { containerRef, textRef, fontSize } = useFitText(24);
 
   return (
-    <section className={styles.hero}>
+    <section className="bg-[radial-gradient(circle_at_40%_40%,#7e030a_0%,#4a0002_60%,#200000_100%)] text-white font-sans overflow-hidden h-screen w-full max-w-screen relative isolate md:h-auto md:min-h-screen md:overflow-y-auto sm:h-auto sm:min-h-screen sm:overflow-y-auto">
       <Image
         src="/LandingPage/hero.png"
         alt=""
         fill
-        className={styles.heroImage}
+        className="object-cover z-0"
         priority
         sizes="100vw"
       />
-      <div className={styles.container}>
-        <header className={styles.header}>
+      <div className="flex flex-col h-full px-[2.5vw] relative overflow-hidden z-10 md:px-5 sm:px-4">
+        <header className="grid grid-cols-[20%_20%_1fr_auto] items-center auto-rows-max text-[0.85vw] tracking-[0.05em] leading-[1.2] uppercase font-normal text-white md:grid-cols-2 md:gap-4 md:text-[11px] md:leading-[1.4] sm:gap-3 sm:text-[10px]">
           <div></div>
-          <div><br /></div>
-          <div>ART<br />DIRECTION</div>
-          <div className={styles.headerItemRight}>
-            BASED ON EARTH<br />WORKING WORLDWIDE
+          <div>
+            <br />
+          </div>
+          <div>
+            ART
+            <br />
+            DIRECTION
+          </div>
+          <div className="text-right md:text-left">
+            BASED ON EARTH
+            <br />
+            WORKING WORLDWIDE
           </div>
         </header>
 
-        <div className={styles.middleSection}>
-          <p className={styles.projectsInfo}>
+        <div className="flex-grow relative flex items-center md:flex-col md:items-start md:pt-10 md:gap-8 sm:py-8 sm:gap-8">
+          <p className="absolute left-0 top-[45%] text-[0.85vw] tracking-[0.05em] leading-[1.3] uppercase text-white md:relative md:top-auto md:left-auto md:text-[11px] sm:text-[10px]">
             DIGITAL DESIGN
           </p>
 
-          <div className={styles.agencyInfo}>
-            <p className={styles.agencyDescription}>
-              neighbr studios<br />
-              TURNING BOLD IDEAS,<br />
-              VISUAL SYSTEMS AND<br />
+          <div className="absolute left-1/2 top-[35%] md:relative md:left-0 md:top-auto">
+            <p className="text-[1.5vw] leading-[1.1] font-normal -tracking-[0.02em] text-white mb-[2.5vw] md:text-[22px] md:leading-[1.15] md:mb-6 sm:text-[18px] sm:mb-5">
+              neighbr studios
+              <br />
+              TURNING BOLD IDEAS,
+              <br />
+              VISUAL SYSTEMS AND
+              <br />
               DIGITAL EXPERIENCES.
             </p>
 
-            <div className={styles.services}>
-              <div>CREATIVE<br />STUDIO</div>
-              <div>BRAND<br />IDENTITY</div>
+            <div className="flex gap-[11vw] pl-[15vw] text-[0.85vw] tracking-[0.05em] leading-[1.2] uppercase text-white md:gap-10 md:pl-0 md:text-[11px] sm:flex-col sm:gap-3 sm:text-[10px]">
+              <div>
+                CREATIVE
+                <br />
+                STUDIO
+              </div>
+              <div>
+                BRAND
+                <br />
+                IDENTITY
+              </div>
             </div>
           </div>
         </div>
 
-        <footer className={styles.footerText} ref={containerRef}>
+        <footer
+          className="w-full flex justify-center items-end mb-[-1.5vw] min-h-[clamp(100px,30vw,350px)] md:mt-10 md:mb-[-20px] sm:mt-8 sm:mb-[-2vw]"
+          ref={containerRef}
+        >
           <h1
-            className={styles.hugeText}
+            className="text-[clamp(80px,24vw,500px)] font-black -tracking-[0.03em] leading-[0.85] uppercase m-0 p-0 whitespace-nowrap text-white md:text-[20vw] md:-tracking-[0.04em] sm:text-[22vw]"
             ref={textRef}
             style={fontSize ? { fontSize: `${fontSize}px` } : undefined}
           >

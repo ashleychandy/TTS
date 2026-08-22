@@ -1,8 +1,3 @@
-/**
- * Error component - Global error page for 500 errors
- * Displays when an error occurs in a route segment
- */
-
 "use client";
 
 import { useEffect } from "react";
@@ -16,83 +11,34 @@ export default function Error({
   reset: () => void;
 }) {
   useEffect(() => {
-    // Log error to error reporting service
     console.error("Global error:", error);
   }, [error]);
 
   return (
-    <div style={{
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      minHeight: '100vh',
-      background: '#fdfdfd',
-      padding: '40px',
-      textAlign: 'center',
-      fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif'
-    }}>
+    <div className="flex items-center justify-center min-h-screen bg-bg px-10 py-10 text-center font-sans">
       <div>
-        <h2 style={{
-          fontSize: '120px',
-          fontWeight: 900,
-          color: '#a80015',
-          margin: '0 0 24px 0',
-          lineHeight: 1
-        }}>
+        <h2 className="text-[120px] font-black text-primary-red-brand leading-none m-0 mb-6 md:text-7xl sm:text-6xl">
           500
         </h2>
-        <h1 style={{
-          fontSize: '32px',
-          fontWeight: 700,
-          margin: '0 0 16px 0',
-          color: '#333'
-        }}>
+        <h1 className="text-[32px] font-bold m-0 mb-4 text-[#333] md:text-2xl sm:text-xl">
           Something Went Wrong
         </h1>
-        <p style={{
-          fontSize: '16px',
-          color: '#666',
-          marginBottom: '32px',
-          maxWidth: '500px'
-        }}>
-          We encountered an unexpected error. Our team has been notified and we&apos;re working to fix it.
+        <p className="text-base text-[#666] mb-8 max-w-[500px] md:text-sm sm:text-sm">
+          We encountered an unexpected error. Our team has been notified and we&apos;re working to
+          fix it.
         </p>
-        <div style={{ display: 'flex', gap: '16px', justifyContent: 'center' }}>
+        <div className="flex gap-4 justify-center md:flex-col sm:flex-col">
           <button
             onClick={reset}
-            style={{
-              background: '#a80015',
-              color: 'white',
-              border: 'none',
-              padding: '12px 32px',
-              fontSize: '14px',
-              cursor: 'pointer',
-              textTransform: 'uppercase',
-              letterSpacing: '0.05em',
-              fontWeight: 600,
-              borderRadius: '4px'
-            }}
+            className="bg-primary-red-brand text-white border-none px-8 py-3 text-sm cursor-pointer uppercase font-semibold rounded transition-all duration-300 hover:bg-[#8a0011] hover:translate-y-[-2px] md:w-full sm:w-full"
           >
             Try Again
           </button>
           <Link
             href="/"
-            style={{
-              background: 'transparent',
-              color: '#a80015',
-              border: '2px solid #a80015',
-              padding: '12px 32px',
-              fontSize: '14px',
-              cursor: 'pointer',
-              textTransform: 'uppercase',
-              letterSpacing: '0.05em',
-              fontWeight: 600,
-              textDecoration: 'none',
-              display: 'inline-block',
-              borderRadius: '4px'
-            }}
+            className="bg-transparent text-primary-red-brand border-2 border-primary-red-brand px-8 py-3 text-sm cursor-pointer uppercase font-semibold no-underline rounded transition-all duration-300 hover:bg-primary-red-brand hover:text-white hover:translate-y-[-2px] md:w-full sm:w-full inline-flex items-center justify-center"
           >
-            Go Home
+            Back Home
           </Link>
         </div>
       </div>

@@ -15,7 +15,7 @@ const imageCache = new Map<string, HTMLImageElement>();
 export default function ImagePreloader() {
   useEffect(() => {
     const images = getAllImages();
-    
+
     // Method 1: Link preload tags for browser resource hints
     images.forEach((src) => {
       if (!document.querySelector(`link[href="${src}"]`)) {

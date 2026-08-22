@@ -75,26 +75,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* DNS Prefetch and Preconnect for external resources */}
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-
         {/* Prefetch all app routes for instant navigation */}
         <link rel="prefetch" href="/" />
+        <link rel="prefetch" href="/portfolio" />
         <link rel="prefetch" href="/contact" />
-        <link rel="prefetch" href="/lakme" />
-        <link rel="prefetch" href="/product2" />
         <link rel="prefetch" href="/privacy" />
 
         {/* Preload critical images */}
         {images.map((src) => (
-          <link
-            key={src}
-            rel="preload"
-            as="image"
-            href={src}
-          />
+          <link key={src} rel="preload" as="image" href={src} />
         ))}
       </head>
       <body>

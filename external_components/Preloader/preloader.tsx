@@ -1,21 +1,20 @@
+"use client";
 
-"use client"
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
-import { useEffect, useState } from "react"
-import { motion } from "framer-motion"
+const words = ["Hello", "Bonjour", "Ciao", "Olà", "やあ", "Hallå", "Guten tag", "হ্যালো"];
 
-const words = ["Hello", "Bonjour", "Ciao", "Olà", "やあ", "Hallå", "Guten tag", "হ্যালো"]
-
-const opacity = {
+const opacity: any = {
   initial: {
     opacity: 0,
   },
   enter: {
-    opacity: 0.75,
+    opacity: 1,
     transition: { duration: 1, delay: 0.2 },
   },
-}
-const slideUp = {
+};
+const slideUp: any = {
   initial: {
     top: 0,
   },
@@ -23,47 +22,58 @@ const slideUp = {
     top: "-100vh",
     transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.2 },
   },
-}
+};
 
 interface PreloaderProps {
-  onComplete?: () => void
+  onComplete?: () => void;
 }
 
 export default function Preloader({ onComplete }: PreloaderProps) {
- 
-  const [index, setIndex] = useState(0)
-  const [dimension, setDimension] = useState({ width: 0, height: 0 })
-  const [isExiting, setIsExiting] = useState(false)
+  const [index, setIndex] = useState(0);
+  const [dimension, setDimension] = useState({ width: 0, height: 0 });
+  const [isExiting, setIsExiting] = useState(false);
+  const [shouldShow, setShouldShow] = useState(false);
 
   useEffect(() => {
-    setDimension({ width: window.innerWidth, height: window.innerHeight })
-  }, [])
+    const hasSeenPreloader = sessionStorage.getItem("preloaderShown");
+    
+    if (!hasSeenPreloader) {
+      setShouldShow(true);
+      sessionStorage.setItem("preloaderShown", "true");
+    } else {
+      onComplete?.();
+    }
+    
+    setDimension({ width: window.innerWidth, height: window.innerHeight });
+  }, [onComplete]);
 
   useEffect(() => {
+    if (!shouldShow) return;
+
     if (index === words.length - 1) {
-      // Start exit animation after showing the last word
       setTimeout(() => {
-        setIsExiting(true)
-        // Call onComplete after exit animation
+        setIsExiting(true);
         setTimeout(() => {
-          onComplete?.()
-        }, 1000)
-      }, 1000)
-      return
+          onComplete?.();
+        }, 1000);
+      }, 1000);
+      return;
     }
 
     setTimeout(
       () => {
-        setIndex(index + 1)
+        setIndex(index + 1);
       },
-      index === 0 ? 1000 : 150,
-    )
-  }, [index, onComplete])
+      index === 0 ? 1000 : 150
+    );
+  }, [index, onComplete, shouldShow]);
 
-  const initialPath = `M0 0 L${dimension.width} 0 L${dimension.width} ${dimension.height} Q${dimension.width / 2} ${dimension.height + 300} 0 ${dimension.height} L0 0`
-  const targetPath = `M0 0 L${dimension.width} 0 L${dimension.width} ${dimension.height} Q${dimension.width / 2} ${dimension.height} 0 ${dimension.height} L0 0`
+  if (!shouldShow) return null;
 
-  const curve = {
+  const initialPath = `M0 0 L${dimension.width} 0 L${dimension.width} ${dimension.height} Q${dimension.width / 2} ${dimension.height + 300} 0 ${dimension.height} L0 0`;
+  const targetPath = `M0 0 L${dimension.width} 0 L${dimension.width} ${dimension.height} Q${dimension.width / 2} ${dimension.height} 0 ${dimension.height} L0 0`;
+
+  const curve: any = {
     initial: {
       d: initialPath,
       transition: { duration: 0.7, ease: [0.76, 0, 0.24, 1] },
@@ -72,15 +82,14 @@ export default function Preloader({ onComplete }: PreloaderProps) {
       d: targetPath,
       transition: { duration: 0.7, ease: [0.76, 0, 0.24, 1], delay: 0.3 },
     },
-  }
-
+  };
 
   return (
-      <motion.div
+    <motion.div
       variants={slideUp}
       initial="initial"
       animate={isExiting ? "exit" : "initial"}
-      className="fixed inset-0 w-screen h-screen flex items-center justify-center bg-black z-[99999999999]"
+      className="fixed inset-0 w-screen h-screen flex items-center justify-center bg-[#fdfdfd] z-[500]"
     >
       {dimension.width > 0 && (
         <>
@@ -88,17 +97,21 @@ export default function Preloader({ onComplete }: PreloaderProps) {
             variants={opacity}
             initial="initial"
             animate="enter"
-            className="flex items-center text-white text-4xl md:text-5xl lg:text-6xl absolute z-10 font-medium"
+            className="flex items-center text-[#a80015] text-[12vw] sm:text-[15vw] absolute z-10 font-bold tracking-tight"
           >
-            <span className="block w-2.5 h-2.5 bg-white rounded-full mr-2.5"></span>
+            <span className="block w-[1.5vw] h-[1.5vw] bg-[#a80015] rounded-full mr-[2vw]"></span>
             {words[index]}
           </motion.p>
           <svg className="absolute top-0 w-full h-[calc(100%+300px)]">
-            <motion.path variants={curve} initial="initial" animate={isExiting ? "exit" : "initial"} fill="#070b13" />
+            <motion.path
+              variants={curve}
+              initial="initial"
+              animate={isExiting ? "exit" : "initial"}
+              fill="#fdfdfd"
+            />
           </svg>
         </>
       )}
     </motion.div>
   );
-};
-
+}

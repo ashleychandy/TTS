@@ -1,7 +1,7 @@
 /**
  * Custom hook for image modal functionality
  * Handles opening/closing modal, body scroll lock, and keyboard events
- * 
+ *
  * @returns Object with modal state and control functions
  */
 
@@ -23,21 +23,21 @@ export function useImageModal() {
     if (!enlargedImage) return;
 
     // Lock body scroll
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
 
     // Handle Escape key
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
+      if (e.key === "Escape") {
         closeModal();
       }
     };
 
-    document.addEventListener('keydown', handleEscape);
+    document.addEventListener("keydown", handleEscape);
 
     return () => {
       // Cleanup: restore scroll and remove listener
-      document.body.style.overflow = 'unset';
-      document.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = "unset";
+      document.removeEventListener("keydown", handleEscape);
     };
   }, [enlargedImage, closeModal]);
 
